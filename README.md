@@ -45,3 +45,30 @@ Claude 키가 없거나 요약이 실패하면, 자동으로 RSS 수집본을 �
 **Actions → 레고 데일리 소식 → Run workflow**를 누르세요.
 - `auto`: Claude 요약 (실패하면 자동 수집본)
 - `rss`: 자동 수집만
+
+## 🔔 웹푸시 (무료 매일 알림, Supabase)
+
+- 웹페이지의 **"알림 받기"** 버튼을 누른 사람에게 매일 12시 휴대폰·PC 알림을 보내요.
+- 구독자는 할인·신제품·국내·해외 중 **관심 분야를 고를 수 있어요**. 고른 분야에 오늘 소식이 없으면 알림을 보내지 않아요.
+- 카톡·네이버 앱 안에서 열면 **외부 브라우저로 열기** 안내가 나오고, 아이폰은 **홈 화면에 추가** 안내가 나와요.
+- 방문(유입 경로 `?src=blog` 등)과 기사 클릭은 Supabase `events` 표에 기록돼요. `daily_stats` 뷰로 최근 30일 통계를 볼 수 있어요.
+
+| 파일 | 역할 |
+|---|---|
+| `supabase/setup.sql` | 표·보안 규칙·함수 만들기 (SQL Editor에서 1회 실행) |
+| `scripts/make_vapid.py` | 발송용 VAPID 키 만들기 (1회) |
+| `scripts/send_push.py`, `scripts/webpush.py` | 매일 웹푸시 발송 |
+| `site_assets/` | 알림 버튼(push.js), 서비스워커(sw.js), 앱 아이콘 |
+
+| 저장 위치 | 이름 | 값 |
+|---|---|---|
+| Variables | `SUPABASE_URL` | `https://xxxx.supabase.co` |
+| Variables | `SUPABASE_ANON_KEY` | Publishable key (`sb_publishable_…`) 또는 anon key |
+| Secrets | `SUPABASE_SERVICE_KEY` | Secret key (`sb_secret_…`) 또는 service_role key |
+| Variables | `VAPID_PUBLIC_KEY` | make_vapid.py 출력 |
+| Secrets | `VAPID_PRIVATE_KEY` | make_vapid.py 출력 |
+| Variables | `VAPID_SUBJECT` | `mailto:내이메일` |
+| Variables | `SITE_NAME` | (선택) 서비스 이름. 홈 화면 아이콘 이름이 돼요 |
+
+**블로그 링크**는 `https://joey-leejw.github.io/lego-kakao-bot/?src=blog` 처럼 `?src=` 를 붙이면 유입 경로별로 집계돼요.
+**알림만 다시 테스트**하려면 Run workflow에서 `push_test`를 고르세요.
