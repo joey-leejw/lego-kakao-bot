@@ -59,6 +59,15 @@ def cut(s, n):
     return s if len(s) <= n else s[: n - 1] + "…"
 
 
+def short_desc(it):
+    """카톡 리스트 한 줄 설명: 할인은 할인율·기간, 신제품은 세트번호·출시일 우선."""
+    parts = [it.get("discount"), it.get("period")] if it.get("discount") or it.get("period") else []
+    if not parts and (it.get("set") or it.get("release")):
+        parts = [it.get("set"), it.get("release")]
+    s = " · ".join(p for p in parts if p)
+    return s or it.get("summary") or it.get("source") or ""
+
+
 def link(url):
     return {"web_url": url, "mobile_web_url": url}
 
@@ -74,17 +83,19 @@ def build_messages(d):
         if not items:
             continue
         title = SECTION_TITLES.get(sec["key"], sec["key"])
-        header = cut(f"{title} · {md} ({label})", 40)
+        header = cut(f"{title} · {md}", 40)
         sec_url = f"{base}#{sec['key']}-0"
         if len(items) >= 2:
             contents = []
             for i, it in enumerate(items[:3]):
-                desc = it.get("summary") or it.get("source") or ""
-                contents.append({
+                content = {
                     "title": cut(it["title"], 50),
-                    "description": cut(desc, 40),
+                    "description": cut(short_desc(it), 40),
                     "link": link(f"{base}#{sec['key']}-{i}"),
-                })
+                }
+                if it.get("image"):
+                    content["image_url"] = it["image"]
+                contents.append(content)
             more = f" (+{len(items) - 3}건)" if len(items) > 3 else ""
             msgs.append({
                 "object_type": "list",

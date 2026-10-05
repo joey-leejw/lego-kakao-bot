@@ -5,6 +5,7 @@ Google 뉴스 RSS, 뽐뿌 핫딜 RSS, 해외 레고 전문 블로그 RSS에서
 외부 라이브러리 없이 파이썬 표준 라이브러리만 사용.
 """
 import hashlib
+import os
 import html
 import re
 import sys
@@ -17,7 +18,7 @@ from email.utils import parsedate_to_datetime
 from common import ROOT, SECTIONS, digest_path, load_json, save_json, today_kst
 
 UA = "Mozilla/5.0 (lego-kakao-bot; +https://github.com)"
-MAX_PER_SECTION = 5
+MAX_PER_SECTION = int(os.environ.get("RSS_MAX_PER_SECTION", "5"))
 MAX_AGE_HOURS = 36
 SEEN_PATH = f"{ROOT}/state/seen.json"
 SEEN_KEEP_DAYS = 14
@@ -34,23 +35,37 @@ def gnews(q, lang="ko"):
 
 
 # 섹션별 수집 소스: (url, 출처표시, 제목 필터 정규식 또는 None)
+# 일부 피드가 막히거나 주소가 바뀌어도 나머지는 계속 수집된다.
+ANY = None
+DEAL_RE = re.compile(r"레고|lego", re.I)
 SOURCES = {
     "kr_deal": [
-        ("https://www.ppomppu.co.kr/rss.php?id=ppomppu", "뽐뿌", LEGO_RE),
-        ("https://www.ppomppu.co.kr/rss.php?id=ppomppu4", "해외뽐뿌", LEGO_RE),
-        (gnews("레고 할인 OR 특가 OR 세일 when:2d"), None, LEGO_RE),
+        # 핫딜 커뮤니티
+        ("https://www.ppomppu.co.kr/rss.php?id=ppomppu", "뽐뿌", DEAL_RE),
+        ("https://www.ppomppu.co.kr/rss.php?id=ppomppu4", "해외뽐뿌", DEAL_RE),
+        ("https://bbs.ruliweb.com/market/board/1020/rss", "루리웹 핫딜", DEAL_RE),
+        ("https://www.clien.net/service/board/jirum/rss", "클리앙 알뜰구매", DEAL_RE),
+        # 공식몰·대형마트·온라인몰 프로모션 기사
+        (gnews("레고 프로모션 OR 사은품 OR 더블포인트 OR 레고스토어 when:3d"), None, LEGO_RE),
+        (gnews("레고 (이마트 OR 롯데마트 OR 토이저러스 OR 홈플러스 OR 쿠팡) 할인 when:3d"), None, LEGO_RE),
     ],
     "new_release": [
-        ("https://www.brickfanatics.com/feed/", "Brick Fanatics",
-         re.compile(r"reveal|official|new|announce|launch|release", re.I)),
-        (gnews('LEGO "new set" OR revealed OR announced when:2d', "en"), None, LEGO_RE),
+        # 해외 레고 전문 매체 (영·독·불) — 신제품 공개가 가장 빠른 곳들
+        ("https://www.brickfanatics.com/feed/", "Brick Fanatics", ANY),
+        ("https://brickset.com/feed/", "Brickset", ANY),
+        ("https://www.thebrickfan.com/feed/", "The Brick Fan", ANY),
+        ("https://jaysbrickblog.com/feed/", "Jay's Brick Blog", ANY),
+        ("https://www.promobricks.de/feed/", "Promobricks(독일)", ANY),
+        ("https://www.hothbricks.com/feed/", "HothBricks(프랑스)", ANY),
+        ("https://www.newelementary.com/feeds/posts/default?alt=rss", "New Elementary", ANY),
+        (gnews('LEGO "new set" OR revealed OR announced OR "officially revealed" when:2d', "en"), None, LEGO_RE),
         (gnews("레고 신제품 OR 출시 when:3d"), None, LEGO_RE),
     ],
     "kr_news": [
         (gnews("레고 -레고랜드 when:1d"), None, LEGO_RE),
     ],
     "global_news": [
-        (gnews("LEGO when:1d", "en"), None, LEGO_RE),
+        (gnews("\"LEGO Group\" OR LEGO when:1d", "en"), None, LEGO_RE),
     ],
 }
 
@@ -123,6 +138,24 @@ def key_of(item):
     return hashlib.md5(norm.encode()).hexdigest()[:12]
 
 
+CANDIDATE_PATH = f"{ROOT}/state/candidates.json"
+CANDIDATES_PER_SECTION = 25
+
+
+def gather(sec):
+    """섹션의 모든 소스를 동시에 가져와서 소스별로 번갈아 섞는다(한 곳이 독점하지 않게)."""
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        lists = list(ex.map(lambda src: parse_items(*src), SOURCES[sec]))
+    mixed, i = [], 0
+    while any(i < len(l) for l in lists):
+        for l in lists:
+            if i < len(l):
+                mixed.append(l[i])
+        i += 1
+    return mixed
+
+
 def main():
     date = today_kst()
     seen = load_json(SEEN_PATH, {}) or {}
@@ -132,24 +165,21 @@ def main():
 
     # 신제품을 먼저 채워서 해외소식과 중복되지 않게
     order = ["kr_deal", "new_release", "kr_news", "global_news"]
-    result = {}
+    result, candidates = {}, {}
     for sec in order:
-        picked = []
-        for url, label, flt in SOURCES[sec]:
-            for item in parse_items(url, label, flt):
-                k = key_of(item)
-                if k in seen or k in used:
-                    continue
-                used.add(k)
-                picked.append(item)
-                if len(picked) >= MAX_PER_SECTION:
-                    break
-            if len(picked) >= MAX_PER_SECTION:
-                break
-        result[sec] = picked
+        pool = []
+        for item in gather(sec):
+            k = key_of(item)
+            if k in seen or k in used:
+                continue
+            used.add(k)
+            pool.append(item)
+        candidates[sec] = pool[:CANDIDATES_PER_SECTION]
+        result[sec] = pool[:MAX_PER_SECTION]
 
-    for k in used:
-        seen[k] = date
+    for sec in order:
+        for item in result[sec]:
+            seen[key_of(item)] = date
 
     digest = {
         "date": date,
@@ -159,8 +189,9 @@ def main():
     }
     save_json(digest_path("rss", date), digest)
     save_json(SEEN_PATH, seen)
+    save_json(CANDIDATE_PATH, {"date": date, "sections": candidates})
     print(f"saved {digest_path('rss', date)}: " +
-          ", ".join(f"{k}={len(result[k])}" for k in order))
+          ", ".join(f"{k}={len(result[k])}/{len(candidates[k])}" for k in order))
 
 
 if __name__ == "__main__":
