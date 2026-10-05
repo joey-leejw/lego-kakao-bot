@@ -1,0 +1,87 @@
+name: 레고 데일리 소식
+
+on:
+  # 방식 2: 매일 12:00 KST(03:00 UTC) 자동 수집 → 전송
+  schedule:
+    - cron: "0 3 * * *"
+  # 방식 1: Claude 예약 작업이 digests/claude/ 에 요약을 올리면 즉시 전송
+  push:
+    paths:
+      - "digests/claude/**.json"
+  # 수동 테스트 (Actions 탭 → Run workflow)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "rss = 자동수집 실행 / claude = 오늘 Claude 요약 재전송"
+        default: rss
+        type: choice
+        options: [rss, claude]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: lego-daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    env:
+      TZ: Asia/Seoul
+      KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
+      KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
+      KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
+      GH_PAT: ${{ secrets.GH_PAT }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 보낼 다이제스트 결정
+        id: pick
+        run: |
+          TODAY=$(date +%F)
+          if [ "${{ github.event_name }}" = "push" ]; then
+            FILE=$(git diff --name-only HEAD~1 HEAD -- 'digests/claude/*.json' | tail -n1)
+            echo "mode=claude" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.mode }}" = "rss" ]; then
+            FILE="digests/rss/$TODAY.json"
+            echo "mode=rss" >> "$GITHUB_OUTPUT"
+          else
+            FILE="digests/claude/$TODAY.json"
+            echo "mode=claude" >> "$GITHUB_OUTPUT"
+          fi
+          echo "file=$FILE" >> "$GITHUB_OUTPUT"
+          echo "대상: $FILE"
+
+      - name: (방식 2) RSS 자동 수집
+        if: steps.pick.outputs.mode == 'rss'
+        run: |
+          python scripts/collect_rss.py
+          git config user.name "lego-bot"
+          git config user.email "lego-bot@users.noreply.github.com"
+          git add digests/rss state
+          git commit -m "rss digest $(date +%F)" || echo "변경 없음"
+          git pull --rebase && git push
+
+      - name: 웹페이지 생성
+        run: python scripts/build_site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: GitHub Pages 배포
+        uses: actions/deploy-pages@v4
+
+      - name: 카카오톡 전송
+        run: python scripts/send_kakao.py "${{ steps.pick.outputs.file }}"
