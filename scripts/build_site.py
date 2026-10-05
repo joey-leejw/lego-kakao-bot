@@ -14,6 +14,14 @@ from datetime import date as Date
 from common import ROOT, SECTION_TITLES, SOURCE_LABELS, load_json, page_name
 
 OUT = os.path.join(ROOT, "_site")
+ASSETS = os.path.join(ROOT, "site_assets")
+SITE_NAME = os.environ.get("SITE_NAME") or "레고 데일리"
+# 웹푸시·방문기록 설정 (공개해도 되는 값만). 없으면 알림 버튼이 숨겨짐
+CONFIG = {
+    "sbUrl": os.environ.get("SUPABASE_URL", "").rstrip("/"),
+    "sbKey": os.environ.get("SUPABASE_ANON_KEY", ""),
+    "vapid": os.environ.get("VAPID_PUBLIC_KEY", "").strip(),
+}
 DISPLAY_ORDER = ["kr_deal", "new_release", "kr_news", "global_news"]
 WEEK = "월화수목금토일"
 e = html.escape
@@ -77,6 +85,16 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
 .day{display:block;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0}
 .day b{display:block}.day span{color:var(--muted);font-size:.88rem}
 .hit{padding:10px 0;border-bottom:1px solid var(--line)}.hit a{font-weight:600;text-decoration:none}.hit small{color:var(--muted);display:block}
+.push{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0;box-shadow:var(--shadow)}
+.push b{display:block;margin-bottom:2px}.push p{margin:4px 0;color:var(--muted);font-size:.92rem;word-break:keep-all}
+.push .warn{color:var(--accent)}.push .hint,.push .note{font-size:.85rem}
+.push .topics{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.push .topics label{font-size:.88rem;background:var(--chip);padding:6px 10px;border-radius:999px;cursor:pointer;user-select:none}
+.push .topics input{accent-color:var(--accent);margin:0 4px 0 0;vertical-align:-2px}
+.push button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 16px;cursor:pointer;background:var(--accent);color:#fff;width:100%;margin-top:6px}
+.push button.off{background:var(--chip);color:var(--fg)}.push button:disabled{opacity:.6}
+.push .row{display:flex;gap:8px}.push details summary{cursor:pointer;color:var(--muted);font-size:.9rem;margin-top:6px}
+.push .steps{margin:8px 0 0;padding-left:1.2em;font-size:.92rem}.push .steps li{margin:3px 0}
 @media (max-width:520px){h1{font-size:1.3rem}.thumb{width:72px;height:72px}.cal div{grid-template-columns:74px 1fr}.cal .p{grid-column:2;text-align:left}}
 """
 
@@ -87,12 +105,22 @@ FONT = ("<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/orioncactus/pr
 def page(title, body, active=""):
     nav = (f"<a href='index.html' class='{'on' if active == 'today' else ''}'>오늘</a>"
            f"<a href='archive.html' class='{'on' if active == 'archive' else ''}'>지난 소식</a>")
+    cfg = json.dumps(CONFIG).replace("</", "<\\/")
     return (f"<!doctype html><html lang='ko'><head><meta charset='utf-8'>"
-            f"<meta name='viewport' content='width=device-width,initial-scale=1'>"
-            f"<title>{e(title)}</title>{FONT}<style>{CSS}</style></head><body>"
+            f"<meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'>"
+            f"<title>{e(title)}</title>"
+            f"<meta name='theme-color' content='#d6001c'>"
+            f"<link rel='manifest' href='manifest.webmanifest'>"
+            f"<link rel='icon' href='icon-192.png'><link rel='apple-touch-icon' href='apple-touch-icon.png'>"
+            f"<meta name='apple-mobile-web-app-capable' content='yes'>"
+            f"<meta name='apple-mobile-web-app-title' content='{e(SITE_NAME)}'>"
+            f"<meta property='og:title' content='{e(title)}'>"
+            f"<meta property='og:description' content='매일 12시, 국내 레고 할인·전 세계 신제품 소식'>"
+            f"{FONT}<style>{CSS}</style></head><body>"
             f"<header class='top'><div class='top-in'><a class='logo' href='index.html'>"
-            f"<span class='brick'></span>레고 데일리</a><nav>{nav}</nav></div></header>"
+            f"<span class='brick'></span>{e(SITE_NAME)}</a><nav>{nav}</nav></div></header>"
             f"<main>{body}<footer>매일 낮 12시 업데이트 · 기사 저작권은 각 원문 매체에 있습니다</footer></main>"
+            f"<script>window.LD_CONFIG={cfg}</script><script src='push.js' defer></script>"
             f"</body></html>")
 
 
@@ -147,7 +175,8 @@ def render_digest(d, prev_d=None, next_d=None, active=""):
     label = SOURCE_LABELS.get(d["source"], d["source"])
     parts = [f"<div class='date'>{e(kdate(d['date']))}"
              f"<span class='pill {'ai' if d['source'] == 'claude' else ''}'>{e(label)}</span></div>",
-             f"<h1>{e(d.get('headline') or '오늘의 레고 소식')}</h1>"]
+             f"<h1>{e(d.get('headline') or '오늘의 레고 소식')}</h1>",
+             "<section id='push' class='push' hidden></section>"]
     chips = [f"<a href='#{k}'>{e(SECTION_TITLES[k])}<b>{len(by_key.get(k, []))}</b></a>" for k in DISPLAY_ORDER]
     if d.get("calendar"):
         chips.append("<a href='#calendar'>🗓️ 출시 캘린더</a>")
@@ -168,7 +197,7 @@ def render_digest(d, prev_d=None, next_d=None, active=""):
     nav += f"<a href='{page_name(prev_d)}'>← {prev_d['date'][5:]}</a>" if prev_d else "<span></span>"
     nav += f"<a href='{page_name(next_d)}'>{next_d['date'][5:]} →</a>" if next_d else "<span></span>"
     parts.append(nav + "</div>")
-    return page(f"레고 데일리 {d['date']}", "".join(parts), active)
+    return page(f"{SITE_NAME} {d['date']}", "".join(parts), active)
 
 
 def render_archive(main_digests):
@@ -191,11 +220,28 @@ def render_archive(main_digests):
         "if(!v){h.innerHTML='';return}const r=D.filter(x=>(x.t+' '+x.s).toLowerCase().includes(v)).slice(0,100);"
         "h.innerHTML=r.length?r.map(x=>`<div class='hit'><a href='${x.p}#${x.k}-${x.i}'>${esc(x.t)}</a><small>${x.d} · ${esc(x.s)}</small></div>`).join('')"
         ":'<p class=\"empty\">검색 결과가 없어요.</p>'});</script>")
-    return page("레고 데일리 · 지난 소식", body, "archive")
+    return page(f"{SITE_NAME} · 지난 소식", body, "archive")
+
+
+def write_assets():
+    import shutil
+    for name in os.listdir(ASSETS):
+        shutil.copy(os.path.join(ASSETS, name), os.path.join(OUT, name))
+    manifest = {
+        "name": SITE_NAME, "short_name": SITE_NAME, "lang": "ko",
+        "start_url": "./index.html?src=pwa", "scope": "./", "display": "standalone",
+        "background_color": "#121211", "theme_color": "#d6001c",
+        "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+                  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+                  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}],
+    }
+    with open(os.path.join(OUT, "manifest.webmanifest"), "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False)
 
 
 def main():
     os.makedirs(OUT, exist_ok=True)
+    write_assets()
     all_d = [d for p in glob.glob(os.path.join(ROOT, "digests", "*", "*.json"))
              if (d := load_json(p)) and d.get("date")]
     # 날짜마다 대표 1개: Claude 요약이 있으면 그것, 없으면 자동 수집본
