@@ -1,21 +1,17 @@
 name: 레고 데일리 소식
 
 on:
-  # 방식 2: 매일 12:00 KST(03:00 UTC) 자동 수집 → 전송
+  # 매일 11:30 KST(02:30 UTC) 시작 → 수집·Claude 요약(약 2~5분) → 12시 전후 카톡 도착
   schedule:
-    - cron: "0 3 * * *"
-  # 방식 1: Claude 예약 작업이 digests/claude/ 에 요약을 올리면 즉시 전송
-  push:
-    paths:
-      - "digests/claude/**.json"
-  # 수동 테스트 (Actions 탭 → Run workflow)
+    - cron: "30 2 * * *"
+  # 수동 실행 (Actions 탭 → Run workflow)
   workflow_dispatch:
     inputs:
       mode:
-        description: "rss = 자동수집 실행 / claude = 오늘 Claude 요약 재전송"
-        default: rss
+        description: "auto = Claude 요약(실패 시 자동수집) / rss = 자동수집만"
+        default: auto
         type: choice
-        options: [rss, claude]
+        options: [auto, rss]
 
 permissions:
   contents: write
@@ -29,6 +25,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     environment:
       name: github-pages
     env:
@@ -37,51 +34,60 @@ jobs:
       KAKAO_REFRESH_TOKEN: ${{ secrets.KAKAO_REFRESH_TOKEN }}
       KAKAO_CLIENT_SECRET: ${{ secrets.KAKAO_CLIENT_SECRET }}
       GH_PAT: ${{ secrets.GH_PAT }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      # (선택) 저장소 Settings → Secrets and variables → Variables 에서 바꿀 수 있음
+      CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
+      CLAUDE_MAX_SEARCHES: ${{ vars.CLAUDE_MAX_SEARCHES }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: 보낼 다이제스트 결정
+      - name: 1) RSS 후보 수집
+        run: python scripts/collect_rss.py
+
+      - name: 2) Claude 요약 (웹 검색 + 중요도 판단)
+        id: claude
+        if: inputs.mode != 'rss'
+        run: |
+          [ -z "$CLAUDE_MODEL" ] && unset CLAUDE_MODEL
+          [ -z "$CLAUDE_MAX_SEARCHES" ] && unset CLAUDE_MAX_SEARCHES
+          python scripts/claude_digest.py | tee claude.log
+
+      - name: 3) 보낼 다이제스트 결정
         id: pick
         run: |
           TODAY=$(date +%F)
-          if [ "${{ github.event_name }}" = "push" ]; then
-            FILE=$(git diff --name-only HEAD~1 HEAD -- 'digests/claude/*.json' | tail -n1)
-            echo "mode=claude" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.mode }}" = "rss" ]; then
-            FILE="digests/rss/$TODAY.json"
-            echo "mode=rss" >> "$GITHUB_OUTPUT"
-          else
+          if [ -f "digests/claude/$TODAY.json" ] && [ "${{ inputs.mode }}" != "rss" ]; then
             FILE="digests/claude/$TODAY.json"
-            echo "mode=claude" >> "$GITHUB_OUTPUT"
+          else
+            FILE="digests/rss/$TODAY.json"
           fi
           echo "file=$FILE" >> "$GITHUB_OUTPUT"
-          echo "대상: $FILE"
+          echo "보낼 파일: $FILE"
 
-      - name: (방식 2) RSS 자동 수집
-        if: steps.pick.outputs.mode == 'rss'
+      - name: 4) 썸네일 이미지 찾기
+        run: python scripts/enrich_images.py "${{ steps.pick.outputs.file }}"
+
+      - name: 5) 저장소에 기록
         run: |
-          python scripts/collect_rss.py
           git config user.name "lego-bot"
           git config user.email "lego-bot@users.noreply.github.com"
-          git add digests/rss state
-          git commit -m "rss digest $(date +%F)" || echo "변경 없음"
+          git add digests state
+          git commit -m "digest $(date +%F)" || echo "변경 없음"
           git pull --rebase && git push
 
-      - name: 웹페이지 생성
+      - name: 6) 웹페이지 생성
         run: python scripts/build_site.py
 
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
-      - name: GitHub Pages 배포
+      - name: 7) GitHub Pages 배포
         uses: actions/deploy-pages@v4
 
-      - name: 카카오톡 전송
+      - name: 8) 카카오톡 전송
         run: python scripts/send_kakao.py "${{ steps.pick.outputs.file }}"
