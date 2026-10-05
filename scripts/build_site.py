@@ -18,8 +18,8 @@ ASSETS = os.path.join(ROOT, "site_assets")
 SITE_NAME = os.environ.get("SITE_NAME") or "레고 데일리"
 # 웹푸시·방문기록 설정 (공개해도 되는 값만). 없으면 알림 버튼이 숨겨짐
 CONFIG = {
-    "sbUrl": os.environ.get("SUPABASE_URL", "").rstrip("/"),
-    "sbKey": os.environ.get("SUPABASE_ANON_KEY", ""),
+    "sbUrl": os.environ.get("SUPABASE_URL", "").strip().rstrip("/"),
+    "sbKey": os.environ.get("SUPABASE_ANON_KEY", "").strip(),
     "vapid": os.environ.get("VAPID_PUBLIC_KEY", "").strip(),
 }
 DISPLAY_ORDER = ["kr_deal", "new_release", "kr_news", "global_news"]

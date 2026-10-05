@@ -16,8 +16,8 @@ from concurrent.futures import ThreadPoolExecutor
 import webpush
 from common import SECTION_TITLES, load_json, page_name, site_url
 
-SB_URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
-SB_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
+SB_URL = os.environ.get("SUPABASE_URL", "").strip().rstrip("/")
+SB_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
 SITE_NAME = os.environ.get("SITE_NAME") or "레고 데일리"
 ALL_TOPICS = ["kr_deal", "new_release", "kr_news", "global_news"]
 
@@ -92,9 +92,9 @@ def main():
             print(json.dumps(m, ensure_ascii=False))
         return
 
-    priv = webpush.load_private_key(os.environ["VAPID_PRIVATE_KEY"])
+    priv = webpush.load_private_key(os.environ["VAPID_PRIVATE_KEY"].strip())
     pub = os.environ["VAPID_PUBLIC_KEY"].strip()
-    subject = os.environ.get("VAPID_SUBJECT") or "mailto:admin@example.com"
+    subject = (os.environ.get("VAPID_SUBJECT") or "").strip() or "mailto:admin@example.com"
 
     def one(job):
         s, m = job
