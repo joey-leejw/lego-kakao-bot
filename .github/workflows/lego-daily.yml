@@ -8,10 +8,10 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "auto = Claude 요약(실패 시 자동수집) / rss = 자동수집만"
+        description: "auto = Claude 요약(실패 시 자동수집) / rss = 자동수집만 / push_test = 오늘 소식으로 웹푸시만 다시 보내기"
         default: auto
         type: choice
-        options: [auto, rss]
+        options: [auto, rss, push_test]
 
 permissions:
   contents: write
@@ -38,6 +38,14 @@ jobs:
       # (선택) 저장소 Settings → Secrets and variables → Variables 에서 바꿀 수 있음
       CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
       CLAUDE_MAX_SEARCHES: ${{ vars.CLAUDE_MAX_SEARCHES }}
+      SITE_NAME: ${{ vars.SITE_NAME }}
+      # 웹푸시 (Supabase)
+      SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+      SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
+      SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+      VAPID_PUBLIC_KEY: ${{ vars.VAPID_PUBLIC_KEY }}
+      VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+      VAPID_SUBJECT: ${{ vars.VAPID_SUBJECT }}
     steps:
       - uses: actions/checkout@v4
 
@@ -45,12 +53,16 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: 0) 준비물 설치
+        run: pip install -q cryptography
+
       - name: 1) RSS 후보 수집
+        if: inputs.mode != 'push_test'
         run: python scripts/collect_rss.py
 
       - name: 2) Claude 요약 (웹 검색 + 중요도 판단)
         id: claude
-        if: inputs.mode != 'rss'
+        if: inputs.mode != 'rss' && inputs.mode != 'push_test'
         run: |
           [ -z "$CLAUDE_MODEL" ] && unset CLAUDE_MODEL
           [ -z "$CLAUDE_MAX_SEARCHES" ] && unset CLAUDE_MAX_SEARCHES
@@ -65,13 +77,18 @@ jobs:
           else
             FILE="digests/rss/$TODAY.json"
           fi
+          if [ ! -f "$FILE" ] && [ "${{ inputs.mode }}" = "push_test" ]; then
+            FILE=$(ls -1 digests/*/*.json | awk -F/ '{print $NF" "$0}' | sort | tail -1 | cut -d' ' -f2)
+          fi
           echo "file=$FILE" >> "$GITHUB_OUTPUT"
           echo "보낼 파일: $FILE"
 
       - name: 4) 썸네일 이미지 찾기
+        if: inputs.mode != 'push_test'
         run: python scripts/enrich_images.py "${{ steps.pick.outputs.file }}"
 
       - name: 5) 저장소에 기록
+        if: inputs.mode != 'push_test'
         run: |
           git config user.name "lego-bot"
           git config user.email "lego-bot@users.noreply.github.com"
@@ -80,14 +97,22 @@ jobs:
           git pull --rebase && git push
 
       - name: 6) 웹페이지 생성
+        if: inputs.mode != 'push_test'
         run: python scripts/build_site.py
 
       - uses: actions/upload-pages-artifact@v3
+        if: inputs.mode != 'push_test'
         with:
           path: _site
 
       - name: 7) GitHub Pages 배포
+        if: inputs.mode != 'push_test'
         uses: actions/deploy-pages@v4
 
-      - name: 8) 카카오톡 전송
+      - name: 8) 웹푸시 발송
+        continue-on-error: true
+        run: python scripts/send_push.py "${{ steps.pick.outputs.file }}"
+
+      - name: 9) 카카오톡 전송
+        if: inputs.mode != 'push_test'
         run: python scripts/send_kakao.py "${{ steps.pick.outputs.file }}"
