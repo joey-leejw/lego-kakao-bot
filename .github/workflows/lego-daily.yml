@@ -39,6 +39,9 @@ jobs:
       CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
       CLAUDE_MAX_SEARCHES: ${{ vars.CLAUDE_MAX_SEARCHES }}
       SITE_NAME: ${{ vars.SITE_NAME }}
+      SITE_URL: ${{ vars.SITE_URL }}
+      KAKAO_CHANNEL_URL: ${{ vars.KAKAO_CHANNEL_URL }}
+      INSTAGRAM_URL: ${{ vars.INSTAGRAM_URL }}
       # 웹푸시 (Supabase)
       SUPABASE_URL: ${{ vars.SUPABASE_URL }}
       SUPABASE_ANON_KEY: ${{ vars.SUPABASE_ANON_KEY }}
