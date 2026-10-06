@@ -34,10 +34,10 @@
   // 방문 기록 + 기사 클릭 기록
   log('view');
   document.addEventListener('click', (e) => {
-    const a = e.target.closest && e.target.closest('a.t');
+    const a = e.target.closest && e.target.closest('a.t, a.orig');
     if (!a) return;
-    const card = a.closest('.card');
-    log('article', { target: a.href.slice(0, 2000), section: card ? card.id : null });
+    const card = a.closest('.card, .source');
+    log('article', { target: a.href.slice(0, 2000), section: card ? (card.id || 'source') : null });
   });
 
   // ---------- 알림 구독 UI ----------
