@@ -202,8 +202,9 @@ justify-content:center;font-family:'Black Han Sans',Pretendard,sans-serif;font-s
 overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .mini small{display:block;font-size:.76rem;margin-top:3px;opacity:.9}
 .m-cal{background:var(--cal-bg);color:var(--cal-fg)}.m-news{background:var(--news-bg);color:var(--news-fg)}
-.calrow{display:grid;grid-template-columns:80px 1fr auto;gap:10px;padding:10px 16px;border-top:1px solid var(--line);font-size:.9rem}
-.calrow .d{color:var(--cal-fg);font-weight:700}.calrow small{display:block;color:var(--muted);font-size:.78rem}.calrow .p{color:var(--muted);font-size:.82rem;text-align:right}
+.calrow{display:grid;grid-template-columns:78px minmax(0,1fr);gap:4px 10px;padding:10px 16px;border-top:1px solid var(--line);font-size:.9rem}
+.calrow .d{color:var(--cal-fg);font-weight:700;white-space:nowrap}.calrow>span:nth-child(2){word-break:keep-all;font-weight:600}
+.calrow small{display:block;color:var(--muted);font-size:.78rem;font-weight:400}.calrow .p{grid-column:2;color:var(--muted);font-size:.8rem}.calrow .p:empty{display:none}
 .dash-side .push{margin:0}.dash-side .follow{margin:0}
 .subbar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);
 padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px}

@@ -57,7 +57,6 @@ SOURCES = {
         ("https://www.ppomppu.co.kr/rss.php?id=ppomppu", "뽐뿌", DEAL_RE),
         ("https://www.ppomppu.co.kr/rss.php?id=ppomppu4", "해외뽐뿌", DEAL_RE),
         ("https://bbs.ruliweb.com/market/board/1020/rss", "루리웹 핫딜", DEAL_RE),
-        ("https://www.clien.net/service/board/jirum/rss", "클리앙 알뜰구매", DEAL_RE),
         # 공식몰·대형마트·온라인몰 프로모션 기사
         (gnews("레고 프로모션 OR 사은품 OR 더블포인트 OR 레고스토어 when:3d"), None, LEGO_RE),
         (gnews("레고 (이마트 OR 롯데마트 OR 토이저러스 OR 홈플러스 OR 쿠팡) 할인 when:3d"), None, LEGO_RE),
@@ -80,7 +79,7 @@ SOURCES = {
         ("https://jaysbrickblog.com/feed/", "Jay's Brick Blog", ANY),
         ("https://www.promobricks.de/feed/", "Promobricks(독일)", ANY),
         ("https://www.hothbricks.com/feed/", "HothBricks(프랑스)", ANY),
-        ("https://www.newelementary.com/feeds/posts/default?alt=rss", "New Elementary", ANY),
+        ("https://www.newelementary.com/feeds/posts/default", "New Elementary", ANY),
         (gnews('LEGO "new set" OR revealed OR announced OR "officially revealed" when:2d', "en"), None, LEGO_RE),
         (gnews("레고 신제품 OR 출시 when:3d"), None, LEGO_RE),
         # 추천 유튜브: 할인 영상을 뺀 나머지(신제품·리뷰)
