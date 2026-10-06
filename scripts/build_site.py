@@ -11,7 +11,7 @@ import json
 import os
 from datetime import date as Date
 
-from common import ROOT, SECTION_TITLES, SOURCE_LABELS, load_json, page_name
+from common import site_url, ROOT, SECTION_TITLES, SOURCE_LABELS, load_json, page_name
 
 OUT = os.path.join(ROOT, "_site")
 ASSETS = os.path.join(ROOT, "site_assets")
@@ -29,10 +29,10 @@ WEEK = "월화수목금토일"
 e = html.escape
 
 CSS = """
-:root{--bg:#f6f5f1;--surface:#fff;--fg:#1c1b19;--muted:#6d6b64;--line:#e5e2d9;--accent:#d6001c;
---accent-soft:#fde8ea;--yellow:#ffcf00;--chip:#f0eee7;--shadow:0 1px 2px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.04)}
+:root{--bg:#f6f5f1;--surface:#fff;--fg:#1c1b19;--muted:#6d6b64;--line:#e5e2d9;--accent:#C2410C;
+--accent-soft:#FFEADF;--yellow:#ffcf00;--chip:#f0eee7;--shadow:0 1px 2px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.04)}
 @media (prefers-color-scheme:dark){:root{--bg:#121211;--surface:#1c1c1a;--fg:#ecebe6;--muted:#a09e96;
---line:#2f2e2b;--accent:#ff4d5e;--accent-soft:#3a1a1e;--chip:#2a2927;--shadow:none}}
+--line:#2f2e2b;--accent:#FF7A3D;--accent-soft:#3A2116;--chip:#2a2927;--shadow:none}}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased;
 font:16px/1.6 Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
@@ -40,10 +40,8 @@ a{color:inherit}
 .top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
 backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
-.logo{font-weight:800;text-decoration:none;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
-.brick{width:22px;height:16px;background:var(--accent);border-radius:3px;position:relative}
-.brick:before,.brick:after{content:"";position:absolute;top:-4px;width:7px;height:4px;background:var(--accent);border-radius:2px 2px 0 0}
-.brick:before{left:3px}.brick:after{right:3px}
+.logo{text-decoration:none;display:flex;align-items:center;gap:8px;font-family:'Black Han Sans',Pretendard,sans-serif;font-size:1.25rem;font-weight:400;letter-spacing:0}
+.logo img{width:28px;height:28px;display:block}
 .top nav{margin-left:auto;display:flex;gap:4px}
 .top nav a{text-decoration:none;font-size:.9rem;color:var(--muted);padding:6px 10px;border-radius:8px}
 .top nav a:hover,.top nav a.on{color:var(--fg);background:var(--chip)}
@@ -104,7 +102,8 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
 """
 
 FONT = ("<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/"
-        "dist/web/variable/pretendardvariable-dynamic-subset.min.css'>")
+        "dist/web/variable/pretendardvariable-dynamic-subset.min.css'>"
+        "<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap'>")
 
 
 def page(title, body, active=""):
@@ -114,16 +113,18 @@ def page(title, body, active=""):
     return (f"<!doctype html><html lang='ko'><head><meta charset='utf-8'>"
             f"<meta name='viewport' content='width=device-width,initial-scale=1,viewport-fit=cover'>"
             f"<title>{e(title)}</title>"
-            f"<meta name='theme-color' content='#d6001c'>"
+            f"<meta name='theme-color' content='#FF6B2C'>"
             f"<link rel='manifest' href='manifest.webmanifest'>"
-            f"<link rel='icon' href='icon-192.png'><link rel='apple-touch-icon' href='apple-touch-icon.png'>"
+            f"<link rel='icon' href='favicon.svg' type='image/svg+xml'><link rel='icon' href='favicon-32.png' sizes='32x32'>"
+            f"<link rel='apple-touch-icon' href='apple-touch-icon.png'>"
+            f"<meta property='og:image' content='{site_url()}/og-image.png'>"
             f"<meta name='apple-mobile-web-app-capable' content='yes'>"
             f"<meta name='apple-mobile-web-app-title' content='{e(SITE_NAME)}'>"
             f"<meta property='og:title' content='{e(title)}'>"
             f"<meta property='og:description' content='매일 12시, 국내 레고 할인·전 세계 신제품 소식'>"
             f"{FONT}<style>{CSS}</style></head><body>"
             f"<header class='top'><div class='top-in'><a class='logo' href='index.html'>"
-            f"<span class='brick'></span>{e(SITE_NAME)}</a><nav>{nav}</nav></div></header>"
+            f"<img src='favicon.svg' alt=''>{e(SITE_NAME)}</a><nav>{nav}</nav></div></header>"
             f"<main>{body}<footer>매일 낮 12시 업데이트 · 기사 저작권은 각 원문 매체에 있습니다</footer></main>"
             f"<script>window.LD_CONFIG={cfg}</script><script src='push.js' defer></script>"
             f"</body></html>")
@@ -245,10 +246,10 @@ def write_assets():
     manifest = {
         "name": SITE_NAME, "short_name": SITE_NAME, "lang": "ko",
         "start_url": "./index.html?src=pwa", "scope": "./", "display": "standalone",
-        "background_color": "#121211", "theme_color": "#d6001c",
+        "background_color": "#1B1B1F", "theme_color": "#FF6B2C",
         "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
                   {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
-                  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}],
+                  {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}],
     }
     with open(os.path.join(OUT, "manifest.webmanifest"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False)
