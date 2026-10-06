@@ -14,7 +14,9 @@
   const standalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
   const supported = 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
   const params = new URLSearchParams(location.search);
-  const src = (params.get('src') || (standalone ? 'pwa' : (document.referrer.includes('blog.naver') ? 'blog' : 'direct'))).slice(0, 40);
+  let src0 = null; try { src0 = sessionStorage.getItem('ld_src'); } catch (_) {}
+  const src = (params.get('src') || src0 || (standalone ? 'pwa' : (document.referrer.includes('blog.naver') ? 'blog' : 'direct'))).slice(0, 40);
+  try { if (!src0) sessionStorage.setItem('ld_src', src); } catch (_) {}
   const platform = isIOS ? 'ios' : isAndroid ? 'android' : 'desktop';
 
   // ---------- Supabase 호출 ----------
