@@ -36,17 +36,27 @@ WEEK = "월화수목금토일"
 e = html.escape
 
 CSS = """
-:root{--bg:#f6f5f1;--surface:#fff;--fg:#1c1b19;--muted:#6d6b64;--line:#e5e2d9;--accent:#C2410C;
---accent-soft:#FFEADF;--yellow:#ffcf00;--chip:#f0eee7;--shadow:0 1px 2px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.04)}
-@media (prefers-color-scheme:dark){:root{--bg:#121211;--surface:#1c1c1a;--fg:#ecebe6;--muted:#a09e96;
---line:#2f2e2b;--accent:#FF7A3D;--accent-soft:#3A2116;--chip:#2a2927;--shadow:none}}
+:root{--bg:#FBF8F3;--surface:#fff;--fg:#26231F;--muted:#6E675C;--line:#EFE9DF;--accent:#C2410C;
+--accent-soft:#FFEADF;--yellow:#ffcf00;--chip:#F3EEE6;--shadow:none;--r:18px;
+--deal-bg:#FFE4D3;--deal-fg:#B5400F;--deal-dot:#FFB892;--deal-head:#FFF4EC;
+--soon-bg:#FFD9DE;--soon-fg:#A3243B;
+--new-bg:#D7F2E3;--new-fg:#1F6B47;--new-dot:#8FD6AE;--new-head:#EEF9F2;
+--news-bg:#DCEBFF;--news-fg:#2456A6;--news-dot:#A9C9F5;--news-head:#EEF5FF;
+--cal-bg:#E9E1FB;--cal-fg:#5B3FB0;--line-bg:#FFF3C4;--line-fg:#6B5200}
+@media (prefers-color-scheme:dark){:root{--bg:#141413;--surface:#1D1C1A;--fg:#EEEBE5;--muted:#A8A196;
+--line:#2E2C29;--accent:#FF8A57;--accent-soft:#3A2116;--chip:#2A2826;
+--deal-bg:#3A271C;--deal-fg:#FFB892;--deal-dot:#FF9A66;--deal-head:#2A211B;
+--soon-bg:#3D2228;--soon-fg:#FFB3BF;
+--new-bg:#1E3328;--new-fg:#9FE0BB;--new-dot:#5FBF8A;--new-head:#1B2721;
+--news-bg:#1E2B3D;--news-fg:#AACBFA;--news-dot:#6F9FE0;--news-head:#1B222D;
+--cal-bg:#2A2340;--cal-fg:#C9B8FA;--line-bg:#3A3320;--line-fg:#F5DE8A}}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased;
 font:16px/1.6 Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
 a{color:inherit}
-.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--surface) 92%,transparent);
 backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.top-in{max-width:760px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.top-in{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
 .logo{text-decoration:none;display:flex;align-items:center;gap:8px;font-family:'Black Han Sans',Pretendard,sans-serif;font-size:1.25rem;font-weight:400;letter-spacing:0}
 .logo img{width:28px;height:28px;display:block}
 .top nav{margin-left:auto;display:flex;gap:4px}
@@ -64,7 +74,7 @@ background:var(--surface);border:1px solid var(--line)}
 .chips b{color:var(--accent);margin-left:2px}
 h2{font-size:1.1rem;margin:28px 0 10px;display:flex;align-items:center;gap:8px;scroll-margin-top:110px}
 h2 small{font-weight:500;color:var(--muted);font-size:.85rem}
-.card{display:flex;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+.card{display:flex;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
 padding:14px;margin:10px 0;box-shadow:var(--shadow);scroll-margin-top:110px;transition:border-color .2s}
 .card:target{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .thumb{flex:none;width:92px;height:92px;border-radius:10px;object-fit:cover;background:var(--chip)}
@@ -144,6 +154,64 @@ background:var(--accent-soft);color:var(--accent);margin:8px 0 0}
 .copybar button.sec{background:var(--chip);color:var(--fg)}
 .tip{background:var(--accent-soft);border-radius:12px;padding:12px 16px;font-size:.92rem;word-break:keep-all}
 .tip ol{margin:6px 0 0;padding-left:1.2em}
+main.wide{max-width:1080px}
+.bellpill{display:none;align-items:center;gap:5px;font-size:.75rem;font-weight:700;color:var(--new-fg);background:var(--new-bg);
+padding:4px 9px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.ld-sub .bellpill{display:inline-flex}
+.dhead{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:4px 0 12px}
+.dhead h1{margin:0;font-size:1.5rem;font-weight:900;letter-spacing:-.02em}.dhead span{color:var(--muted);font-size:.92rem}
+.dash{display:grid;gap:12px}
+.dash-main{display:grid;gap:12px;min-width:0}
+.dash-side{display:grid;gap:12px;align-content:start}
+@media (min-width:960px){.dash{grid-template-columns:minmax(0,1fr) 320px;align-items:start}.dash-side{position:sticky;top:70px}}
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:640px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat{display:block;text-decoration:none;border-radius:var(--r);padding:14px}
+.stat b{display:block;font-size:.82rem}.stat strong{display:block;font-family:'Black Han Sans',Pretendard,sans-serif;font-weight:400;font-size:2.5rem;line-height:1.1;color:var(--fg)}
+.stat small{display:block;font-size:.76rem;font-weight:500;opacity:.9}
+.s-deal{background:var(--deal-bg);color:var(--deal-fg)}.s-soon{background:var(--soon-bg);color:var(--soon-fg)}
+.s-new{background:var(--new-bg);color:var(--new-fg)}.s-news{background:var(--news-bg);color:var(--news-fg)}
+.oneline{background:var(--line-bg);border-radius:var(--r);padding:14px 16px}
+.oneline b{font-size:.78rem;color:var(--line-fg)}.oneline p{margin:4px 0 0;font-weight:700;line-height:1.5;word-break:keep-all}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;scroll-margin-top:70px}
+.box-h{display:flex;align-items:center;gap:8px;padding:13px 16px 11px;text-decoration:none}
+.box-h h2{margin:0;font-size:1.05rem;font-weight:900}.box-h .n{font-size:.85rem;color:var(--muted)}
+.box-h .all{margin-left:auto;font-size:.85rem;font-weight:700}
+.box-h i{width:10px;height:10px;border-radius:3px;flex:none}
+.b-deal .box-h{background:var(--deal-head)}.b-deal .box-h i{background:var(--deal-dot)}.b-deal .all{color:var(--deal-fg)}
+.b-new .box-h{background:var(--new-head)}.b-new .box-h i{background:var(--new-dot)}.b-new .all{color:var(--new-fg)}
+.b-news .box-h{background:var(--news-head)}.b-news .box-h i{background:var(--news-dot)}
+.b-cal .box-h{background:var(--cal-bg)}.b-cal .box-h h2{color:var(--cal-fg)}
+.li{display:flex;align-items:center;gap:12px;padding:11px 16px;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+.li:hover .rt{text-decoration:underline}
+.li .rb{min-width:0;flex:1}.li .rt{display:block;font-size:.93rem;font-weight:700;line-height:1.4;word-break:keep-all}
+.li .rm{display:block;font-size:.78rem;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.li .rs{flex:none;font-size:.75rem;color:var(--muted);max-width:80px;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tag{flex:none;min-width:54px;text-align:center;font-size:.75rem;font-weight:700;padding:4px 6px;border-radius:8px}
+.t-soon{background:var(--soon-bg);color:var(--soon-fg)}.t-deal{background:var(--deal-bg);color:var(--deal-fg)}
+.t-new{background:var(--new-bg);color:var(--new-fg)}.t-kr{background:var(--deal-bg);color:var(--deal-fg)}.t-gl{background:var(--news-bg);color:var(--news-fg)}
+.pill-new{flex:none;font-size:.7rem;font-weight:700;color:var(--new-fg);background:var(--new-bg);padding:2px 7px;border-radius:6px}
+.th{flex:none;width:52px;height:52px;border-radius:12px;object-fit:cover;background:var(--new-bg)}
+.thf{flex:none;width:52px;height:52px;border-radius:12px;background:var(--new-bg);color:var(--new-fg);display:flex;align-items:center;
+justify-content:center;font-family:'Black Han Sans',Pretendard,sans-serif;font-size:.8rem;text-align:center;line-height:1.1;overflow:hidden}
+.box .empty{border:0;border-top:1px solid var(--line);border-radius:0;padding:12px 16px}
+.minis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.mini{display:block;text-decoration:none;border-radius:var(--r);padding:14px;min-width:0}
+.mini b{display:block;font-size:.82rem;font-weight:900}.mini strong{font-family:'Black Han Sans',Pretendard,sans-serif;font-weight:400;font-size:1.6rem;color:var(--fg)}
+.mini span{display:block;font-size:.85rem;font-weight:700;color:var(--fg);margin-top:4px;line-height:1.4;word-break:keep-all;
+overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.mini small{display:block;font-size:.76rem;margin-top:3px;opacity:.9}
+.m-cal{background:var(--cal-bg);color:var(--cal-fg)}.m-news{background:var(--news-bg);color:var(--news-fg)}
+.calrow{display:grid;grid-template-columns:80px 1fr auto;gap:10px;padding:10px 16px;border-top:1px solid var(--line);font-size:.9rem}
+.calrow .d{color:var(--cal-fg);font-weight:700}.calrow small{display:block;color:var(--muted);font-size:.78rem}.calrow .p{color:var(--muted);font-size:.82rem;text-align:right}
+.dash-side .push{margin:0}.dash-side .follow{margin:0}
+.subbar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--surface);border-top:1px solid var(--line);
+padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px}
+.subbar p{flex:1;margin:0;font-size:.85rem;line-height:1.4;color:var(--muted)}.subbar p b{color:var(--fg)}
+.subbar a{flex:none;text-decoration:none;font-weight:700;font-size:.92rem;padding:11px 16px;border-radius:12px;background:#FF6B2C;color:#1B1B1F}
+.ld-sub .subbar{display:none}
+@media (min-width:960px){.subbar{display:none}}
+@media (max-width:520px){.li .rs{display:none}.li{gap:10px;padding:11px 14px}}
 @media (max-width:520px){h1{font-size:1.3rem}.thumb{width:72px;height:72px}.cal div{grid-template-columns:74px 1fr}.cal .p{grid-column:2;text-align:left}}
 """
 
@@ -154,7 +222,7 @@ FONT = ("<link rel='stylesheet' href='https://cdn.jsdelivr.net/gh/orioncactus/pr
 
 
 
-def page(title, body, active="", desc=None, image=None):
+def page(title, body, active="", desc=None, image=None, wide=False):
     links = [("index.html", "오늘", "today"), ("deals.html", "할인", "deals"),
              ("releases.html", "신제품", "releases"), ("archive.html", "지난 소식", "archive")]
     nav = "".join(f"<a href='{h}' class='{'on' if active == k else ''}'>{t}</a>" for h, t, k in links)
@@ -176,8 +244,9 @@ def page(title, body, active="", desc=None, image=None):
             f"<meta property='og:image' content='{e(og_img)}'>"
             f"{FONT}<style>{CSS}</style></head><body>"
             f"<header class='top'><div class='top-in'><a class='logo' href='index.html'>"
-            f"<img src='favicon.svg' alt=''><span>{e(SITE_NAME)}</span></a><nav>{nav}</nav></div></header>"
-            f"<main>{body}<footer><a href='join.html'>브릭소리 받아보기</a> · 매일 낮 12시 업데이트 · 소식마다 출처를 밝히며, 원문 저작권은 각 매체에 있습니다</footer></main>"
+            f"<img src='favicon.svg' alt=''><span>{e(SITE_NAME)}</span></a>"
+            f"<a class='bellpill' href='index.html#push'>🔔 알림 받는 중</a><nav>{nav}</nav></div></header>"
+            f"<main class='{'wide' if wide else ''}'>{body}<footer><a href='join.html'>브릭소리 받아보기</a> · 매일 낮 12시 업데이트 · 소식마다 출처를 밝히며, 원문 저작권은 각 매체에 있습니다</footer></main>"
             f"<script>window.LD_CONFIG={cfg}</script><script src='push.js' defer></script>"
             f"</body></html>")
 
@@ -354,59 +423,120 @@ def news_card(d, key, it):
     return card(f"n-{item_id(it)}", it, news_page(d["date"], it), False, (), meta_keys=())
 
 
-# ---------- 날짜별 페이지 ----------
+# ---------- 날짜별 페이지 (C2 대시보드) ----------
+def short_store(it):
+    s = (it.get("source") or "").split("(")[0].strip()
+    return s.replace("레고 공식몰", "공식몰")[:10]
+
+
+def deal_row(x, as_of):
+    it = x["it"]
+    if x.get("end"):
+        left = (x["end"] - as_of).days
+        tag = ("t-soon", "오늘 마감") if left == 0 else ("t-soon", f"D-{left}") if left <= 3 else ("t-deal", f"~{md(x['end'])}")
+    else:
+        tag = ("t-deal", "진행 중")
+    sub = " · ".join(v for v in [it.get("discount"), it.get("value"), it.get("limit") or it.get("period")] if v)
+    new = "<span class='pill-new'>NEW</span>" if x["first"] == as_of.isoformat() else ""
+    return (f"<a class='li' id='d-{x['id']}' href='{e(it['url'])}' target='_blank' rel='noopener'>"
+            f"<span class='tag {tag[0]}'>{e(tag[1])}</span><span class='rb'><span class='rt'>{e(it['title'])}</span>"
+            + (f"<span class='rm'>{e(sub)}</span>" if sub else "")
+            + f"</span>{new or ''}<span class='rs'>{e(short_store(it))}</span></a>")
+
+
+def release_row(x, as_of):
+    it = x["it"]
+    img = (f"<img class='th' src='{e(it['image'])}' alt='' loading='lazy' referrerpolicy='no-referrer' "
+           f"onerror=\"this.outerHTML='<span class=thf>{e(it.get('set') or 'NEW')}</span>'\">") if it.get("image") \
+        else f"<span class='thf'>{e(it.get('set') or 'NEW')}</span>"
+    rel = x["rd"]
+    when = (f"출시 D-{(rel - as_of).days}" if rel and rel > as_of else "오늘 출시" if rel == as_of
+            else it.get("release") or "")
+    sub = " · ".join(v for v in [it.get("theme"), it.get("tag"), it.get("price"), when] if v)
+    new = "<span class='pill-new'>NEW</span>" if x["first"] == as_of.isoformat() else ""
+    return (f"<a class='li' id='r-{x['id']}' href='{e(it['url'])}' target='_blank' rel='noopener'>{img}"
+            f"<span class='rb'><span class='rt'>{e(it['title'])}</span><span class='rm'>{e(sub)}</span></span>{new}</a>")
+
+
+def news_row(d, key, it):
+    tag = ("t-kr", "국내") if key == "kr_news" else ("t-gl", "해외")
+    return (f"<a class='li' id='n-{item_id(it)}' href='{news_page(d['date'], it)}'><span class='tag {tag[0]}'>{tag[1]}</span>"
+            f"<span class='rb'><span class='rt'>{e(it['title'])}</span><span class='rm'>{e(it.get('source', ''))}</span></span></a>")
+
+
 def render_digest(d, pools, prev_d=None, next_d=None, active=""):
     as_of = to_date(d["date"])
     by_key = {s["key"]: s.get("items", []) for s in d.get("sections", [])}
-    parts = [f"<h1><span class='d'>{e(kdate(d['date'], year=False))}</span>오늘의 레고 소식</h1>"]
-    if d.get("headline"):
-        parts.append(f"<p class='lead'>{e(d['headline'])}</p>")
-    parts += ["<section id='push' class='push' hidden></section>", follow_links()]
+    deals, rels = pools["kr_deal"], pools["new_release"]
+    news = [(k, it) for k in NEWS_KEYS for it in by_key.get(k, [])]
+    soon = [x for x in deals if x.get("end") and (x["end"] - as_of).days <= 1]
+    official = sum(1 for x in deals if "공식" in (x["it"].get("source", "") + x["it"].get("tag", "")))
+    new_rel = sum(1 for x in rels if x["first"] == d["date"])
+    kr_n, gl_n = len(by_key.get("kr_news", [])), len(by_key.get("global_news", []))
 
-    def count(k):
-        return len(pools[k]) if k in POOL_PAGES else len(by_key.get(k, []))
+    stats = (
+        "<div class='stats'>"
+        f"<a class='stat s-deal' href='deals.html'><b>진행 중 할인</b><strong>{len(deals)}</strong>"
+        f"<small>공식몰 {official} · 기타 {len(deals) - official}</small></a>"
+        f"<a class='stat s-soon' href='deals.html'><b>오늘·내일 마감</b><strong>{len(soon)}</strong>"
+        f"<small>{'놓치기 전에 확인' if soon else '급한 마감 없음'}</small></a>"
+        f"<a class='stat s-new' href='releases.html'><b>신제품 소식</b><strong>{len(rels)}</strong>"
+        f"<small>오늘 새로 {new_rel}</small></a>"
+        f"<a class='stat s-news' href='#news'><b>국내·해외 소식</b><strong>{len(news)}</strong>"
+        f"<small>국내 {kr_n} · 해외 {gl_n}</small></a></div>")
 
-    chips = []
-    for k in DISPLAY_ORDER:
-        href = POOL_PAGES.get(k, f"#{k}")
-        chips.append(f"<a href='{href}'>{e(SECTION_TITLES[k])}<b>{count(k)}</b></a>")
-    if d.get("calendar"):
-        chips.append("<a href='#calendar'>🗓️ 출시 캘린더</a>")
-    parts.append(f"<nav class='chips'>{''.join(chips)}</nav>")
+    def box(cls, bid, title, n, href, rows, empty):
+        all_ = f"<span class='all'>전체 보기</span>" if href.endswith(".html") else ""
+        body = "".join(rows) if rows else f"<div class='empty'>{empty}</div>"
+        return (f"<section class='box {cls}' id='{bid}'><a class='box-h' href='{href}'><i></i><h2>{title}</h2>"
+                f"<span class='n'>{n}</span>{all_}</a>{body}</section>")
 
-    for key in DISPLAY_ORDER:
-        title = e(SECTION_TITLES[key])
-        if key in POOL_PAGES:
-            pool = pools[key]
-            new_n = sum(1 for x in pool if x["first"] == d["date"])
-            unit = "진행 중" if key == "kr_deal" else "소식"
-            sub = f"{unit} {len(pool)}건" + (f" · 오늘 새로 {new_n}건" if new_n else "")
-            parts.append(f"<h2 id='{key}'><a href='{POOL_PAGES[key]}'>{title} ›</a> <small>{sub}</small></h2>")
-            if not pool:
-                parts.append("<div class='empty'>지금은 진행 중인 소식이 없어요.</div>")
-            parts += [pool_card(key, x, as_of) for x in pool[:MAIN_LIMIT]]
-            if pool:
-                label = "국내 할인" if key == "kr_deal" else "신제품 발매"
-                parts.append(f"<a class='more' href='{POOL_PAGES[key]}'>{label} 전체 {len(pool)}건 보기 →</a>")
-        else:
-            items = by_key.get(key, [])
-            parts.append(f"<h2 id='{key}'>{title} <small>{len(items)}건</small></h2>")
-            if not items:
-                parts.append("<div class='empty'>오늘은 새 소식이 없어요.</div>")
-            parts += [news_card(d, key, it) for it in items]
-
-    if d.get("calendar"):
+    main_col = [
+        stats,
+        f"<section class='oneline'><b>오늘의 한 줄</b><p>{e(d['headline'])}</p></section>" if d.get("headline") else "",
+        box("b-deal", "kr_deal", "국내 할인", len(deals), "deals.html",
+            [deal_row(x, as_of) for x in deals[:MAIN_LIMIT]], "지금은 진행 중인 할인이 없어요."),
+        box("b-new", "new_release", "신제품 발매", len(rels), "releases.html",
+            [release_row(x, as_of) for x in rels[:MAIN_LIMIT]], "지금은 새 신제품 소식이 없어요."),
+        box("b-news", "news", "국내·해외 소식", len(news), "#news",
+            [news_row(d, k, it) for k, it in news], "오늘은 새 소식이 없어요."),
+    ]
+    cal = d.get("calendar") or []
+    up = [c for c in cal if (loose_date(c.get("date"), as_of) or as_of) >= as_of] or cal
+    first_news = news[0][1] if news else None
+    minis = "<div class='minis'>"
+    if up:
+        c0 = up[0]
+        minis += (f"<a class='mini m-cal' href='#calendar'><b>출시 캘린더</b><strong>{e(cal_date(c0.get('date')).split(' ')[0])}</strong>"
+                  f"<span>{e(' '.join(v for v in [c0.get('set'), c0.get('name')] if v))}</span><small>다음 출시 · 총 {len(cal)}건</small></a>")
+    else:
+        minis += "<div class='mini m-cal'><b>출시 캘린더</b><span>예정된 출시가 아직 없어요</span></div>"
+    if first_news:
+        k0 = news[0][0]
+        minis += (f"<a class='mini m-news' href='{news_page(d['date'], first_news)}'><b>{'해외' if k0 == 'global_news' else '국내'} 소식</b>"
+                  f"<span>{e(first_news['title'])}</span><small>{'번역 요약' if k0 == 'global_news' else '요약'} · {e(first_news.get('source', ''))}</small></a>")
+    else:
+        minis += "<a class='mini m-news' href='archive.html'><b>지난 소식</b><span>날짜별 소식과 검색</span><small>전체 보기</small></a>"
+    minis += "</div>"
+    cal_box = ""
+    if cal:
         rows = "".join(
-            f"<div><span class='d'>{e(cal_date(c.get('date')))}</span>"
-            f"<span class='n'>{e(c.get('name', ''))}<small>{e(' · '.join(x for x in [c.get('set'), c.get('theme'), c.get('region')] if x))}</small></span>"
-            f"<span class='p'>{e(str(c.get('price', '')))}</span></div>" for c in d["calendar"])
-        parts.append(f"<h2 id='calendar'>🗓️ 출시 캘린더 <small>앞으로 60일</small></h2><div class='cal'>{rows}</div>")
+            f"<div class='calrow'><span class='d'>{e(cal_date(c.get('date')))}</span>"
+            f"<span>{e(c.get('name', ''))}<small>{e(' · '.join(x for x in [c.get('set'), c.get('theme'), c.get('region')] if x))}</small></span>"
+            f"<span class='p'>{e(str(c.get('price', '')))}</span></div>" for c in cal)
+        cal_box = (f"<section class='box b-cal' id='calendar'><div class='box-h'><i></i><h2>🗓️ 출시 캘린더</h2>"
+                   f"<span class='n'>앞으로 60일</span></div>{rows}</section>")
+    side = [minis, "<section id='push' class='push' hidden></section>", follow_links(), cal_box]
     nav = "<div class='pager'>"
     nav += f"<a href='{page_name(prev_d)}'>← {prev_d['date'][5:]}</a>" if prev_d else "<span></span>"
     nav += f"<a href='{page_name(next_d)}'>{next_d['date'][5:]} →</a>" if next_d else "<span></span>"
-    parts.append(nav + "</div>")
-    return page(f"{SITE_NAME} · {kdate(d['date'], year=False)} 오늘의 레고 소식", "".join(parts), active,
-                desc=d.get("headline") or None)
+    nav += "</div>"
+    body = (f"<div class='dhead'><h1>{e(kdate(d['date'], year=False))}</h1><span>오늘의 레고 소식</span></div>"
+            f"<div class='dash'><div class='dash-main'>{''.join(main_col)}</div>"
+            f"<aside class='dash-side'>{''.join(side)}</aside></div>{nav}"
+            "<div class='subbar'><p><b>매일 12시</b> 할인·신제품 알림<br>무료로 받아보세요</p><a href='#push'>알림 받기</a></div>")
+    return page(f"{SITE_NAME} · {kdate(d['date'], year=False)} 오늘의 레고 소식", body, active,
+                desc=d.get("headline") or None, wide=True)
 
 
 # ---------- 할인·신제품 전체 페이지 ----------

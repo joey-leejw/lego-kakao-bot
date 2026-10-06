@@ -44,6 +44,9 @@ def youtube(channel_id):
     return f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
 
 
+# 매장·마트별 검색어. '레스'는 레고 스토어 줄임말이라 '레고'와 같이 검색
+STORE_QUERIES = ["토이저러스 레고", "레고 스토어", "레스 레고", "이마트 레고", "홈플러스 레고"]
+NO_LAND_RE = re.compile(r"^(?!.*레고랜드)(?=.*(?:레고|lego)).+", re.I | re.S)
 KUPI = "UCmA7038F43v888Q82sNTNCw"  # 레고도사꾸삐 (@kupibricks)
 YT_AGE = 72  # 유튜브는 매일 올라오지 않으니 3일치까지
 SALE_RE = re.compile(r"할인|세일|특가|사은품|증정|핫딜|프로모션|쿠폰|최저가|포인트")
@@ -60,6 +63,14 @@ SOURCES = {
         (gnews("레고 (이마트 OR 롯데마트 OR 토이저러스 OR 홈플러스 OR 쿠팡) 할인 when:3d"), None, LEGO_RE),
         # 추천 유튜브: 할인·행사 영상만
         (youtube(KUPI), "유튜브 레고도사꾸삐", SALE_RE, YT_AGE),
+        # 네이버 검색 API: 마트·매장 행사 후기, 동호회 카페 제보
+        ("naver", "blog", "레고 사은품", LEGO_RE),
+        ("naver", "blog", "레고 할인 행사", LEGO_RE),
+        ("naver", "cafearticle", "레고 사은품", LEGO_RE),
+        ("naver", "cafearticle", "레고 행사", LEGO_RE),
+        ("naver", "news", "레고 할인", NO_LAND_RE),
+        # 매장·마트별 (블로그 + 카페)
+        *[("naver", kind, q, LEGO_RE) for q in STORE_QUERIES for kind in ("blog", "cafearticle")],
     ],
     "new_release": [
         # 해외 레고 전문 매체 (영·독·불) — 신제품 공개가 가장 빠른 곳들
@@ -74,9 +85,11 @@ SOURCES = {
         (gnews("레고 신제품 OR 출시 when:3d"), None, LEGO_RE),
         # 추천 유튜브: 할인 영상을 뺀 나머지(신제품·리뷰)
         (youtube(KUPI), "유튜브 레고도사꾸삐", NOT_SALE_RE, YT_AGE),
+        ("naver", "news", "레고 신제품", NO_LAND_RE),
     ],
     "kr_news": [
         (gnews("레고 -레고랜드 when:1d"), None, LEGO_RE),
+        ("naver", "news", "레고", NO_LAND_RE),
     ],
     "global_news": [
         (gnews("\"LEGO Group\" OR LEGO when:1d", "en"), None, LEGO_RE),
@@ -169,6 +182,88 @@ def parse_items(url, source_label, title_filter, max_age=None):
     return items
 
 
+# ---------- 네이버 검색 API (NAVER API HUB, 예전 개발자센터 키도 지원) ----------
+NAVER_ID = (os.environ.get("NAVER_CLIENT_ID") or "").strip()
+NAVER_SECRET = (os.environ.get("NAVER_CLIENT_SECRET") or "").strip()
+NAVER_SEEN_PATH = f"{ROOT}/state/naver_seen.json"
+NAVER_LABEL = {"blog": "네이버 블로그", "cafearticle": "네이버 카페", "news": "네이버 뉴스"}
+_naver_seen = None
+_naver_stats = {}
+
+
+def naver_seen():
+    global _naver_seen
+    if _naver_seen is None:
+        cutoff = (datetime.now() - timedelta(days=SEEN_KEEP_DAYS)).strftime("%Y-%m-%d")
+        _naver_seen = {k: v for k, v in (load_json(NAVER_SEEN_PATH, {}) or {}).items() if v >= cutoff}
+    return _naver_seen
+
+
+def naver_call(kind, query, display=30):
+    import json
+    q = urllib.parse.urlencode({"query": query, "display": display, "sort": "date"})
+    tries = [
+        (f"https://naverapihub.apigw.ntruss.com/search/v1/{kind}?{q}",
+         {"X-NCP-APIGW-API-KEY-ID": NAVER_ID, "X-NCP-APIGW-API-KEY": NAVER_SECRET}),
+        (f"https://openapi.naver.com/v1/search/{kind}.json?{q}",
+         {"X-Naver-Client-Id": NAVER_ID, "X-Naver-Client-Secret": NAVER_SECRET}),
+    ]
+    last = None
+    for url, headers in tries:
+        try:
+            req = urllib.request.Request(url, headers={**headers, "User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=15) as r:
+                return json.loads(r.read().decode("utf-8")).get("items", [])
+        except Exception as e:  # API HUB 키가 아니면 예전 주소로 한 번 더
+            last = e
+    raise RuntimeError(last)
+
+
+def naver_items(kind, query, title_filter):
+    if not (NAVER_ID and NAVER_SECRET):
+        return []
+    try:
+        raw = naver_call(kind, query)
+    except Exception as e:
+        print(f"[warn] 네이버 {kind} '{query}' 실패: {e}", file=sys.stderr)
+        _naver_stats[kind] = _naver_stats.get(kind, 0)
+        return []
+    now = datetime.now(timezone.utc)
+    today = today_kst()
+    seen = naver_seen()
+    items = []
+    for it in raw:
+        title = clean(it.get("title"))
+        link = (it.get("originallink") or it.get("link") or "").strip()
+        desc = clean(it.get("description"))
+        if not title or not link or (title_filter and not title_filter.search(title + " " + desc)):
+            continue
+        # 최근 글만: 블로그는 작성일, 뉴스는 게재 시각, 카페는 '처음 본 날' 기준
+        if it.get("postdate"):
+            try:
+                pd = datetime.strptime(it["postdate"], "%Y%m%d").replace(tzinfo=timezone(timedelta(hours=9)))
+                if now - pd > timedelta(hours=60):
+                    continue
+            except ValueError:
+                pass
+        elif it.get("pubDate"):
+            try:
+                if now - parse_date(it["pubDate"]) > timedelta(hours=MAX_AGE_HOURS):
+                    continue
+            except Exception:
+                pass
+        if seen.get(link, today) != today:  # 전에 이미 후보로 넘긴 글
+            continue
+        seen[link] = today
+        who = it.get("bloggername") or it.get("cafename") or ""
+        src = NAVER_LABEL.get(kind, "네이버") + (f" · {who}" if who else "")
+        if kind == "news":
+            src = "네이버 뉴스"
+        items.append({"title": title[:120], "summary": desc[:160], "url": link, "source": src})
+    _naver_stats[kind] = _naver_stats.get(kind, 0) + len(items)
+    return items
+
+
 def key_of(item):
     norm = re.sub(r"\W+", "", item["title"].lower())[:40]
     return hashlib.md5(norm.encode()).hexdigest()[:12]
@@ -182,7 +277,8 @@ def gather(sec):
     """섹션의 모든 소스를 동시에 가져와서 소스별로 번갈아 섞는다(한 곳이 독점하지 않게)."""
     from concurrent.futures import ThreadPoolExecutor
     with ThreadPoolExecutor(max_workers=8) as ex:
-        lists = list(ex.map(lambda src: parse_items(*src), SOURCES[sec]))
+        lists = list(ex.map(lambda src: naver_items(*src[1:]) if src[0] == "naver" else parse_items(*src),
+                            SOURCES[sec]))
     mixed, i = [], 0
     while any(i < len(l) for l in lists):
         for l in lists:
@@ -226,6 +322,11 @@ def main():
     save_json(digest_path("rss", date), digest)
     save_json(SEEN_PATH, seen)
     save_json(CANDIDATE_PATH, {"date": date, "sections": candidates})
+    if NAVER_ID:
+        save_json(NAVER_SEEN_PATH, naver_seen())
+        print("네이버 검색: " + " · ".join(f"{NAVER_LABEL[k]} {_naver_stats.get(k, 0)}건" for k in NAVER_LABEL))
+    else:
+        print("네이버 검색: 키 없음(NAVER_CLIENT_ID) → 건너뜀")
     print(f"saved {digest_path('rss', date)}: " +
           ", ".join(f"{k}={len(result[k])}/{len(candidates[k])}" for k in order))
 

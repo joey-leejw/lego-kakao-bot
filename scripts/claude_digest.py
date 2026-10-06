@@ -35,6 +35,8 @@ SYSTEM = """너는 한국 레고 팬을 위한 '레고 데일리' 편집장이�
    - 단품 1개 짧은 핫딜은 정말 좋은 가격(역대가 수준)일 때만.
    - 사은품 행사는 사은품 세트번호·상당 가격, 최소 구매 금액, 수량 제한(한 가구당 1개 등), '재고 소진 시 조기 종료' 여부를 적는다.
    - 온라인 행사인지 오프라인(매장) 행사인지 channel에 적는다.
+   - 후보의 '네이버 블로그·카페' 글은 매장·마트 행사를 찾는 단서다. 체험단·협찬·개인 판매 글은 그대로 싣지 말고,
+     공식몰·판매처·기사로 행사를 확인한 뒤 싣는다. 공식 확인이 안 되는 매장 행사는 '매장 제보'라고 밝히고 source에 블로그·카페 이름을 적는다.
    - 국내 행사를 잘 모아 두는 곳: 브릭도감(brickdogam.com/sale/stores). 매일 확인해 새 행사를 찾되,
      반드시 레고 공식몰·판매처 원문으로 확인하고 url·source는 원 판매처로 적는다. 원문 확인이 안 되면 source를 '브릭도감'으로 밝힌다.
      문장·설명은 베끼지 말고 사실(행사명·기간·조건)만 쓴다.
@@ -115,7 +117,7 @@ def candidate_text():
             continue
         lines.append(f"## {title} 후보")
         for it in items:
-            extra = f" | {it['summary'][:80]}" if it.get("summary") and "유튜브" in (it.get("source") or "") else ""
+            extra = f" | {it['summary'][:80]}" if it.get("summary") and any(w in (it.get("source") or "") for w in ("유튜브", "네이버")) else ""
             lines.append(f"- {it['title']} | {it.get('source', '')} | {it['url']}{extra}")
     return "\n".join(lines)
 
