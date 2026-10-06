@@ -41,8 +41,8 @@ def save_json(path, data):
 
 def site_url() -> str:
     """GitHub Pages 주소. SITE_URL 환경변수가 있으면 우선."""
-    if os.environ.get("SITE_URL"):
-        return os.environ["SITE_URL"].rstrip("/")
+    if (os.environ.get("SITE_URL") or "").strip():
+        return os.environ["SITE_URL"].strip().rstrip("/")
     repo = os.environ.get("GITHUB_REPOSITORY", "owner/lego-kakao-bot")
     owner, name = repo.split("/", 1)
     return f"https://{owner.lower()}.github.io/{name}"

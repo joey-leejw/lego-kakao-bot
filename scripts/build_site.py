@@ -15,7 +15,9 @@ from common import ROOT, SECTION_TITLES, SOURCE_LABELS, load_json, page_name
 
 OUT = os.path.join(ROOT, "_site")
 ASSETS = os.path.join(ROOT, "site_assets")
-SITE_NAME = os.environ.get("SITE_NAME") or "레고 데일리"
+SITE_NAME = (os.environ.get("SITE_NAME") or "").strip() or "레고 데일리"
+KAKAO_CHANNEL_URL = (os.environ.get("KAKAO_CHANNEL_URL") or "").strip()
+INSTAGRAM_URL = (os.environ.get("INSTAGRAM_URL") or "").strip()
 # 웹푸시·방문기록 설정 (공개해도 되는 값만). 없으면 알림 버튼이 숨겨짐
 CONFIG = {
     "sbUrl": os.environ.get("SUPABASE_URL", "").strip().rstrip("/"),
@@ -95,6 +97,9 @@ footer{color:var(--muted);font-size:.8rem;text-align:center;margin-top:40px}
 .push button.off{background:var(--chip);color:var(--fg)}.push button:disabled{opacity:.6}
 .push .row{display:flex;gap:8px}.push details summary{cursor:pointer;color:var(--muted);font-size:.9rem;margin-top:6px}
 .push .steps{margin:8px 0 0;padding-left:1.2em;font-size:.92rem}.push .steps li{margin:3px 0}
+.follow{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 6px}
+.follow a{flex:1 1 160px;text-align:center;text-decoration:none;font-weight:700;font-size:.92rem;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+.follow a.kakao{background:#FEE500;color:#191600;border-color:#FEE500}
 @media (max-width:520px){h1{font-size:1.3rem}.thumb{width:72px;height:72px}.cal div{grid-template-columns:74px 1fr}.cal .p{grid-column:2;text-align:left}}
 """
 
@@ -122,6 +127,15 @@ def page(title, body, active=""):
             f"<main>{body}<footer>매일 낮 12시 업데이트 · 기사 저작권은 각 원문 매체에 있습니다</footer></main>"
             f"<script>window.LD_CONFIG={cfg}</script><script src='push.js' defer></script>"
             f"</body></html>")
+
+
+def follow_links():
+    links = []
+    if KAKAO_CHANNEL_URL:
+        links.append(f"<a class='kakao' href='{e(KAKAO_CHANNEL_URL)}' target='_blank' rel='noopener'>카카오톡 채널 추가</a>")
+    if INSTAGRAM_URL:
+        links.append(f"<a href='{e(INSTAGRAM_URL)}' target='_blank' rel='noopener'>인스타그램 팔로우</a>")
+    return f"<div class='follow'>{''.join(links)}</div>" if links else ""
 
 
 def kdate(s):
@@ -176,7 +190,8 @@ def render_digest(d, prev_d=None, next_d=None, active=""):
     parts = [f"<div class='date'>{e(kdate(d['date']))}"
              f"<span class='pill {'ai' if d['source'] == 'claude' else ''}'>{e(label)}</span></div>",
              f"<h1>{e(d.get('headline') or '오늘의 레고 소식')}</h1>",
-             "<section id='push' class='push' hidden></section>"]
+             "<section id='push' class='push' hidden></section>",
+             follow_links()]
     chips = [f"<a href='#{k}'>{e(SECTION_TITLES[k])}<b>{len(by_key.get(k, []))}</b></a>" for k in DISPLAY_ORDER]
     if d.get("calendar"):
         chips.append("<a href='#calendar'>🗓️ 출시 캘린더</a>")
