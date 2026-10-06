@@ -33,9 +33,16 @@ SYSTEM = """너는 한국 레고 팬을 위한 '레고 데일리' 편집장이�
      ④카드사·간편결제 추가 할인. 핫딜 커뮤니티(뽐뿌·루리웹 등)는 위 행사를 발견하는 실마리로 쓴다.
    - '새로 시작한' 또는 '곧 끝나는' 행사를 우선. 행사 기간·대상 세트·할인율/사은품을 반드시 적는다.
    - 단품 1개 짧은 핫딜은 정말 좋은 가격(역대가 수준)일 때만.
+   - 사은품 행사는 사은품 세트번호·상당 가격, 최소 구매 금액, 수량 제한(한 가구당 1개 등), '재고 소진 시 조기 종료' 여부를 적는다.
+   - 온라인 행사인지 오프라인(매장) 행사인지 channel에 적는다.
+   - 국내 행사를 잘 모아 두는 곳: 브릭도감(brickdogam.com/sale/stores). 매일 확인해 새 행사를 찾되,
+     반드시 레고 공식몰·판매처 원문으로 확인하고 url·source는 원 판매처로 적는다. 원문 확인이 안 되면 source를 '브릭도감'으로 밝힌다.
+     문장·설명은 베끼지 말고 사실(행사명·기간·조건)만 쓴다.
 2) new_release — 전 세계 신제품 (공식 발표 > 공식 이미지 공개 > 신뢰도 높은 유출/루머 순)
    - 확인할 곳: LEGO 공식 뉴스룸·lego.com '출시 예정', Brickset, Brick Fanatics, The Brick Fan, Jay's Brick Blog,
      Promobricks(독일), HothBricks(프랑스), New Elementary, LEGO Ideas 공식 발표, BrickLink Designer Program.
+   - 후보 중 '유튜브 레고도사꾸삐' 영상은 한국 팬 관점의 신제품·할인 단서다. 영상 제목·설명 속 사실을 웹 검색으로 확인해서 쓰고,
+     영상 자체가 볼 만하면(국내 출시 정보, 실물 리뷰) 그 항목의 url을 영상 주소로, source를 '유튜브 레고도사꾸삐'로 적어도 된다.
    - 세트번호·이름·테마·피스 수·가격(현지 통화, 알면 한국 가격)·출시일을 최대한 채운다. 루머면 tag를 '루머'로.
 3) kr_news — 국내 소식: 레고코리아, 국내 매장 오픈·행사·전시·팝업, 국내 언론 보도. 레고랜드 테마파크 재무 이슈는 제외.
 4) global_news — 해외 소식: LEGO Group 실적·경영·지속가능성·대형 콜라보·소송 등 업계 흐름.
@@ -64,7 +71,8 @@ SCHEMA = """마지막에 아래 형식의 JSON만 <json>...</json> 태그 안에
   {"key":"kr_deal","items":[{"title":"","summary":"","url":"","source":"출처명",
      "tag":"공식몰|마트|온라인몰|카드|핫딜|업데이트 중 하나",
      "period":"행사 기간(예: 10/3~10/12, 모르면 빈칸)","start":"YYYY-MM-DD","end":"YYYY-MM-DD(종료일, 모르면 빈칸)",
-     "discount":"할인율·사은품 요약(예: 최대 30%)",
+     "discount":"할인율·사은품 요약(예: 최대 30%)","channel":"온라인|오프라인|온·오프라인",
+     "value":"사은품 상당 가격(예: 46,900원 상당)","limit":"조건(예: 21만 원 이상 · 한 가구당 1개 · 재고 소진 시 조기 종료)",
      "importance":3}]},
   {"key":"new_release","items":[{"title":"","summary":"","url":"","source":"",
      "tag":"공식|공개|루머|업데이트","set":"세트번호","theme":"테마","price":"가격","release":"출시일(사람이 읽는 표기)",
@@ -107,7 +115,8 @@ def candidate_text():
             continue
         lines.append(f"## {title} 후보")
         for it in items:
-            lines.append(f"- {it['title']} | {it.get('source', '')} | {it['url']}")
+            extra = f" | {it['summary'][:80]}" if it.get("summary") and "유튜브" in (it.get("source") or "") else ""
+            lines.append(f"- {it['title']} | {it.get('source', '')} | {it['url']}{extra}")
     return "\n".join(lines)
 
 

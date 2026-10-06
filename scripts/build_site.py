@@ -328,7 +328,7 @@ def badges(it, extra=()):
     return f"<div class='badges'>{''.join(out)}</div>" if out else ""
 
 
-def meta(it, keys=("discount", "period", "set", "theme", "price", "release")):
+def meta(it, keys=("channel", "discount", "value", "period", "limit", "set", "theme", "price", "release")):
     chips = [f"<span>{e(str(it[k]))}</span>" for k in keys if it.get(k)]
     if it.get("source"):
         chips.append(f"<span class='src'>출처 · {e(it['source'])}</span>")

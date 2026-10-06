@@ -38,6 +38,16 @@ def gnews(q, lang="ko"):
 # 일부 피드가 막히거나 주소가 바뀌어도 나머지는 계속 수집된다.
 ANY = None
 DEAL_RE = re.compile(r"레고|lego", re.I)
+
+
+def youtube(channel_id):
+    return f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+
+
+KUPI = "UCmA7038F43v888Q82sNTNCw"  # 레고도사꾸삐 (@kupibricks)
+YT_AGE = 72  # 유튜브는 매일 올라오지 않으니 3일치까지
+SALE_RE = re.compile(r"할인|세일|특가|사은품|증정|핫딜|프로모션|쿠폰|최저가|포인트")
+NOT_SALE_RE = re.compile(r"^(?!.*(?:할인|세일|특가|사은품|증정|핫딜|프로모션|쿠폰|최저가)).+", re.S)
 SOURCES = {
     "kr_deal": [
         # 핫딜 커뮤니티
@@ -48,6 +58,8 @@ SOURCES = {
         # 공식몰·대형마트·온라인몰 프로모션 기사
         (gnews("레고 프로모션 OR 사은품 OR 더블포인트 OR 레고스토어 when:3d"), None, LEGO_RE),
         (gnews("레고 (이마트 OR 롯데마트 OR 토이저러스 OR 홈플러스 OR 쿠팡) 할인 when:3d"), None, LEGO_RE),
+        # 추천 유튜브: 할인·행사 영상만
+        (youtube(KUPI), "유튜브 레고도사꾸삐", SALE_RE, YT_AGE),
     ],
     "new_release": [
         # 해외 레고 전문 매체 (영·독·불) — 신제품 공개가 가장 빠른 곳들
@@ -60,6 +72,8 @@ SOURCES = {
         ("https://www.newelementary.com/feeds/posts/default?alt=rss", "New Elementary", ANY),
         (gnews('LEGO "new set" OR revealed OR announced OR "officially revealed" when:2d', "en"), None, LEGO_RE),
         (gnews("레고 신제품 OR 출시 when:3d"), None, LEGO_RE),
+        # 추천 유튜브: 할인 영상을 뺀 나머지(신제품·리뷰)
+        (youtube(KUPI), "유튜브 레고도사꾸삐", NOT_SALE_RE, YT_AGE),
     ],
     "kr_news": [
         (gnews("레고 -레고랜드 when:1d"), None, LEGO_RE),
@@ -90,7 +104,32 @@ def clean(s: str) -> str:
     return re.sub(r"\s+", " ", s).strip()
 
 
-def parse_items(url, source_label, title_filter):
+ATOM = "{http://www.w3.org/2005/Atom}"
+MEDIA = "{http://search.yahoo.com/mrss/}"
+
+
+def entries(root):
+    """RSS <item> 과 Atom <entry>(유튜브 등)를 같은 모양으로 돌려준다."""
+    for it in root.iter("item"):
+        yield {"title": it.findtext("title"), "link": it.findtext("link"), "pub": it.findtext("pubDate"),
+               "desc": it.findtext("description"), "source": it.find("source")}
+    for it in root.iter(ATOM + "entry"):
+        link_el = it.find(ATOM + "link")
+        desc = it.findtext(f"{MEDIA}group/{MEDIA}description") or it.findtext(ATOM + "summary")
+        yield {"title": it.findtext(ATOM + "title"), "link": link_el.get("href") if link_el is not None else "",
+               "pub": it.findtext(ATOM + "published") or it.findtext(ATOM + "updated"),
+               "desc": desc, "source": None}
+
+
+def parse_date(s):
+    try:
+        dt = parsedate_to_datetime(s)
+    except Exception:
+        dt = datetime.fromisoformat(s.strip().replace("Z", "+00:00"))
+    return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+
+
+def parse_items(url, source_label, title_filter, max_age=None):
     try:
         root = parse_xml(fetch(url))
     except Exception as e:  # 한 소스가 실패해도 계속 진행
@@ -98,30 +137,27 @@ def parse_items(url, source_label, title_filter):
         return []
     now = datetime.now(timezone.utc)
     items = []
-    for it in root.iter("item"):
-        title = clean(it.findtext("title"))
-        link = (it.findtext("link") or "").strip()
+    max_age = max_age or MAX_AGE_HOURS
+    for it in entries(root):
+        title = clean(it["title"])
+        link = (it["link"] or "").strip()
         if not title or not link:
             continue
         src = source_label
-        src_el = it.find("source")
+        src_el = it["source"]
         if src_el is not None and src_el.text:
             src = src_el.text.strip()
             # 구글뉴스 제목 끝의 " - 언론사" 제거
             title = re.sub(r"\s+-\s+" + re.escape(src) + r"$", "", title)
         if title_filter and not title_filter.search(title):
             continue
-        pub = it.findtext("pubDate")
-        if pub:
+        if it["pub"]:
             try:
-                dt = parsedate_to_datetime(pub)
-                if dt.tzinfo is None:
-                    dt = dt.replace(tzinfo=timezone.utc)
-                if now - dt > timedelta(hours=MAX_AGE_HOURS):
+                if now - parse_date(it["pub"]) > timedelta(hours=max_age):
                     continue
             except Exception:
                 pass
-        summary = clean(it.findtext("description"))
+        summary = clean(it["desc"])
         if summary.startswith(title[:20]):  # 구글뉴스 description은 제목 반복
             summary = ""
         items.append({
