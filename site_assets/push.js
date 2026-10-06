@@ -165,6 +165,7 @@
       const reg = await navigator.serviceWorker.getRegistration();
       sub = reg && (await reg.pushManager.getSubscription());
     } catch (_) {}
+    document.documentElement.classList.toggle('ld-sub', !!(sub && Notification.permission === 'granted'));
     if (sub && Notification.permission === 'granted') {
       render(`<b>✅ 매일 12시 알림을 받고 있어요</b>
         <details><summary>받을 소식 바꾸기 · 알림 끄기</summary>${topicChecks(saved)}
