@@ -129,6 +129,21 @@ background:var(--accent-soft);color:var(--accent);margin:8px 0 0}
 .rel a{display:block;text-decoration:none;padding:10px 0;border-bottom:1px solid var(--line);font-weight:600;word-break:keep-all}
 .rel small{display:block;color:var(--muted);font-weight:400}
 @media (max-width:520px){.top nav a{padding:6px 6px;font-size:.85rem}.top-in{gap:6px}}
+.hero-j{background:#1B1B1F;color:#F6F1E7;border-radius:18px;padding:28px 22px;margin:4px 0 18px}
+.hero-j h1{color:#F6F1E7;font-family:'Black Han Sans',Pretendard,sans-serif;font-weight:400;font-size:2rem;margin:10px 0 8px}
+.hero-j p{color:#C9C2B6;margin:0;word-break:keep-all}.hero-j img{width:52px;height:52px}
+.ben{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:0 0 8px}
+.ben div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+.ben b{display:block;margin-bottom:2px}.ben span{color:var(--muted);font-size:.9rem;word-break:keep-all}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0}
+.faq summary{cursor:pointer;font-weight:700}.faq p{margin:8px 0 0;color:var(--muted);word-break:keep-all}
+.draft{background:#fff;color:#222;border:1px solid var(--line);border-radius:14px;padding:22px 20px;margin:10px 0}
+.draft h3{font-size:1.15rem;margin:22px 0 8px}.draft p,.draft li{line-height:1.75}
+.copybar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.copybar button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 14px;cursor:pointer;background:var(--accent);color:#fff}
+.copybar button.sec{background:var(--chip);color:var(--fg)}
+.tip{background:var(--accent-soft);border-radius:12px;padding:12px 16px;font-size:.92rem;word-break:keep-all}
+.tip ol{margin:6px 0 0;padding-left:1.2em}
 @media (max-width:520px){h1{font-size:1.3rem}.thumb{width:72px;height:72px}.cal div{grid-template-columns:74px 1fr}.cal .p{grid-column:2;text-align:left}}
 """
 
@@ -162,7 +177,7 @@ def page(title, body, active="", desc=None, image=None):
             f"{FONT}<style>{CSS}</style></head><body>"
             f"<header class='top'><div class='top-in'><a class='logo' href='index.html'>"
             f"<img src='favicon.svg' alt=''><span>{e(SITE_NAME)}</span></a><nav>{nav}</nav></div></header>"
-            f"<main>{body}<footer>매일 낮 12시 업데이트 · 소식마다 출처를 밝히며, 원문 저작권은 각 매체에 있습니다</footer></main>"
+            f"<main>{body}<footer><a href='join.html'>브릭소리 받아보기</a> · 매일 낮 12시 업데이트 · 소식마다 출처를 밝히며, 원문 저작권은 각 매체에 있습니다</footer></main>"
             f"<script>window.LD_CONFIG={cfg}</script><script src='push.js' defer></script>"
             f"</body></html>")
 
@@ -465,6 +480,120 @@ def render_news(d, key, it, siblings):
                 desc=it.get("summary") or None, image=it.get("image"))
 
 
+# ---------- 블로그에서 들어온 사람을 위한 안내 페이지 ----------
+def render_join(pools, latest):
+    picks = [("kr_deal", x) for x in pools["kr_deal"][:2]] + [("new_release", x) for x in pools["new_release"][:2]]
+    prev = "".join(pool_card(k, x, to_date(latest["date"])) for k, x in picks) if latest else ""
+    ways = []
+    if KAKAO_CHANNEL_URL:
+        ways.append(f"<a class='kakao' href='{e(KAKAO_CHANNEL_URL)}' target='_blank' rel='noopener'>카카오톡 채널 추가</a>")
+    if INSTAGRAM_URL:
+        ways.append(f"<a href='{e(INSTAGRAM_URL)}' target='_blank' rel='noopener'>인스타그램 팔로우</a>")
+    body = (
+        f"<section class='hero-j'><img src='favicon.svg' alt=''><h1>{e(SITE_NAME)}</h1>"
+        "<p>매일 낮 12시, 놓치기 쉬운 레고 할인과 전 세계 신제품 소식을 한 번에 정리해 알려드려요. 모두 무료예요.</p></section>"
+        "<div class='ben'>"
+        "<div><b>🏷️ 국내 할인</b><span>레고 공식몰·공인스토어·이마트·롯데마트·쿠팡 등 행사를 시작·마감 순으로</span></div>"
+        "<div><b>🆕 전 세계 신제품</b><span>공식 발표부터 신뢰도 높은 루머까지, 세트번호·가격·출시일 정리</span></div>"
+        "<div><b>📰 국내·해외 소식</b><span>광고 없이 읽도록 핵심만 요약·번역, 출처는 정확히</span></div></div>"
+        "<h2>① 휴대폰·PC 알림으로 받기 <small>추천</small></h2>"
+        "<section id='push' class='push' hidden></section>"
+        + (f"<h2>② 카카오톡·인스타그램으로 받기</h2><div class='follow'>{''.join(ways)}</div>" if ways else "")
+        + (f"<h2>지금 진행 중인 소식 미리보기</h2>{prev}<a class='more' href='index.html'>오늘의 레고 소식 전체 보기 →</a>" if prev else "")
+        + "<h2>자주 묻는 질문</h2><div class='faq'>"
+        "<details><summary>정말 무료인가요?</summary><p>네, 가입이나 결제 없이 무료예요. 알림은 하루 한 번, 낮 12시쯤에만 가요.</p></details>"
+        "<details><summary>알림은 어떻게 끄나요?</summary><p>이 사이트 위쪽 알림 상자에서 '알림 끄기'를 누르면 바로 멈춰요. 받을 분야(할인·신제품 등)도 고를 수 있어요.</p></details>"
+        "<details><summary>아이폰도 되나요?</summary><p>사파리에서 공유 버튼 → '홈 화면에 추가'를 한 뒤, 홈 화면 아이콘으로 열어서 알림을 켜면 돼요.</p></details>"
+        "</div>")
+    return page(f"{SITE_NAME} · 매일 12시 레고 할인·신제품 알림", body, "",
+                desc="레고 공식몰·마트·온라인몰 할인과 전 세계 신제품 소식을 매일 낮 12시에 무료로 알려드려요.")
+
+
+# ---------- 네이버 블로그 주간 글 초안 ----------
+def week_label(dt):
+    names = ["첫째", "둘째", "셋째", "넷째", "다섯째"]
+    return f"{dt.month}월 {names[min((dt.day - 1) // 7, 4)]} 주"
+
+
+def render_blog_draft(main_list, pools, latest):
+    as_of = to_date(latest["date"])
+    since = (as_of - timedelta(days=6)).isoformat()
+    week = [d for d in main_list if d["date"] >= since]
+    base = site_url()
+    q = "?src=blog_weekly"
+    deals = pools["kr_deal"]
+    rels = [x for x in pools["new_release"] if x["first"] >= since]
+    news = [(d, s["key"], it) for d in reversed(week) for s in d.get("sections", [])
+            if s.get("key") in NEWS_KEYS for it in s.get("items", [])][:6]
+    title = f"[{SITE_NAME} 주간 정리] {week_label(as_of)} 레고 할인·신제품 총정리 ({md(as_of)} 기준)"
+    H = []
+    H.append(f"<p>안녕하세요! 이번 주 놓치기 쉬운 <b>레고 할인</b>과 <b>신제품 소식</b>을 정리했어요. "
+             f"({md(to_date(since))}~{md(as_of)}, 진행 중인 할인 {len(deals)}건 · 새 신제품 소식 {len(rels)}건)</p>")
+    H.append("<p>✍️ <b>이번 주 제 픽:</b> (여기에 직접 한두 줄 써 주세요. 예: 저는 ○○ 세트가 제일 끌리네요!)</p>")
+    if deals:
+        H.append("<h3>🏷️ 지금 진행 중인 레고 할인</h3><ul>")
+        for x in deals[:10]:
+            it = x["it"]
+            info = " · ".join(v for v in [it.get("discount"), it.get("period")] if v)
+            end = f" <b>({md(x['end'])} 마감)</b>" if x.get("end") else ""
+            H.append(f"<li><b>{e(it['title'])}</b>{end}<br>{e(info)}"
+                     + (f" — {e(it['summary'])}" if it.get("summary") else "") + f" <small>(출처: {e(it.get('source', ''))})</small></li>")
+        H.append(f"</ul><p>👉 할인 전체 목록: <a href='{base}/deals.html{q}'>{base}/deals.html</a></p>")
+    if rels:
+        H.append("<h3>🆕 이번 주 신제품 소식</h3><ul>")
+        for x in rels[:10]:
+            it = x["it"]
+            info = " · ".join(v for v in [it.get("set"), it.get("theme"), it.get("price"), it.get("release")] if v)
+            tag = f"[{e(it['tag'])}] " if it.get("tag") else ""
+            H.append(f"<li>{tag}<b>{e(it['title'])}</b><br>{e(info)}"
+                     + (f" — {e(it['summary'])}" if it.get("summary") else "") + "</li>")
+        H.append(f"</ul><p>👉 신제품 전체 목록: <a href='{base}/releases.html{q}'>{base}/releases.html</a></p>")
+    if news:
+        H.append("<h3>📰 국내·해외 레고 소식</h3><ul>")
+        for d, k, it in news:
+            H.append(f"<li><b>{e(it['title'])}</b> — {e(it.get('summary', ''))} "
+                     f"<a href='{base}/{news_page(d['date'], it)}{q}'>자세히</a> <small>(출처: {e(it.get('source', ''))})</small></li>")
+        H.append("</ul>")
+    cal = [c for c in (latest.get("calendar") or [])][:8]
+    if cal:
+        H.append("<h3>🗓️ 다가오는 출시 일정</h3><ul>")
+        for c in cal:
+            H.append(f"<li><b>{e(cal_date(c.get('date')))}</b> {e(c.get('name', ''))} "
+                     f"{e(' · '.join(v for v in [c.get('set'), c.get('price')] if v))}</li>")
+        H.append("</ul>")
+    H.append(f"<h3>🔔 매일 12시에 받아보기</h3><p>이런 소식을 <b>매일 낮 12시</b>에 휴대폰 알림·카카오톡으로 무료로 받아볼 수 있어요.<br>"
+             f"👉 <a href='{base}/join.html{q}'>{base}/join.html</a></p>")
+    H.append("<p><small>※ 할인 조건·기간은 판매처 사정으로 바뀔 수 있으니 구매 전 꼭 확인하세요.</small></p>")
+    themes = sorted({x["it"].get("theme") for x in rels if x["it"].get("theme")})
+    tags = ["레고", "레고할인", "레고신제품", "레고세일", "레고추천", "LEGO", "브릭소리"] + [f"레고{t.replace(' ', '')}" for t in themes][:5]
+    tag_txt = " ".join(f"#{t}" for t in tags)
+    draft = "".join(H)
+    body = (
+        "<h1>📝 네이버 블로그 주간 글 초안</h1>"
+        "<div class='tip'><b>올리는 방법</b><ol>"
+        "<li>[제목 복사] → 블로그 글쓰기 제목 칸에 붙여넣기</li>"
+        "<li>[본문 복사] → 본문에 붙여넣기 (굵은 글씨·링크가 함께 들어가요)</li>"
+        "<li>'✍️ 이번 주 제 픽' 줄에 내 생각을 한두 줄 쓰기 — 네이버가 '직접 쓴 글'로 봐서 노출에 유리해요</li>"
+        "<li>맨 위에 대표 이미지(주간 썸네일), 맨 아래에 모집 배너를 넣고 배너에 링크 걸기</li>"
+        "<li>[태그 복사] → 태그 칸에 붙여넣기</li></ol></div>"
+        "<div class='copybar'><button data-copy='t'>제목 복사</button><button data-copy='b'>본문 복사</button>"
+        "<button data-copy='g' class='sec'>태그 복사</button>"
+        "<a class='more' style='margin:0;padding:10px 14px' href='blog-weekly-thumb.png' download>주간 썸네일 받기</a>"
+        "<a class='more' style='margin:0;padding:10px 14px' href='blog-banner-wide.png' download>모집 배너 받기</a></div>"
+        f"<p><b>제목</b></p><div class='draft' id='t'>{e(title)}</div>"
+        f"<p><b>본문</b></p><div class='draft' id='b'>{draft}</div>"
+        f"<p><b>태그</b></p><div class='draft' id='g'>{e(tag_txt)}</div>"
+        "<script>document.querySelectorAll('[data-copy]').forEach(btn=>btn.onclick=async()=>{"
+        "const el=document.getElementById(btn.dataset.copy),old=btn.textContent;"
+        "try{if(btn.dataset.copy==='b'&&window.ClipboardItem){await navigator.clipboard.write([new ClipboardItem({"
+        "'text/html':new Blob([el.innerHTML],{type:'text/html'}),'text/plain':new Blob([el.innerText],{type:'text/plain'})})])}"
+        "else{await navigator.clipboard.writeText(el.innerText)}}catch(err){const r=document.createRange();r.selectNodeContents(el);"
+        "const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges()}"
+        "btn.textContent='복사됨 ✓';setTimeout(()=>btn.textContent=old,1500)});</script>")
+    return page(f"{SITE_NAME} · 블로그 초안", body, "").replace(
+        "<meta charset='utf-8'>", "<meta charset='utf-8'><meta name='robots' content='noindex'>", 1)
+
+
 def render_archive(main_digests):
     rows = []
     for d in main_digests:
@@ -542,10 +671,13 @@ def main():
         write("index.html", render_digest(latest, pools, prev_d, None, active="today"))
         for k, fname in POOL_PAGES.items():
             write(fname, render_pool_page(k, pools[k], latest["date"]))
+        write("join.html", render_join(pools, latest))
+        write("blog-draft.html", render_blog_draft(main_list, pools, latest))
     else:
         from common import today_kst
         for k, fname in POOL_PAGES.items():
             write(fname, render_pool_page(k, [], today_kst()))
+        write("join.html", render_join({k: [] for k in POOL_PAGES}, None))
     write("archive.html", render_archive(list(reversed(main_list))))
     print(f"built {len(all_d)} day pages, {n_news} news pages (+index, deals, releases, archive) into {OUT}")
 

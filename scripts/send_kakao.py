@@ -121,6 +121,14 @@ def build_messages(d):
             "link": link(base),
             "button_title": "오늘 소식 전체",
         })
+    from datetime import date as _date
+    if msgs and _date.fromisoformat(d["date"]).weekday() == 0:  # 월요일
+        msgs.append({
+            "object_type": "text",
+            "text": "📝 이번 주 네이버 블로그 글 초안이 준비됐어요.\n제목·본문·태그를 복사해서 붙여넣고, '이번 주 제 픽'만 직접 써 주세요.",
+            "link": link(f"{site_url()}/blog-draft.html"),
+            "button_title": "초안 열기",
+        })
     if not msgs:
         msgs.append({
             "object_type": "text",
