@@ -1,48 +1,51 @@
 {
   "date": "2026-10-06",
   "source": "claude",
-  "headline": "레고 배트맨 2027 신제품 3종 공개, 산리오 헬로키티 레고 2027 출시 확정",
+  "headline": "레고×산리오 '헬로키티' 2027년 출시 공식 발표, 배트맨 신제품 3종도 공개",
   "sections": [
     {
       "key": "kr_deal",
       "items": [
         {
-          "title": "공식몰 스타워즈 포인트 2배, 10/7 마감",
-          "summary": "Insiders 회원 대상 지정 스타워즈 세트 구매 시 포인트 2배. 10/7 종료, 재고 소진 시 조기 종료.",
+          "title": "아스트로봇 증정 10/7 종료, 해외는 속속 품절",
+          "summary": "공식몰 21만 원 이상 구매 시 증정이 내일 마감. 영국·미국 등 해외는 조기 소진됐고 국내 재고는 미확인.",
+          "url": "https://www.lego.com/ko-kr/page/lego-offers-promotions",
+          "source": "레고 공식몰(lego.com/ko-kr)",
+          "tag": "업데이트",
+          "period": "10/1~10/7",
+          "start": "2026-10-01",
+          "end": "2026-10-07",
+          "discount": "아스트로봇(40899) 증정",
+          "channel": "온라인",
+          "limit": "21만 원 이상 · Insiders 회원 · LEGO.com 온라인 주문 · 재고 소진 시 조기 종료",
+          "importance": 3
+        },
+        {
+          "title": "스타워즈 행사 세트 구매 시 포인트 2배(10/7까지)",
+          "summary": "공식몰에서 행사 대상 스타워즈 세트를 사면 Insiders 포인트가 2배로 적립된다. 내일 마감.",
           "url": "https://www.lego.com/ko-kr/page/lego-offers-promotions",
           "source": "레고 공식몰(lego.com/ko-kr)",
           "tag": "공식몰",
           "period": "10/1~10/7",
           "start": "2026-10-01",
           "end": "2026-10-07",
-          "discount": "지정 스타워즈 세트 Insiders 포인트 2배 적립",
+          "discount": "행사 대상 스타워즈 세트 Insiders 포인트 2배 적립",
           "channel": "온라인",
-          "limit": "Insiders 회원 · LEGO.com 온라인 주문 한정 · 타 혜택·바우처와 중복 불가 · 재고 소진 시 조기 종료 (대상: 40795, 40806, 75328, 75398, 75406, 75407 등)",
+          "limit": "Insiders 회원 한정 · LEGO.com 온라인 주문 · 세금·배송비는 적립 제외 · 포인트는 발송·결제 확인 후 24시간 내 적립",
           "importance": 2
         },
         {
-          "title": "공식몰 단종예정 세일: 연꽃 40%·헤지혹 50%",
-          "summary": "단종 예정 세트를 30~50% 할인 중. 페라리 F40 30,730원, 파운틴 가든 104,930원 등.",
-          "url": "https://www.lego.com/ko-kr/categories/last-chance-to-buy",
-          "source": "레고 공식몰(lego.com/ko-kr)",
-          "tag": "공식몰",
-          "period": "재고 소진 시까지(종료일 미표기)",
-          "discount": "연꽃 40%(12,540원), 헤지혹 피크닉 데이트 50%(9,150원), Ferrari F40 30%(30,730원), 파운틴 가든 30%(104,930원)",
-          "channel": "온라인",
-          "limit": "단종 예정 상품 한정 · 재고 소진 시 종료",
-          "importance": 2
-        },
-        {
-          "title": "스타트렉 세트 구매 시 증정 행사, 11/20까지",
-          "summary": "공식몰에서 스타트렉 Type-15 셔틀팟·U.S.S. 엔터프라이즈 NCC-1701-D 구매 시 증정품 제공.",
-          "url": "https://www.lego.com/ko-kr/categories/last-chance-to-buy",
-          "source": "레고 공식몰(lego.com/ko-kr)",
-          "tag": "공식몰",
-          "period": "~11/20",
-          "end": "2026-11-20",
-          "discount": "스타트렉 대상 세트 구매 시 증정품(구성·세부 조건은 공식몰 약관 확인)",
-          "channel": "온라인",
-          "limit": "대상 세트 구매 시 · 약관 확인 필요",
+          "title": "이마트 피카츄와 몬스터볼(72152) 5만원 할인 제보",
+          "summary": "10/8부터 적립 시 5만 원 할인이라는 매장 제보. 정가 279,900원. 공식 확인 전이라 매장별 재고와 조건을 확인해야 한다.",
+          "url": "https://cafe.naver.com/kupibabo/137964",
+          "source": "네이버 카페 꾸삐바보 (매장 제보)",
+          "tag": "마트",
+          "period": "10/8~10/14(이마트 전단 기간 기준)",
+          "start": "2026-10-08",
+          "end": "2026-10-14",
+          "discount": "72152 적립 시 5만원 할인",
+          "channel": "오프라인",
+          "limit": "적립 조건 · 점포별 입점·재고 상이 · 조기 품절 가능 · 공식 전단 원문 미확인(제보 기반)",
           "importance": 2
         }
       ]
@@ -55,25 +58,25 @@
       "key": "global_news",
       "items": [
         {
-          "title": "레고×산리오 파트너십 발표, 헬로키티 2027년 출시",
-          "summary": "레고 그룹과 산리오가 다년 협업을 발표했다. 헬로키티와 친구들이 처음 레고 제품으로 나온다.",
-          "url": "https://www.brickfanatics.com/lego-hello-kitty-announced-new-sanrio-partnership",
-          "source": "Brick Fanatics",
-          "original_title": "LEGO Hello Kitty announced in new Sanrio partnership",
+          "title": "레고×산리오 파트너십, 헬로키티 2027년 첫 출시",
+          "summary": "레고 그룹과 산리오가 다년 계약을 발표했다. 헬로키티와 친구들이 처음 레고 브릭 제품으로 나온다.",
+          "url": "https://brickset.com/article/135168",
+          "source": "Brickset",
+          "original_title": "LEGO Hello Kitty and Friends coming in 2027!",
           "published": "2026-10-06",
           "body": [
-            "레고 그룹과 일본 산리오가 10월 6일 다년 파트너십을 발표했다. 덴마크 빌룬과 일본 도쿄에서 동시에 나온 보도자료에 따르면, 헬로키티와 친구들의 세계관이 레고 브릭 형태로 제품화되는 것은 이번이 처음이다. 첫 제품은 2027년에 선보인다.",
-            "레고 글로벌 제품군 총괄 SVP 레나 딕센은 헬로키티가 세대를 넘어 사랑받은 세계적 캐릭터이며 레고 놀이와 잘 어울린다는 취지로 말했다. 산리오의 나카쓰카 와타루 상무도 캐릭터를 레고 놀이로 새롭게 풀어내는 협업에 기대를 밝혔다. 다만 세트 번호, 가격, 구성은 아직 공개되지 않았다.",
-            "레고는 LEGO.com/sanrio 페이지를 열고 티저 영상과 달력을 공개했다. 영상에는 헬로키티, 쿠로미, 마이멜로디, 폼폼푸린, 시나모롤이 레고 노란 종이봉투에서 나오는 장면이 담겼다. Jay's Brick Blog는 달력의 단서로 10월 14일 푸딩, 16일 축구공, 21일 사과, 핼러윈 쿠로미를 짚었다. 한 달에 하나씩 힌트가 나오는 방식으로 보인다.",
-            "한국 팬에게는 국내 출시 여부와 가격이 아직 알려지지 않았다는 점이 핵심이다. StoneWars는 루머를 근거로 첫 세트가 1월에 나올 수 있다고 전했지만 공식 확인은 없다. 헬로키티는 과거 레고 아이디어에 제안됐다가 채택되지 못했다. 이번 발표는 드래곤볼 등 대형 IP 협업을 잇는 행보로 소개됐다."
+            "레고 그룹과 일본 산리오가 10월 6일 다년 계약 방식의 신규 파트너십을 발표했다. 헬로키티와 친구들 캐릭터가 레고 브릭 제품으로 만들어지는 것은 이번이 처음이다. 관련 제품은 2027년부터 선보일 예정이다.",
+            "레고 그룹의 글로벌 제품군 담당 SVP 레나 딕센은 헬로키티를 세대를 넘어 행복을 전해 온 글로벌 라이프스타일 아이콘으로 소개했다. 산리오 측도 캐릭터를 레고 놀이로 새롭게 풀어내게 돼 기쁘다는 입장을 냈다. 다만 세트의 종류, 미니피규어 포함 여부, 가격은 아직 공개되지 않았다.",
+            "레고는 공식 사이트(LEGO.com/sanrio)에 티저 영상과 캘린더 페이지를 열었다. Jay's Brick Blog에 따르면 영상에는 헬로키티, 쿠로미, 마이멜로디, 폼폼푸린, 시나모롤이 등장한다. 캘린더에는 10월 14일 푸딩, 16일 축구공, 21일 사과, 31일 쿠로미 이미지가 표시돼 있어 앞으로 순차적으로 정보가 나올 것으로 보인다. StoneWars는 첫 세트가 1월에 나온다는 소문이 있다고 전했지만 확정된 내용은 아니다.",
+            "한국 팬이 지금 확인할 수 있는 것은 2027년 출시 방향과 10월 중 이어질 티저 일정까지다. 한국 출시 일정과 가격은 알려지지 않았다. Brick Fanatics는 이번 발표가 킥플 데몬 헌터스, 드래곤볼에 이어 나온 또 하나의 대형 IP 협업이라고 짚었다."
           ],
           "points": [
-            "레고×산리오 다년 파트너십 공식 발표",
-            "헬로키티와 친구들, 2027년 첫 레고 제품",
-            "세트·가격 미공개, 달력 힌트 순차 공개"
+            "레고×산리오 다년 파트너십, 2027년 출시",
+            "10/14·16·21·31 티저 캘린더 공개",
+            "세트 구성·가격·한국 출시일은 미공개"
           ],
           "importance": 3,
-          "image": "https://www.brickfanatics.com/storage/uploads/2dfbbd7d-7c78-4c40-a38c-51c6d1ee0e16.png"
+          "image": "https://brickset.com/utils/ogimage/article/135168?44394"
         }
       ]
     },
@@ -81,31 +84,32 @@
       "key": "new_release",
       "items": [
         {
-          "title": "레고 DC 배트맨 2027 3종 공개, 조커 월아트 1,849피스",
-          "summary": "조커 월아트·아캄 배트모빌·배트맨 리턴즈 배트모빌&덕. 2027/1/1 출시, 사전예약 시작.",
+          "title": "레고 DC 배트맨 2027 신제품 3종, 1/1 출시",
+          "summary": "배트 리턴즈 배트모빌&오리, 아캄 배트모빌, 조커 월아트(1,849pcs) 공개. LEGO.com 예약 시작.",
           "url": "https://www.brickfanatics.com/first-lego-batman-2027-sets-revealed-price-pieces",
           "source": "Brick Fanatics",
           "tag": "공식",
-          "set": "67012 / 67008 / 67009",
-          "theme": "DC 배트맨 (67012는 아트)",
-          "price": "67012 $169.99(1,849pcs) · 67008 $59.99(672pcs) · 67009 $29.99(317pcs) (한국 가격 미확인)",
-          "release": "2027년 1월 1일 (LEGO.com 사전예약은 지역별로 상이)",
+          "set": "67008 / 67009 / 67012",
+          "theme": "DC 배트맨",
+          "price": "$59.99 / $29.99 / $169.99 (한국 가격 미정)",
+          "release": "2027년 1월 1일",
           "release_date": "2027-01-01",
-          "importance": 3,
+          "importance": 2,
           "image": "https://www.brickfanatics.com/storage/uploads/dcbb4a59-2c73-472b-a763-cb182b847507.png"
         },
         {
-          "title": "BDP 시리즈9 크라우드펀딩 오늘 시작, 10/12 마감",
-          "summary": "피셔맨스 빌리지 등 5종. 3,000건 이상 예약 시 생산, 2027년 3월 발송 예정.",
-          "url": "https://www.bricklink.com/v3/designer-program/series-9/main.page?page=7",
-          "source": "BrickLink",
-          "tag": "공식",
-          "set": "910069 피셔맨스 빌리지 외 4종",
-          "theme": "BrickLink Designer Program",
-          "price": "피셔맨스 빌리지 £319.99 / $349.99 / €349.99 (4,027pcs), 펌킨 패치 $49.99",
-          "release": "예약 10/6 8AM PT(한국 10/7 0시)~10/12 3PM PT, 발송 2027년 3월 예정",
-          "release_date": "2026-10-06",
-          "importance": 2
+          "title": "아이콘 베니스(11388) 5,682pcs, 증정품 40898도 노출",
+          "summary": "11/1 출시, $549.99로 알려졌다. 레고가 다른 세트 페이지에 증정품 이미지를 실수로 올렸다고 StoneWars가 전했다.",
+          "url": "https://stonewars.com/news/lego-40898-venice-gwp-leak/",
+          "source": "StoneWars",
+          "tag": "루머",
+          "set": "11388 / 40898(증정품)",
+          "theme": "아이콘",
+          "price": "$549.99 / €499.99 (알려진 가격, 비공식)",
+          "release": "2026년 11월 1일(예정, 비공식)",
+          "release_date": "2026-11-01",
+          "importance": 2,
+          "image": "https://stonewars.com/wp-content/uploads/2026/10/lego-40898-venice-scene-gift-with-purchase.jpg"
         }
       ]
     }
@@ -114,24 +118,24 @@
     {
       "date": "2026-11-01",
       "set": "21065",
-      "name": "건축 시리즈 사그라다 파밀리아",
-      "theme": "Architecture",
-      "price": "$799.99 / £649.99 / €749.99",
+      "name": "사그라다 파밀리아",
+      "theme": "아키텍처",
+      "price": "$799.99 / €749.99 / £649.99",
       "region": "글로벌"
     },
     {
       "date": "2026-11-01",
       "set": "10371",
-      "name": "코지 플랜츠",
-      "theme": "Botanicals",
-      "price": "$22.99 / £17.99 / €19.99",
+      "name": "코지 플랜츠(Cosy Plants)",
+      "theme": "보태니컬",
+      "price": "$22.99 / €19.99 / £17.99",
       "region": "글로벌"
     },
     {
       "date": "2026-11-01",
       "set": "11388",
-      "name": "베니스 네이버후드",
-      "theme": "Icons",
+      "name": "베니스 네이버후드 (비공식 정보)",
+      "theme": "아이콘",
       "price": "$549.99 / €499.99",
       "region": "글로벌"
     },
@@ -139,22 +143,22 @@
       "date": "2026-11-04",
       "set": "11390",
       "name": "드래곤볼 신룡 & 손오공",
-      "theme": "Icons / Dragon Ball",
-      "price": "$179.99 / £129.99 / €139.99 (한국 가격 미확인, 사전예약 11/1~3)",
-      "region": "한국"
+      "theme": "아이콘",
+      "price": "$179.99 / €139.99 / £129.99",
+      "region": "글로벌(Insiders 선공개 11/1)"
     },
     {
       "date": "2026-11-27",
       "set": "21375",
       "name": "고질라",
-      "theme": "Ideas",
+      "theme": "아이디어",
       "price": "€399.99",
       "region": "글로벌"
     }
   ],
   "usage": {
-    "input_tokens": 303532,
-    "output_tokens": 9316,
+    "input_tokens": 318031,
+    "output_tokens": 9796,
     "searches": 12,
     "model": "claude-sonnet-5-5"
   }
