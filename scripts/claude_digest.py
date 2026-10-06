@@ -46,6 +46,15 @@ SYSTEM = """너는 한국 레고 팬을 위한 '레고 데일리' 편집장이�
 - url은 검색으로 실제 확인한 원문 주소만. 추측해서 만들지 않는다.
 - title ≤ 45자(핵심이 먼저 보이게), summary ≤ 90자.
 - importance: 3=꼭 봐야 함, 2=볼 만함, 1=참고.
+- 날짜는 확인되는 대로 YYYY-MM-DD로 적는다(할인 시작·종료일, 출시일, 원문 게재일). 모르면 빈칸.
+
+[국내·해외 소식은 브릭소리 자체 기사로 싣는다]
+- 독자가 광고 많은 원문으로 넘어가지 않아도 되도록, 원문을 직접 읽고 '브릭소리' 기사로 다시 쓴다.
+- body: 3~4문단, 600~900자. 무슨 일인지 → 핵심 내용(숫자·날짜·세트명) → 한국 팬에게 의미 순서.
+  원문 문장을 그대로 옮기지 말고 자기 문장으로 요약한다. 해외 기사는 자연스러운 한국어로 번역·요약한다.
+- points: 핵심 3가지(각 40자 이내).
+- 출처를 정확히: source=매체명, original_title=원문 제목(원어 그대로), published=원문 게재일, url=원문 주소.
+- 원문에 없는 추측·의견은 넣지 않는다. 불확실하면 '~로 알려졌다'처럼 출처의 말임을 밝힌다.
 """
 
 SCHEMA = """마지막에 아래 형식의 JSON만 <json>...</json> 태그 안에 출력해라(설명 없이).
@@ -54,13 +63,19 @@ SCHEMA = """마지막에 아래 형식의 JSON만 <json>...</json> 태그 안에
  "sections": [
   {"key":"kr_deal","items":[{"title":"","summary":"","url":"","source":"출처명",
      "tag":"공식몰|마트|온라인몰|카드|핫딜|업데이트 중 하나",
-     "period":"행사 기간(예: 10/3~10/12, 모르면 빈칸)","discount":"할인율·사은품 요약(예: 최대 30%)",
+     "period":"행사 기간(예: 10/3~10/12, 모르면 빈칸)","start":"YYYY-MM-DD","end":"YYYY-MM-DD(종료일, 모르면 빈칸)",
+     "discount":"할인율·사은품 요약(예: 최대 30%)",
      "importance":3}]},
   {"key":"new_release","items":[{"title":"","summary":"","url":"","source":"",
-     "tag":"공식|공개|루머|업데이트","set":"세트번호","theme":"테마","price":"가격","release":"출시일",
+     "tag":"공식|공개|루머|업데이트","set":"세트번호","theme":"테마","price":"가격","release":"출시일(사람이 읽는 표기)",
+     "release_date":"YYYY-MM-DD 또는 YYYY-MM",
      "importance":2}]},
-  {"key":"kr_news","items":[{"title":"","summary":"","url":"","source":"","importance":2}]},
-  {"key":"global_news","items":[{"title":"","summary":"","url":"","source":"","importance":2}]}
+  {"key":"kr_news","items":[{"title":"한국어 제목","summary":"한 줄 요약","url":"원문 주소","source":"매체명",
+     "original_title":"원문 제목","published":"YYYY-MM-DD","body":["문단1","문단2","문단3"],
+     "points":["핵심1","핵심2","핵심3"],"importance":2}]},
+  {"key":"global_news","items":[{"title":"한국어 제목","summary":"한 줄 요약","url":"원문 주소","source":"매체명",
+     "original_title":"원문 제목","published":"YYYY-MM-DD","body":["문단1","문단2","문단3"],
+     "points":["핵심1","핵심2","핵심3"],"importance":2}]}
  ],
  "calendar": [
   {"date":"YYYY-MM-DD(모르면 YYYY-MM)","set":"세트번호","name":"세트 이름(한국어)","theme":"테마",
@@ -99,7 +114,7 @@ def candidate_text():
 def call_api(messages):
     body = {
         "model": MODEL,
-        "max_tokens": 8000,
+        "max_tokens": 16000,
         "system": SYSTEM,
         "messages": messages,
         "tools": [{
@@ -157,8 +172,11 @@ def clean_digest(raw, date):
             url = str(it.get("url", "")).strip()
             if not it.get("title") or not url.startswith("http"):
                 continue
-            it = {kk: (str(v).strip() if not isinstance(v, (int, float)) else v)
-                  for kk, v in it.items() if v not in (None, "")}
+            it = {kk: ([str(x).strip() for x in v if str(x).strip()] if isinstance(v, list)
+                       else v if isinstance(v, (int, float)) else str(v).strip())
+                  for kk, v in it.items() if v not in (None, "", [])}
+            if isinstance(it.get("body"), str):
+                it["body"] = [p.strip() for p in it["body"].split("\n") if p.strip()]
             items.append(it)
         items.sort(key=lambda x: -int(x.get("importance", 1) or 1))
         sections.append({"key": k, "items": items[:5]})

@@ -50,3 +50,28 @@ def site_url() -> str:
 
 def page_name(digest: dict) -> str:
     return f"{digest['date']}-{digest['source']}.html"
+
+
+# ---------- 항목 주소 (웹페이지·카톡·푸시가 같은 규칙을 씀) ----------
+NEWS_KEYS = ("kr_news", "global_news")   # 브릭소리 자체 요약 페이지를 만드는 섹션
+POOL_PAGES = {"kr_deal": "deals.html", "new_release": "releases.html"}  # 기간 동안 모아 보여주는 섹션
+POOL_PREFIX = {"kr_deal": "d", "new_release": "r"}
+
+
+def item_id(it: dict) -> str:
+    import hashlib
+    key = (it.get("url") or it.get("title") or "").strip().lower()
+    return hashlib.sha1(key.encode()).hexdigest()[:8]
+
+
+def news_page(date: str, it: dict) -> str:
+    return f"n-{date}-{item_id(it)}.html"
+
+
+def item_link(d: dict, key: str, it: dict) -> str:
+    """사이트 안에서 이 항목을 보여주는 상대 주소."""
+    if key in NEWS_KEYS:
+        return news_page(d["date"], it)
+    if key in POOL_PAGES:
+        return f"{POOL_PAGES[key]}#{POOL_PREFIX[key]}-{item_id(it)}"
+    return f"{page_name(d)}#{key}"

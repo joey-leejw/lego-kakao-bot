@@ -14,7 +14,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 import webpush
-from common import SECTION_TITLES, load_json, page_name, site_url
+from common import SECTION_TITLES, item_link, load_json, page_name, site_url
 
 SB_URL = os.environ.get("SUPABASE_URL", "").strip().rstrip("/")
 SB_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "").strip()
@@ -51,11 +51,11 @@ def message_for(d, topics):
     for order, sec in enumerate(d.get("sections", [])):
         if sec["key"] in topics:
             for i, it in enumerate(sec.get("items", [])):
-                picked.append((-int(it.get("importance", 1) or 1), order, it, f"{sec['key']}-{i}"))
+                picked.append((-int(it.get("importance", 1) or 1), order, it, item_link(d, sec["key"], it)))
     if not picked:
         return None
     picked.sort(key=lambda x: (x[0], x[1]))
-    top, anchor = picked[0][2], picked[0][3]
+    top, target = picked[0][2], picked[0][3]
     n = len(picked)
     use_headline = bool(d.get("headline")) and set(topics) >= {"kr_deal", "new_release"}
     body = d["headline"] if use_headline else top["title"]
@@ -64,7 +64,9 @@ def message_for(d, topics):
     msg = {
         "title": f"🧱 {SITE_NAME} {md} · 새 소식 {n}건",
         "body": body[:150],
-        "url": f"{site_url()}/{page_name(d)}?src=push" + ("" if use_headline else f"#{anchor}"),
+        "url": (f"{site_url()}/{page_name(d)}?src=push" if use_headline
+                else f"{site_url()}/" + target.replace("#", "?src=push#", 1) if "#" in target
+                else f"{site_url()}/{target}?src=push"),
         "icon": f"{site_url()}/icon-192.png",
         "tag": f"daily-{d['date']}",
     }

@@ -15,7 +15,7 @@ import sys
 import urllib.parse
 import urllib.request
 
-from common import SECTION_TITLES, SOURCE_LABELS, load_json, page_name, site_url
+from common import SECTION_TITLES, SOURCE_LABELS, POOL_PAGES, item_link, load_json, page_name, site_url
 
 TOKEN_URL = "https://kauth.kakao.com/oauth/token"
 MEMO_URL = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
@@ -84,14 +84,16 @@ def build_messages(d):
             continue
         title = SECTION_TITLES.get(sec["key"], sec["key"])
         header = cut(f"{title} · {md}", 40)
-        sec_url = f"{base}#{sec['key']}-0"
+        key = sec["key"]
+        # 할인·신제품 → 전체 목록 페이지, 국내·해외 소식 → 그날 페이지의 해당 섹션
+        sec_url = f"{site_url()}/{POOL_PAGES[key]}" if key in POOL_PAGES else f"{base}#{key}"
         if len(items) >= 2:
             contents = []
             for i, it in enumerate(items[:3]):
                 content = {
                     "title": cut(it["title"], 50),
                     "description": cut(short_desc(it), 40),
-                    "link": link(f"{base}#{sec['key']}-{i}"),
+                    "link": link(f"{site_url()}/{item_link(d, key, it)}"),
                 }
                 if it.get("image"):
                     content["image_url"] = it["image"]
@@ -109,7 +111,7 @@ def build_messages(d):
             msgs.append({
                 "object_type": "text",
                 "text": cut(f"{header}\n\n• {it['title']}\n{it.get('summary', '')}", 200),
-                "link": link(sec_url),
+                "link": link(f"{site_url()}/{item_link(d, key, it)}"),
                 "button_title": "자세히 보기",
             })
     if d.get("headline"):
