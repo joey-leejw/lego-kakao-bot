@@ -29,8 +29,15 @@
     if (!C.sbUrl || !C.sbKey) return Promise.resolve();
     return fetch(C.sbUrl + '/rest/v1/' + path, { method: 'POST', headers: sbHeaders(), body: JSON.stringify(body), keepalive: !!keepalive });
   }
+  // 방문자 구분용 익명 번호 (브라우저마다 무작위, 개인정보 아님)
+  let vid = null;
+  try {
+    vid = localStorage.getItem('ld_vid');
+    if (!vid) { vid = Math.random().toString(36).slice(2, 12) + Date.now().toString(36); localStorage.setItem('ld_vid', vid); }
+  } catch (_) {}
   function log(kind, extra) {
-    sb('events', Object.assign({ kind, src, page: location.pathname.slice(-120) }, extra || {}), true).catch(() => {});
+    if (location.pathname.endsWith('stats.html')) return;  // 통계 페이지는 집계 제외
+    sb('events', Object.assign({ kind, src, vid, page: location.pathname.slice(-120) }, extra || {}), true).catch(() => {});
   }
 
   // 방문 기록 + 기사 클릭 기록
