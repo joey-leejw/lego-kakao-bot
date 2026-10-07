@@ -17,7 +17,9 @@ import build_site as B  # noqa: E402  (할인·신제품 모으기 규칙을 그
 from common import ROOT, NEWS_KEYS, load_json, site_url  # noqa: E402
 
 OUT = pathlib.Path(ROOT) / "_site"
-FONTS = pathlib.Path(ROOT) / "assets" / "fonts"
+# 글꼴 폴더: assets/fonts (권장) 또는 site_assets/fonts 어느 쪽에 있어도 됨
+FONTS = next((p for p in (pathlib.Path(ROOT) / "assets" / "fonts", pathlib.Path(ROOT) / "site_assets" / "fonts")
+              if (p / "Pretendard-Bold.subset.woff2").exists()), pathlib.Path(ROOT) / "assets" / "fonts")
 W, H = 1080, 1350
 e = html.escape
 

@@ -803,7 +803,11 @@ def render_archive(main_digests):
 def write_assets():
     import shutil
     for name in os.listdir(ASSETS):
-        shutil.copy(os.path.join(ASSETS, name), os.path.join(OUT, name))
+        src, dst = os.path.join(ASSETS, name), os.path.join(OUT, name)
+        if os.path.isdir(src):  # 하위 폴더(예: fonts)도 그대로 복사
+            shutil.copytree(src, dst, dirs_exist_ok=True)
+        else:
+            shutil.copy(src, dst)
     manifest = {
         "name": SITE_NAME, "short_name": SITE_NAME, "lang": "ko",
         "start_url": "./index.html?src=pwa", "scope": "./", "display": "standalone",
