@@ -213,6 +213,29 @@ padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-it
 .ld-sub .subbar{display:none}
 @media (min-width:960px){.subbar{display:none}}
 @media (max-width:520px){.li .rs{display:none}.li{gap:10px;padding:11px 14px}}
+.st-bar{display:flex;align-items:center;gap:8px;margin:0 0 12px}
+.st-range{display:flex;gap:4px;background:var(--chip);padding:4px;border-radius:12px}
+.st-range button,.st-out{font:inherit;font-size:.88rem;border:0;border-radius:9px;padding:8px 14px;cursor:pointer;background:transparent;color:var(--fg)}
+.st-range button.on{background:var(--surface);font-weight:700}.st-out{margin-left:auto;background:var(--chip)}
+.st-tiles{margin-bottom:12px}.st-tiles .stat strong{font-size:2rem}
+.st-card{margin:0 0 12px}.st-pad{padding:10px 14px 14px}
+.st-grid{display:grid;gap:12px}@media (min-width:900px){.st-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.st-grid .st-card{margin:0}}
+.st-grid{margin-bottom:12px}
+.st-svg{width:100%;height:auto;display:block}.st-svg .grid{stroke:var(--line);stroke-width:1}
+.st-svg .ax{fill:var(--muted);font-size:11px}.st-svg .mark{stroke:var(--muted);stroke-dasharray:4 4}
+.hb{display:grid;gap:8px;margin:4px 0 10px}.hb-row{display:grid;grid-template-columns:96px minmax(0,1fr) 44px;gap:8px;align-items:center;font-size:.86rem}
+.hb-l{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hb-t{height:12px;background:var(--chip);border-radius:6px;overflow:hidden}
+.hb-t i{display:block;height:100%;border-radius:6px}.hb-n{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.st-table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:8px}.st-table th,.st-table td{padding:6px 4px;border-top:1px solid var(--line);text-align:right}
+.st-table th:first-child,.st-table td:first-child{text-align:left}.st-pad details summary{cursor:pointer;color:var(--muted);font-size:.88rem;margin-top:6px}
+.st-top{margin:0;padding:6px 16px 12px 36px}.st-top li{padding:7px 0;border-top:1px solid var(--line);font-size:.9rem}.st-top li:first-child{border-top:0}
+.st-top a{text-decoration:none;font-weight:600;word-break:break-all}.st-top span{float:right;color:var(--muted);margin-left:8px}
+.st-tip{position:fixed;z-index:20;pointer-events:none;background:var(--fg);color:var(--bg);font-size:.8rem;padding:6px 9px;border-radius:8px;white-space:nowrap}
+.st-login{padding:20px;max-width:420px;margin:30px auto}.st-login h2{margin:0 0 6px}.st-login p{color:var(--muted);font-size:.92rem}
+.st-login label{display:block;font-size:.85rem;font-weight:700;margin:12px 0 4px}
+.st-login input{width:100%;font:inherit;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg)}
+.st-login button{width:100%;font:inherit;font-weight:700;border:0;border-radius:10px;padding:12px;margin-top:10px;background:#FF6B2C;color:#1B1B1F;cursor:pointer}
+.st-msg{min-height:1.2em}.st-sub{margin:4px 0 6px;font-size:.8rem;font-weight:700;color:var(--muted)}.st-note{color:var(--muted);font-size:.8rem}
 @media (max-width:520px){h1{font-size:1.3rem}.thumb{width:72px;height:72px}.cal div{grid-template-columns:74px 1fr}.cal .p{grid-column:2;text-align:left}}
 """
 
@@ -725,6 +748,35 @@ def render_blog_draft(main_list, pools, latest):
         "<meta charset='utf-8'>", "<meta charset='utf-8'><meta name='robots' content='noindex'>", 1)
 
 
+# ---------- 관리자 통계 페이지 (로그인한 허락된 이메일만 숫자가 보임) ----------
+def source_stats(main_list, days=30):
+    """최근 N일 동안 실린 소식의 출처별 개수 + 클릭 TOP 표시용 제목."""
+    import collections
+    recent = main_list[-days:]
+    cnt = collections.Counter()
+    titles = {}
+    for d in recent:
+        for s in d.get("sections", []):
+            for it in s.get("items", []):
+                src = (it.get("source") or "알 수 없음").split("·")[0].split("(")[0].strip()
+                if src.startswith("네이버") and "뉴스" not in src:
+                    src = src.split()[0] + " " + (src.split()[1] if len(src.split()) > 1 else "")
+                cnt[src.strip()] += 1
+                titles[it["url"]] = it["title"]
+    return {"days": len(recent), "items": [{"source": k, "n": v} for k, v in cnt.most_common(12)], "titles": titles}
+
+
+def render_stats(main_list):
+    data = json.dumps(source_stats(main_list), ensure_ascii=False).replace("</", "<\\/")
+    body = ("<div class='dhead'><h1>📊 브릭소리 통계</h1><span>관리자 전용</span></div>"
+            "<div id='app'><p class='empty'>불러오는 중…</p></div>"
+            f"<script>window.LD_SOURCES={data}</script>"
+            "<script src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'></script>"
+            "<script src='stats.js' defer></script>")
+    return page(f"{SITE_NAME} · 통계", body, "", wide=True).replace(
+        "<meta charset='utf-8'>", "<meta charset='utf-8'><meta name='robots' content='noindex,nofollow'>", 1)
+
+
 def render_archive(main_digests):
     rows = []
     for d in main_digests:
@@ -810,6 +862,7 @@ def main():
             write(fname, render_pool_page(k, [], today_kst()))
         write("join.html", render_join({k: [] for k in POOL_PAGES}, None))
     write("archive.html", render_archive(list(reversed(main_list))))
+    write("stats.html", render_stats(main_list))
     print(f"built {len(all_d)} day pages, {n_news} news pages (+index, deals, releases, archive) into {OUT}")
 
 

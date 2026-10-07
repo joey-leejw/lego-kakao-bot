@@ -138,6 +138,40 @@ def build_messages(d):
     return msgs
 
 
+SRC_NAMES = {"push": "웹 알림", "kakao": "카톡", "blog": "블로그 글 배너", "blog_widget": "블로그 위젯",
+             "blog_weekly": "블로그 주간 글", "pwa": "홈 화면 앱", "direct": "직접 방문"}
+
+
+def stats_message(d):
+    """어제 숫자 한 줄 요약 (Supabase 통계). 설정이 없거나 실패하면 None."""
+    url = (os.environ.get("SUPABASE_URL") or "").strip().rstrip("/")
+    key = (os.environ.get("SUPABASE_SERVICE_KEY") or "").strip()
+    if not (url and key):
+        return None
+    headers = {"apikey": key, "Content-Type": "application/json"}
+    if key.startswith("eyJ"):
+        headers["Authorization"] = f"Bearer {key}"
+    try:
+        req = urllib.request.Request(f"{url}/rest/v1/rpc/admin_stats", data=json.dumps({"p_days": 7}).encode(),
+                                     headers=headers, method="POST")
+        with urllib.request.urlopen(req, timeout=20) as r:
+            st = json.loads(r.read().decode())
+    except Exception as e:
+        print(f"[warn] 통계 불러오기 실패(건너뜀): {e}")
+        return None
+    rows = st.get("daily") or []
+    y = rows[-2] if len(rows) >= 2 else (rows[-1] if rows else {})
+    week_v = st.get("visitors_total", 0)
+    top = (st.get("by_src") or [{}])[0]
+    top_txt = f"\n최근 7일 유입 1위: {SRC_NAMES.get(top.get('src'), top.get('src'))}" if top.get("src") else ""
+    md = "/".join(str(int(x)) for x in y.get("day", "0-0-0").split("-")[1:])
+    text = (f"📊 어제({md}) 브릭소리\n방문자 {y.get('visitors', 0)}명 · 클릭 {y.get('clicks', 0)}회\n"
+            f"새 구독 {y.get('new_subs', 0)}명 (총 {st.get('subs_total', 0)}명)\n"
+            f"최근 7일 방문자 {week_v}명{top_txt}")
+    return {"object_type": "text", "text": cut(text, 200),
+            "link": link(f"{site_url()}/stats.html"), "button_title": "통계 보기"}
+
+
 def text_fallback(tpl):
     """리스트형 전송이 실패할 때 텍스트형으로 대체."""
     lines = [tpl["header_title"], ""] + [f"• {c['title']}" for c in tpl["contents"]]
@@ -151,6 +185,9 @@ def main():
     if not d:
         sys.exit(f"다이제스트를 읽을 수 없음: {path}")
     msgs = build_messages(d)
+    st = stats_message(d)
+    if st:
+        msgs.append(st)
     if os.environ.get("DRY_RUN"):
         print(json.dumps(msgs, ensure_ascii=False, indent=2))
         return
