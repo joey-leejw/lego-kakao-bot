@@ -105,6 +105,14 @@ jobs:
         if: inputs.mode != 'push_test'
         run: python scripts/build_site.py
 
+      - name: 6-1) 인스타 카드뉴스 만들기
+        if: inputs.mode != 'push_test'
+        continue-on-error: true
+        run: |
+          pip install -q playwright
+          python -m playwright install --with-deps chromium
+          python scripts/make_cards.py "${{ steps.pick.outputs.file }}"
+
       - uses: actions/upload-pages-artifact@v3
         if: inputs.mode != 'push_test'
         with:
