@@ -449,7 +449,7 @@ def news_card(d, key, it):
 
 # ---------- 날짜별 페이지 (C2 대시보드) ----------
 def short_store(it):
-    s = (it.get("source") or "").split("(")[0].strip()
+    s = (it.get("source") or "").split("·")[0].split("(")[0].strip()
     return s.replace("레고 공식몰", "공식몰")[:10]
 
 
