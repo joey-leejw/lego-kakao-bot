@@ -46,6 +46,8 @@ def youtube(channel_id):
 
 # 매장·마트별 검색어. '레스'는 레고 스토어 줄임말이라 '레고'와 같이 검색
 STORE_QUERIES = ["토이저러스 레고", "레고 스토어", "레스 레고", "이마트 레고", "홈플러스 레고"]
+# 도박·성인·광고성 글 차단 (예: '토토 레고 먹튀')
+SPAM_RE = re.compile(r"토토|먹튀|카지노|바카라|슬롯|베팅|배팅|룰렛|대출|코인\s*리딩|홀덤")
 NO_LAND_RE = re.compile(r"^(?!.*레고랜드)(?=.*(?:레고|lego)).+", re.I | re.S)
 KUPI = "UCmA7038F43v888Q82sNTNCw"  # 레고도사꾸삐 (@kupibricks)
 YT_AGE = 72  # 유튜브는 매일 올라오지 않으니 3일치까지
@@ -163,6 +165,8 @@ def parse_items(url, source_label, title_filter, max_age=None):
             title = re.sub(r"\s+-\s+" + re.escape(src) + r"$", "", title)
         if title_filter and not title_filter.search(title):
             continue
+        if SPAM_RE.search(title):
+            continue
         if it["pub"]:
             try:
                 if now - parse_date(it["pub"]) > timedelta(hours=max_age):
@@ -236,6 +240,8 @@ def naver_items(kind, query, title_filter):
         link = (it.get("originallink") or it.get("link") or "").strip()
         desc = clean(it.get("description"))
         if not title or not link or (title_filter and not title_filter.search(title + " " + desc)):
+            continue
+        if SPAM_RE.search(title + " " + desc):
             continue
         # 최근 글만: 블로그는 작성일, 뉴스는 게재 시각, 카페는 '처음 본 날' 기준
         if it.get("postdate"):
