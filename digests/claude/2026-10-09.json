@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-09",
+  "source": "claude",
+  "headline": "레고 마블 '더 마블 스카이라인'(67006) 공개, 2027/1/1 출시·예약 시작",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "레고스토어 어덜트 데이 10/8~11, 최대 30% 할인(제보)",
+          "summary": "어덜트 행사 5종 구매 시 모바일 쿠폰 증정. 일요일 종료, 공식 확인은 안 됨.",
+          "url": "https://cafe.naver.com/mochisoop/12138",
+          "source": "네이버 카페 취미의숲 (매장 제보)",
+          "tag": "공식몰",
+          "period": "10/8~10/11",
+          "start": "2026-10-08",
+          "end": "2026-10-11",
+          "discount": "레고 상품 최대 30% 할인 + 어덜트 행사 5종 구매 시 상품별 모바일 쿠폰 증정",
+          "channel": "오프라인",
+          "limit": "공식몰·판매처 원문 미확인 매장 제보 · 대상 5종과 쿠폰 금액은 매장에서 확인 필요",
+          "importance": 3
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": [
+        {
+          "title": "레고, e-메탄올로 부품 90여 종 생산 시작",
+          "summary": "크로스 액슬·미니피규어 손 등에 재생 소재 투입. 화석 원료와 함께 쓰는 단계.",
+          "url": "https://www.lego.com/en-us/aboutus/news/2026/october/the-lego-group-makes-select-lego-elements-using-e-methanol",
+          "source": "LEGO Group 뉴스룸",
+          "original_title": "The LEGO Group starts making selected LEGO® elements using e-methanol",
+          "published": "2026-10-02",
+          "body": [
+            "레고 그룹이 재생 가능 소재인 e-메탄올을 사용해 90종이 넘는 레고 부품을 만들기 시작했다고 밝혔다. 대상은 크로스 액슬, 커넥터, 스티어링 휠, 미니피규어 손처럼 단단하고 견고해야 하는 부품들이다.",
+            "e-메탄올은 'Power-to-X' 공정으로 만든다. 재생에너지로 수소를 만들고, 바이오가스 시설에서 포집한 탄소와 결합하는 방식이다. 이 탄소는 그대로 두면 대기로 방출됐을 것이라고 한다. 산업 규모 생산은 유러피안 에너지, 노보 노디스크와의 파트너십 덕분에 가능해졌다고 알려졌다. 레고는 5년 넘게 공급사와 협력하고 시험하며 개발한 결과라고 설명했다.",
+            "다만 한계도 분명히 밝혔다. e-메탄올은 기존 생산 설비의 연속 공정에 버진 화석 원료와 함께 투입된다. 그래서 개별 부품이 전부 재생 원료로 만들어졌다고 보장하는 것은 아니다. 화석 원료 사용을 줄이면서 규모를 키워 가는 단계라는 뜻이다. 한 지속가능성 매체는 2025년 기준 레고 브릭·부품 소재의 52%가 재활용·재생 소재였다고 전했다.",
+            "한국 팬 입장에서는 당장 눈에 보이는 변화가 있는 소식은 아니다. 레고는 안전·품질·내구성을 해치지 않는 범위에서 진행한다고 밝혔다. 어떤 세트에 이 부품이 들어가는지, 한국 판매 제품에 적용되는 시점은 확인되지 않았다."
+          ],
+          "points": [
+            "e-메탄올로 90여 종 부품 생산 시작",
+            "재생 수소+포집 탄소, 화석 원료와 혼합 사용",
+            "개별 부품의 100% 재생 원료는 보장 안 함"
+          ],
+          "importance": 2,
+          "image": "https://www.lego.com/cdn/cs/aboutus/assets/bltd08690bffe6b9f1e/LEGO_Sustainability_2026_05_Moulding_-_02_.jpg?width=1200"
+        }
+      ]
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "레고 마블 '더 마블 스카이라인' 67006 공개, 예약 시작",
+          "summary": "1,261pcs 마이크로스케일 도시. 갈락투스 미니피규어 포함, 18+.",
+          "url": "https://brickset.com/article/135194/lego-67006-the-marvel-skyline-announced!",
+          "source": "Brickset",
+          "tag": "공식",
+          "set": "67006",
+          "theme": "Marvel (아키텍처 스카이라인 스타일)",
+          "price": "$99.99 / £89.99 / €99.99 (한국 가격 미정)",
+          "release": "2027년 1월 1일 (LEGO.com 예약 중)",
+          "release_date": "2027-01-01",
+          "importance": 3,
+          "image": "https://brickset.com/utils/ogimage/article/135194?23424"
+        },
+        {
+          "title": "GWP 40909 세계의 레스토랑: 이탈리아, 10/13부터",
+          "summary": "317pcs 피제리아. 해외는 $180 이상 구매 시 증정, 한국 조건은 미확인.",
+          "url": "https://brickset.com/article/135241/lego-40909-restaurants-of-the-world-italy-revealed",
+          "source": "Brickset",
+          "tag": "공식",
+          "set": "40909",
+          "theme": "사은품(GWP) · 세계의 레스토랑 4번째",
+          "price": "무료 증정 (미국·영국·유럽 $180 / £160 / €180 이상 구매 시, 재고 소진 시 종료)",
+          "release": "2026년 10월 13일부터 (해외 LEGO.com 기준)",
+          "release_date": "2026-10-13",
+          "importance": 2,
+          "image": "https://brickset.com/utils/ogimage/set/40909-1"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-10-13",
+      "set": "40909",
+      "name": "세계의 레스토랑: 이탈리아 (사은품)",
+      "theme": "GWP",
+      "price": "무료 증정(해외 $180 이상 구매 시)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아",
+      "theme": "아키텍처",
+      "price": "$799.99 / £649.99 / €749.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "베니스 지구",
+      "theme": "아이콘",
+      "price": "$549.99 / €499.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11390",
+      "name": "신룡 & 손오공 (드래곤볼)",
+      "theme": "아이콘",
+      "price": "$179.99 / £129.99 / €139.99",
+      "region": "글로벌 (LEGO.com 독점)"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠",
+      "theme": "보태니컬",
+      "price": "$22.99 / £17.99 / €19.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-04",
+      "set": "11390",
+      "name": "신룡 & 손오공 (드래곤볼)",
+      "theme": "아이콘",
+      "price": "",
+      "region": "한국"
+    },
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "고질라",
+      "theme": "아이디어",
+      "price": "€399.99",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 216992,
+    "output_tokens": 8243,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
