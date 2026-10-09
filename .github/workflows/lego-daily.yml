@@ -1,10 +1,7 @@
 name: 레고 데일리 소식
 
 on:
-  # 매일 11:30 KST(02:30 UTC) 시작 → 수집·Claude 요약(약 2~5분) → 12시 전후 카톡 도착
-  schedule:
-    - cron: "30 2 * * *"
-  # 수동 실행 (Actions 탭 → Run workflow)
+   # 수동 실행 (Actions 탭 → Run workflow)
   workflow_dispatch:
     inputs:
       mode:
