@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-10",
+  "source": "claude",
+  "headline": "오늘은 큰 신규 소식이 적다. 포켓몬 폴리백 30730이 500포인트 리워드로 돌아온다.",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": []
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": []
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "포켓몬 30730 트레이너 서플라이, 500포인트로 복귀",
+          "summary": "8월 GWP였던 56피스 폴리백이 10/9부터 Insiders 리워드로 나온다. 한국 적용은 미확인.",
+          "url": "https://www.brickfanatics.com/lego-pok-mon-polybag-is-returning-for-500-insiders-points",
+          "source": "Brick Fanatics",
+          "tag": "업데이트",
+          "set": "30730",
+          "theme": "포켓몬",
+          "price": "Insiders 500포인트 (글로벌 기준)",
+          "release": "2026-10-09부터 리워드 센터",
+          "release_date": "2026-10-09",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/766b78f0-f533-4f43-b9f1-f1ddc47e6203.jpg"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-10-13",
+      "set": "40909",
+      "name": "세계의 레스토랑: 이탈리아 (GWP, 317피스)",
+      "theme": "프로모셔널",
+      "price": "구매 증정 (미국 $180 이상 / 독일 €180 이상, 10/13~19)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11390",
+      "name": "드래곤볼 신룡 & 손오공",
+      "theme": "아이콘",
+      "price": "",
+      "region": "글로벌(LEGO.com 독점)"
+    }
+  ],
+  "usage": {
+    "input_tokens": 287731,
+    "output_tokens": 4009,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
