@@ -749,7 +749,7 @@ def render_blog_draft(main_list, pools, latest):
 
 
 # ---------- 관리자 통계 페이지 (로그인한 허락된 이메일만 숫자가 보임) ----------
-def source_stats(main_list, days=30):
+def source_stats(main_list, days=30, all_digests=None):
     """최근 N일 동안 실린 소식의 출처별 개수 + 클릭 TOP 표시용 제목."""
     import collections
     recent = main_list[-days:]
@@ -763,11 +763,15 @@ def source_stats(main_list, days=30):
                     src = src.split()[0] + " " + (src.split()[1] if len(src.split()) > 1 else "")
                 cnt[src.strip()] += 1
                 titles[it["url"]] = it["title"]
+    for d in all_digests or []:  # 자동 수집본(rss) 제목도 클릭 TOP 표시에 사용
+        for s in d.get("sections", []):
+            for it in s.get("items", []):
+                titles.setdefault(it["url"], it["title"])
     return {"days": len(recent), "items": [{"source": k, "n": v} for k, v in cnt.most_common(12)], "titles": titles}
 
 
-def render_stats(main_list):
-    data = json.dumps(source_stats(main_list), ensure_ascii=False).replace("</", "<\\/")
+def render_stats(main_list, all_digests=None):
+    data = json.dumps(source_stats(main_list, all_digests=all_digests), ensure_ascii=False).replace("</", "<\\/")
     body = ("<div class='dhead'><h1>📊 브릭소리 통계</h1><span>관리자 전용</span></div>"
             "<div id='app'><p class='empty'>불러오는 중…</p></div>"
             f"<script>window.LD_SOURCES={data}</script>"
@@ -866,7 +870,7 @@ def main():
             write(fname, render_pool_page(k, [], today_kst()))
         write("join.html", render_join({k: [] for k in POOL_PAGES}, None))
     write("archive.html", render_archive(list(reversed(main_list))))
-    write("stats.html", render_stats(main_list))
+    write("stats.html", render_stats(main_list, all_d))
     print(f"built {len(all_d)} day pages, {n_news} news pages (+index, deals, releases, archive) into {OUT}")
 
 

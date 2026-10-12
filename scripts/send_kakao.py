@@ -69,6 +69,11 @@ def short_desc(it):
 
 
 def link(url):
+    """카톡에서 누른 방문이 통계에 '카톡'으로 잡히도록 ?src=kakao 를 붙인다."""
+    if "src=" not in url:
+        base, _, frag = url.partition("#")
+        base += ("&" if "?" in base else "?") + "src=kakao"
+        url = base + (f"#{frag}" if frag else "")
     return {"web_url": url, "mobile_web_url": url}
 
 
