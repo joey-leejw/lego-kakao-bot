@@ -53,6 +53,7 @@
       app.querySelector('.st-out').onclick = () => client.auth.signOut().then(() => loginView());
       return;
     }
+    try { localStorage.setItem('ld_admin', '1'); } catch (_) {}  // 이 브라우저의 방문은 앞으로 집계 제외
     render(data);
   }
 
@@ -183,7 +184,7 @@
           const name = (S.titles || {})[u] || u.replace(/^https?:\/\/(www\.)?/, '').slice(0, 70);
           return `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(name)}</a><span>${fmt(r.n)}회</span></li>`;
         }).join('') + '</ol>' : '<p class="empty">아직 클릭 기록이 없어요.</p>'}</section>
-      <p class="st-note">방문자는 브라우저 기준이에요(같은 사람이 휴대폰·PC로 오면 2명). 이 페이지 방문은 집계하지 않아요.</p>`;
+      <p class="st-note">방문자는 브라우저 기준이에요(같은 사람이 휴대폰·PC로 오면 2명). 이 페이지 방문과, 여기서 로그인한 적 있는 브라우저(관리자)의 방문은 집계하지 않아요.</p>`;
     app.querySelectorAll('.st-range button').forEach((b) => { b.onclick = () => { days = +b.dataset.d; load(); }; });
     app.querySelector('.st-out').onclick = () => client.auth.signOut().then(() => loginView('로그아웃했어요.'));
     bindTips(app);

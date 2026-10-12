@@ -37,16 +37,17 @@
   } catch (_) {}
   function log(kind, extra) {
     if (location.pathname.endsWith('stats.html')) return;  // 통계 페이지는 집계 제외
+    try { if (localStorage.getItem('ld_admin') === '1') return; } catch (_) {}  // 관리자(내) 브라우저는 집계 제외
     sb('events', Object.assign({ kind, src, vid, page: location.pathname.slice(-120) }, extra || {}), true).catch(() => {});
   }
 
   // 방문 기록 + 기사 클릭 기록
   log('view');
   document.addEventListener('click', (e) => {
-    const a = e.target.closest && e.target.closest('a.t, a.orig');
+    const a = e.target.closest && e.target.closest('a.t, a.orig, a.li, a.stat, a.mini, a.more');
     if (!a) return;
-    const card = a.closest('.card, .source');
-    log('article', { target: a.href.slice(0, 2000), section: card ? (card.id || 'source') : null });
+    const card = a.closest('.card, .source, .li, .stat, .mini, .box') || a;
+    log('article', { target: a.href.slice(0, 2000), section: (card.id || card.className || 'link').toString().slice(0, 40) });
   });
 
   // ---------- 알림 구독 UI ----------
