@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-13",
+  "source": "claude",
+  "headline": "오늘부터 10/19까지 레고 공홈 포인트 2배, 24만 원 이상 구매 시 이탈리아 레스토랑(40909) 증정",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "레고 공홈 포인트 2배 + 이탈리아 레스토랑 증정 10/13~19",
+          "summary": "한국 공식몰 더블 포인트와 40909 증정이 오늘 시작. 24만 원 이상 구매 조건은 커뮤니티 글 기준.",
+          "url": "https://keyzard.cc/views/nb/NTYxPjE7Nz45Pis3Oi1lZW1ta2tsZmlrZmZubA",
+          "source": "키자드(커뮤니티 글 요약, lego.com/ko-kr 약관 미확인)",
+          "tag": "업데이트",
+          "period": "10/13~10/19",
+          "start": "2026-10-13",
+          "end": "2026-10-19",
+          "discount": "포인트 2배(통상 5%→10% 적립) + 40909 세계의 레스토랑: 이탈리아(317pcs) 증정",
+          "channel": "온라인",
+          "value": "해외 정가 $19.99·€19.99 상당(국내가 미확인)",
+          "limit": "24만 원 이상(커뮤니티 기준) · 선착순, 재고 소진 시 조기 종료 · 1인당 수량 제한 미확인 · 매장 적용 여부 미확인",
+          "importance": 3
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": [
+        {
+          "title": "영국·미국 유통사 자비 파산 절차, 레고 예약 주문 이행 불가",
+          "summary": "Zavvi가 10/12 파산 절차에 들어가 주문·예약이 모두 중단됐다. 결제 복구는 카드사에 문의해야 한다.",
+          "url": "https://www.brickfanatics.com/zavvi-enters-administration-ceasing-pre-orders",
+          "source": "Brick Fanatics",
+          "original_title": "Zavvi enters administration, ceasing orders and pre-orders",
+          "published": "2026-10-12",
+          "body": [
+            "레고 세트와 대중문화 굿즈를 파는 영국·미국 기반 유통사 Zavvi가 10월 12일 갑자기 관리 절차(파산 절차의 일종)에 들어가 영업을 즉시 중단했다. 영국과 미국 웹사이트 모두 정상 작동하지 않고, 파산 관리인의 안내문이 대신 뜬다.",
+            "안내문에 따르면 BDO LLP의 크리스 스키와 케리 베일리가 공동 관리인으로 선임됐다. 회사는 진행 중인 주문과 예약 주문을 이행할 수 없고 반품도 받지 않는다. 고객에게는 은행·카드사·결제 서비스에 연락해 결제 금액을 돌려받을 수 있는지 확인하라고 안내했다. 관리인은 문의용 이메일 주소도 열었고, 자동 회신으로 FAQ와 청구 방법을 보낸다.",
+            "Zavvi가 아마존 등 다른 판매 채널로 파는 상품도 주문할 수 없으며, 사이트에 남아 있는 할인 팝업은 무시하라고 한다. Brick Fanatics는 영국·미국 Zavvi에서 할인 레고를 사지 말라고 당부했다.",
+            "한국에서 Zavvi로 직구하거나 예약해 둔 팬이 있다면 주문 상태를 확인하고 결제 수단 쪽에 문의해야 한다. 이번 일이 레고 그룹의 판매나 국내 유통에 미치는 영향은 원문에 나오지 않는다."
+          ],
+          "points": [
+            "Zavvi 10/12 파산 절차, 영업 즉시 중단",
+            "주문·예약 이행 불가, 반품도 불가",
+            "결제 복구는 카드사·결제사에 문의"
+          ],
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/84169510-1d05-4206-a5f8-a160e83aec19.png"
+        },
+        {
+          "title": "머스크, Grok으로 레고 스타워즈 주문 → 주문 정보 노출",
+          "summary": "10/11 머스크가 $241.34 주문 캡처를 올렸다가 주소·주문번호가 드러났다. 레고 AI 챗으로 취소 시도도 있었다.",
+          "url": "https://www.ynetnews.com/tech-and-digital/article/b1bfjwksfe",
+          "source": "Ynetnews",
+          "original_title": "Elon Musk asks Grok to buy Lego, accidentally exposes addresses and credit card details",
+          "published": "2026-10-12",
+          "body": [
+            "일론 머스크가 10월 11일 X에 AI 챗봇 Grok에게 어린이용 레고 스타워즈 세트를 조사해 주문하게 했다는 글을 올렸다. 그는 \"이렇게 간단하다\"는 문구와 함께 레고 공식 사이트의 주문 완료 화면 캡처를 첨부했다.",
+            "Ynetnews에 따르면 이 캡처에는 텍사스 오스틴의 배송지, 별도의 청구지 주소, 이메일, 주문번호, 아메리칸 익스프레스 카드 끝 4자리가 보였다. 주문은 5개 세트에 총 $241.34였다. 다만 Grok이 완전히 자율적으로 결제했는지, 머스크가 직접 승인했는지는 캡처만으로는 알 수 없다고 이 매체는 지적했다.",
+            "이후 유튜버 엔더맨이 노출된 주문번호로 레고 AI 고객 지원 챗에 취소를 요청했다는 내용을 올렸고, 일부 매체가 이를 전했다. 머스크는 해당 주소가 자신의 보안팀 주소이며 이미 여러 번 공개됐다고 답한 것으로 알려졌다. 이 취소 요청이 실제로 처리됐는지는 레고 측 확인이 없다. 머스크가 이용자에게 신용카드 사진을 Grok에 올려 쇼핑을 맡기라고 권했다가, X의 커뮤니티 노트가 xAI 지침과 어긋난다고 짚었다는 보도도 있었다.",
+            "레고 팬에게는 주문번호만으로 고객센터 챗에서 취소 요청이 오갈 수 있었다는 점이 눈에 띈다. 주문 확인 화면 캡처를 공유할 때 번호와 주소를 가리는 편이 안전하다."
+          ],
+          "points": [
+            "10/11 머스크, Grok으로 레고 5종 $241.34 주문",
+            "캡처에 주소·주문번호·카드 끝 4자리 노출",
+            "레고 AI 챗으로 취소 시도했다는 보도"
+          ],
+          "importance": 2,
+          "image": "https://ynet-pic1.yit.co.il/picserver6/crop_images/2026/10/11/H10E4bFife/H10E4bFife_0_0_1461_817_0_large.jpg"
+        }
+      ]
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "레고 아이콘 드래곤볼 11390 손오공&신룡, 11/1",
+          "summary": "드래곤볼 첫 정식 세트. 약 1,760피스, $179.99. 인사이더 11/1, 일반 11/4 보도도 있음.",
+          "url": "https://www.brickfanatics.com/lego-2026-sets-confirmed-and-rumoured",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "11390",
+          "theme": "아이콘(Icons)",
+          "price": "$179.99 / £129.99 / €139.99 (한국가 미확인)",
+          "release": "2026-11-01 (LEGO.com 독점·인사이더 우선, 일반 판매는 11/4로 보도한 곳도 있음)",
+          "release_date": "2026-11-01",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/public/images/brick-fanatics-logo-full.png"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아",
+      "theme": "아키텍처",
+      "price": "$799.99 / €749.99 / £649.99 (12,060pcs, 예약 중)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠",
+      "theme": "보태니컬",
+      "price": "$22.99 / €19.99 / £17.99 (248pcs)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11390",
+      "name": "드래곤볼: 신룡 & 손오공",
+      "theme": "아이콘",
+      "price": "$179.99 / €139.99 / £129.99 (약 1,760pcs, LEGO.com 독점, 일반 11/4 보도도 있음)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "고질라",
+      "theme": "아이디어",
+      "price": "€399.99 (5,360pcs, Brick Fanatics 목록 기준)",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 223804,
+    "output_tokens": 10193,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
