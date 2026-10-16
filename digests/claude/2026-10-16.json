@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-16",
+  "source": "claude",
+  "headline": "레고 아이콘 '베네치아 이웃' 11388 공식 공개: 5,682피스, 549.99달러, 11/1 인사이더 선공개",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "코스트코 온라인 레고 푸드트럭 등 6천 원↓, 10/18 종료",
+          "summary": "푸드 트럭·창백한 숲·게임기 옵션 22,990원(6,000원 할인). 10/18까지",
+          "url": "https://www.costco.co.kr/LEGO/c/LEGO",
+          "source": "코스트코코리아 온라인몰",
+          "tag": "마트",
+          "period": "10/5~10/18",
+          "start": "2026-10-05",
+          "end": "2026-10-18",
+          "discount": "22,990원 (6,000원 할인, 배송비 포함가)",
+          "channel": "온라인",
+          "limit": "상품당 최대 10개 · 푸드 트럭/창백한 숲/게임기 중 옵션 선택 · 매장 판매가와 다를 수 있음",
+          "importance": 2
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": [
+        {
+          "title": "베네치아 세트에 '소리 나는' 3D 프린트 피아노",
+          "summary": "11388에 든 피아노는 레고 일반 세트의 두 번째 3D 프린트 부품",
+          "url": "https://www.brickfanatics.com/new-lego-icons-set-3d-printed-piano-plays-music",
+          "source": "Brick Fanatics",
+          "original_title": "New LEGO Icons set includes a 3D-printed piano that plays music",
+          "published": "2026-10-15",
+          "body": [
+            "레고 아이콘 신제품 11388 베네치아 이웃(Venetian Neighbourhood)에 실제로 소리를 내는 3D 프린트 피아노가 들어간다고 브릭 패나틱스가 15일 전했다. 피아노 위쪽의 화분을 돌리면 음이 연주되는 구조다.",
+            "이 피아노는 5,682피스 중 하나다. 일반 판매 레고 세트에 들어간 3D 프린트 부품으로는 두 번째이며, 첫 사례는 지난해 10361 홀리데이 익스프레스 트레인에 든 작은 파란색 기차였다. 당시 레고는 앞으로 3D 프린트 부품을 더 늘리겠다는 계획을 밝힌 바 있다. 레고는 3D 프린팅이 내부 구조나 움직이는 부품이 있는 복잡한 형태를 만드는 데 유리하다고 설명해 왔는데, 작동하는 피아노가 그 예라는 것이 매체의 설명이다.",
+            "지금까지 레고가 소리를 넣을 때는 10358 트랜스포머: 사운드웨이브처럼 전용 사운드 브릭을 썼다. 다만 이 방식은 작은 모형에는 쓰기 어려웠다. 3D 프린트 피아노는 그 대안을 보여준다. 연주 수준이 인상적이지는 않고 음 몇 개를 내는 정도다. All3DP는 레고 경영진이 선택적 레이저 소결(SLS)과 EOS 장비로 이런 정밀 부품을 만든다고 이전에 밝혔다고 소개했다.",
+            "한국 팬 입장에서는 11388의 국내 출시일과 가격이 아직 확인되지 않았다. 해외 가격은 549.99달러, 449.99파운드, 499.99유로다."
+          ],
+          "points": [
+            "소리 나는 3D 프린트 피아노 포함",
+            "일반 세트 3D 프린트 부품은 두 번째",
+            "한국 출시·가격은 아직 미확인"
+          ],
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/069dfb12-d0f3-442a-8cf2-ac9f94bafe2a.png"
+        },
+        {
+          "title": "레고 스마트 플레이, 타임 '2026 최고 발명품' 선정",
+          "summary": "타임이 10/15 공개한 올해의 발명품 목록에 스마트 플레이가 올랐다",
+          "url": "https://time.com/collection/best-inventions/2026/lego-smart-play/",
+          "source": "TIME",
+          "original_title": "Lego Smart Play: The Best Inventions of 2026",
+          "published": "2026-10-15",
+          "body": [
+            "타임이 10월 15일 공개한 '2026년 최고 발명품' 목록에 레고 스마트 플레이(SMART Play)가 이름을 올렸다.",
+            "타임은 스마트 플레이를 전통적인 브릭에 센서를 더한 시스템으로 소개했다. 레고 스터드보다 작은 칩이 들어간 브릭이 근처의 태그가 붙은 물체와 미니피규어를 감지하고, 그에 맞춰 소리와 빛으로 반응한다. 아이들이 자기 작품의 반응을 직접 프로그래밍할 수도 있다. 이 시스템에는 20개가 넘는 특허 기술이 적용됐고, 3월 스타워즈 세트 시리즈로 출시됐다.",
+            "레고는 올해 1월 5일 CES 2026에서 이 시스템을 처음 공개했다. 예약은 1월 9일, 출시는 3월 1일(일부 시장)이었다. 스마트 브릭은 기존 레고 브릭과 호환되며, 스마트 태그·스마트 미니피규어와 함께 쓴다. 첫 세트에는 루크의 X-윙, 다스베이더의 TIE 파이터 등이 포함됐다.",
+            "이번 소식은 수상 성격의 외부 평가다. 국내 출시 현황과 가격은 이번 기사에서 확인되지 않았다."
+          ],
+          "points": [
+            "타임 2026 최고 발명품에 선정",
+            "스터드보다 작은 칩, 20여 개 특허 기술",
+            "3월 1일 스타워즈 세트로 첫 출시"
+          ],
+          "importance": 1,
+          "image": "https://static.time.com/v3/assets/bltea6093859af6183b/blt1badda618bcfe2e2/6acf8582c9b4e3916c550430/Lego-Smart-Play-time-inventions-2026.jpg?branch=production&width=2400&quality=75&auto=webp&crop=16:9"
+        }
+      ]
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "아이콘 베네치아 11388 공식 공개, $549.99·11/1",
+          "summary": "5,682pcs·17피규어. 11/1 인사이더, 11/4 일반 판매. 40898 증정(재고 한정)",
+          "url": "https://brickset.com/article/135438/lego-icons-11388-venetian-neighbourhood-revealed!",
+          "source": "Brickset",
+          "tag": "업데이트",
+          "set": "11388",
+          "theme": "아이콘",
+          "price": "$549.99 / £449.99 / €499.99 (한국 가격 미확인)",
+          "release": "11/1 인사이더 선공개, 11/4 일반 판매 (GWP 40898 베네치안 워터 택시 증정, 재고 한정)",
+          "release_date": "2026-11-01",
+          "importance": 3,
+          "image": "https://brickset.com/utils/ogimage/article/135438?12704"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "베네치아 이웃 (인사이더 선공개, 일반 판매 11/4)",
+      "theme": "아이콘",
+      "price": "$549.99 / £449.99 / €499.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아 (12,060pcs)",
+      "theme": "아키텍처",
+      "price": "$799.99 / £649.99 / €749.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11390",
+      "name": "드래곤볼 손오공&신룡 (1,764pcs)",
+      "theme": "아이콘",
+      "price": "$179.99 / £129.99 / €139.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠",
+      "theme": "보태니컬",
+      "price": "$22.99 / £17.99 / €19.99",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 327377,
+    "output_tokens": 9792,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
