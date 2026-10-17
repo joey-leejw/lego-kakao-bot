@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-17",
+  "source": "claude",
+  "headline": "레고 아이콘 베네치아 11388, 11/1 인사이더 선공개…런칭 주간 '베네치아 워터택시' 증정",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": []
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": [
+        {
+          "title": "레고 프렌즈 첫 실사 뮤지컬, 10/16 공개",
+          "summary": "케니 오르테가가 제작한 50분 '하트레이크 더 뮤지컬'. 유튜브 무료, 넷플릭스 등 공개.",
+          "url": "https://variety.com/2026/film/global/kenny-ortega-lego-friends-heartlake-musical-1236912879/",
+          "source": "Variety",
+          "original_title": "Kenny Ortega Says His New Lego Friends ‘Heartlake’ Movie Brings the Bricks to Life ‘in the Most Wonderful Musical Capacity’",
+          "published": "2026-10-16",
+          "body": [
+            "레고그룹이 레고 프렌즈 라인을 바탕으로 한 첫 실사 뮤지컬 'LEGO Friends: Heartlake the Musical'을 10월 16일 공개했다. 러닝타임은 50분이며, 레고 공식 유튜브 채널에서 볼 수 있다. 버라이어티는 넷플릭스와 미국 피콕에서도 같은 날 공개된다고 전했다.",
+            "'하이스쿨 뮤지컬'과 '호커스 포커스'로 알려진 케니 오르테가가 총괄 프로듀서를 맡았다. 버라이어티 인터뷰에 따르면 오르테가는 이야기와 안무를 다듬고, 감독(오랜 협력자 폴 베커)과 촬영지(영국 런던), 배우 선정까지 맡았다. 레고와는 30년 넘게 인연이 있다고 밝혔다.",
+            "줄거리는 소녀 데이지(제이다 랭글리)가 마법처럼 하트레이크 시티로 옮겨가 친구들을 사귀고 특별한 랜드마크를 지키도록 돕는 내용이다. 별도 보도에 따르면 오리지널 곡은 4곡이다. 유니콘 카페 세트를 모티프로 한 팝업 체험이 10월 29~31일 런던에서 열린다. 투비(Tubi)는 11월 2일 미국·캐나다·영국 등에서 공개한다.",
+            "한국 팬은 유튜브로 무료 시청할 수 있다. 넷플릭스는 글로벌 공개로 알려졌지만, 국내 서비스 여부는 확인하지 못했다. 영상 콘텐츠로 프렌즈 라인을 키우려는 레고의 행보로 볼 수 있다."
+          ],
+          "points": [
+            "10/16 유튜브 무료 공개, 50분 분량",
+            "오르테가가 총괄 제작, 오리지널 곡 4곡",
+            "런던 팝업 10/29~31, 투비 11/2 공개"
+          ],
+          "importance": 2
+        }
+      ]
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "베네치아 11388 인사이더 11/1·일반 11/4, 워터택시 증정",
+          "summary": "5,682pcs·$549.99/€499.99/£449.99. 런칭 주간 322pcs 40898 베네치아 워터택시를 증정(재고 소진 시까지).",
+          "url": "https://www.thebrickpost.com/news/lego-icons-venetian-neighbourhood-11388-officially-announced/",
+          "source": "The Brick Post",
+          "tag": "업데이트",
+          "set": "11388 (GWP 40898)",
+          "theme": "아이콘",
+          "price": "$549.99 / €499.99 / £449.99 (한국 가격 미확인)",
+          "release": "인사이더 얼리 액세스 11/1, 일반 판매 11/4",
+          "release_date": "2026-11-01",
+          "importance": 3,
+          "image": "https://www.thebrickpost.com/wp-content/uploads/2026/10/InCollage_20261015_141719553.jpg"
+        },
+        {
+          "title": "마블 스카이라인 67006, 2027/1/1 출시…예약 시작",
+          "summary": "아키텍처풍 마이크로빌드. 스타크 타워·생텀 생토럼·데일리 뷰글 포함, 신규 스파이더맨 미니피규어.",
+          "url": "https://www.theminifigurestore.uk/weekly-lego-news-roundup-4-oct-2026-11-oct-2026/",
+          "source": "The Minifigure Store·Jay's Brick Blog",
+          "tag": "공식",
+          "set": "67006",
+          "theme": "마블",
+          "price": "미확인",
+          "release": "2027년 1월 1일 (예약 진행 중)",
+          "release_date": "2027-01-01",
+          "importance": 2
+        },
+        {
+          "title": "레고×산리오 헬로키티 세트, 2027년 출시 예정",
+          "summary": "다년 파트너십 발표. 10/14·16·21일과 핼러윈(쿠로미)에 티저 공개 예고.",
+          "url": "https://jaysbrickblog.com/news/lego-hello-kitty-friends-sets-coming-in-2027/",
+          "source": "Jay's Brick Blog",
+          "tag": "공식",
+          "theme": "헬로키티&프렌즈",
+          "price": "미확인",
+          "release": "2027년",
+          "release_date": "2027",
+          "importance": 2,
+          "image": "https://jaysbrickblog.com/wp-content/uploads/2026/10/LEGO-Sanrio-2.jpg"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "베네치아 이웃 마을 (인사이더 선공개, 일반 11/4)",
+      "theme": "아이콘",
+      "price": "$549.99 / €499.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아 (12,060pcs)",
+      "theme": "아키텍처",
+      "price": "$799.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠",
+      "theme": "보태니컬",
+      "price": "$22.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11390",
+      "name": "드래곤볼 신룡 & 손오공 (인사이더 선공개, 일반 11/4)",
+      "theme": "드래곤볼",
+      "price": "$179.99",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 312703,
+    "output_tokens": 7811,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
