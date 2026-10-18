@@ -1,0 +1,169 @@
+{
+  "date": "2026-10-18",
+  "source": "claude",
+  "headline": "레고 블랙프라이데이 11/27~30 공식몰 확정, 인사이더 주말은 11/21~22(글로벌 기준)",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "레고 공식몰 블랙프라이데이 11/27~11/30 확정",
+          "summary": "할인·구매 시 선물 증정. 세트·사은품은 미공개. 인사이더 주말 11/21~22는 글로벌 기준.",
+          "url": "https://www.lego.com/ko-kr/black-friday-deals",
+          "source": "레고 공식몰(lego.com/ko-kr)",
+          "tag": "공식몰",
+          "period": "11/27~11/30",
+          "start": "2026-11-27",
+          "end": "2026-11-30",
+          "discount": "할인·구매 시 선물 증정(세부 세트 미공개, 재고 소진 시까지)",
+          "channel": "온라인",
+          "limit": "사은품·대상 세트 미공개. 인사이더 주말(11/21~22)의 한국 적용은 미확인",
+          "importance": 3
+        },
+        {
+          "title": "레고 스타트렉 10356 구매 시 셔틀포드 증정 ~11/20",
+          "summary": "공식몰 신제품 페이지에 스타트렉 증정 행사 종료일 11/20로 표기.",
+          "url": "https://www.lego.com/ko-kr/categories/new-sets-and-products",
+          "source": "레고 공식몰(lego.com/ko-kr)",
+          "tag": "공식몰",
+          "period": "~11/20",
+          "end": "2026-11-20",
+          "discount": "Star Trek Type-15 셔틀포드(40768) 증정 추정",
+          "channel": "온라인",
+          "limit": "최소 구매 금액·수량 제한은 약관에서 확인 필요(재고 소진 시 조기 종료 가능)",
+          "importance": 2
+        },
+        {
+          "title": "트레이더스 천안아산점 다스베이더 미니피겨 129,800원",
+          "summary": "블로그 후기상 1만 원 할인가. 공식 확인 안 된 매장 제보.",
+          "url": "https://blog.naver.com/kkoooya/224445088374",
+          "source": "네이버 블로그 '아이와 함께한 소소한 순간들 꼬야로그'(매장 제보)",
+          "tag": "마트",
+          "period": "10월 중(정확한 기간 미확인)",
+          "discount": "새로 나온 다스베이더 미니피겨 1만 원 할인, 129,800원",
+          "channel": "오프라인",
+          "limit": "천안아산점 기준 후기. 타 지점·재고는 미확인",
+          "importance": 1
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": [
+        {
+          "title": "ASML 직원 전용 레고 키트, 팬이 810피스 복제본 공개",
+          "summary": "중고 시세 500~700달러인 세트를 레브릭커블 MOC로 대체할 수 있게 됐다.",
+          "url": "https://www.tomshardware.com/tech-industry/employee-exclusive-asml-lego-set-now-available-on-rebrickable-custom-creation-modifies-original-version-to-add-more-details-now-requires-810-parts",
+          "source": "Tom's Hardware",
+          "original_title": "ASML's employee-only High-NA EUV Lego kit gets an open 810-piece fan replica — custom MOC dodges $700 eBay prices with working wafer tray and vacuum pumps",
+          "published": "2026-10-17",
+          "body": [
+            "반도체 장비 업체 ASML이 2024년 12월 세계 최초 High-NA EUV 장비 'TWINSCAN EXE:5000'의 레고 스타일 키트를 내놨다. 이 키트는 직원에게만 판매된다. 비직원의 주문은 취소돼 수집가들 사이에서 더 갖고 싶은 물건이 됐다.",
+            "공식 사이트 가격은 230달러다. 하지만 현재 eBay 즉시구매 가격은 500~700달러 수준이라고 매체는 전했다. 이런 상황에서 레브릭커블(Rebrickable)에 이 키트를 재현한 MOC(자작 모델)가 올라왔다. 제작자는 NightHawk11991으로, 친구의 부탁으로 만들었다고 설명했다.",
+            "이 MOC는 총 810피스, 고유 부품 152종이 필요하다. 제작자는 실제 장비의 디테일을 더 살리기 위해 원본에서 일부를 변형했다고 밝혔다. 기사 제목은 웨이퍼 트레이와 진공 펌프 기능이 들어갔다고 소개한다. 설계도와 부품 목록은 레브릭커블에서 무료로 볼 수 있다. 원본은 구하기 어렵지만, 부품만 모으면 비슷한 모델을 직접 조립해 볼 수 있다."
+          ],
+          "points": [
+            "ASML 레고 키트는 직원 전용, 공식가 230달러",
+            "중고 시세 500~700달러까지 상승",
+            "810피스 팬 MOC가 레브릭커블에 공개"
+          ],
+          "importance": 2,
+          "image": "https://cdn.mos.cms.futurecdn.net/JqoFFBmB9aMnFZkcoqYUvC-1920-80.png"
+        },
+        {
+          "title": "레고 아이디어 3차 리뷰에 '이웃집 토토로 1988' 10K 달성",
+          "summary": "2,341피스 디오라마. 3차 리뷰 대상은 총 32개로 늘었다.",
+          "url": "https://www.brickfanatics.com/lego-ideas-third-review-gains-its-first-10k-totoro-submission",
+          "source": "Brick Fanatics",
+          "original_title": "LEGO Ideas third review gains its first 10K Totoro submission",
+          "published": "2026-10-15",
+          "body": [
+            "2026년 레고 아이디어 3차 리뷰에 지브리 영화 '이웃집 토토로'를 소재로 한 작품이 처음으로 10K 서포터를 달성했다. 제작자는 FullMetalBricks이며, 달성일은 10월 15일이다. 작품명은 'My Neighbor Totoro 1988'이고 구성은 2,341피스다.",
+            "검은 전시 받침대 위에 프린트된 제목 명판이 있는 디오라마다. 큰 토토로는 표정을 바꿔 끼울 수 있다고 한다. 작은 토토로(츄토토로)와 아기 토토로(치비 토토로)도 브릭으로 만들었다. 사츠키와 메이 미니피겨가 포함되고, 큰 나무 줄기와 파란 투명 연못, 여러 식물도 들어 있다.",
+            "The Brick Fan의 10월 17일자 아이디어 업데이트에 따르면 지난 한 주 동안 10K를 달성한 작품은 이 작품 하나뿐이다. 3차 리뷰 진출작은 이번으로 32개가 됐다. Brick Fanatics는 토토로 소재 아이디어가 과거에도 여러 번 10K에 도달했지만 아직 제품화된 적은 없다고 전했다. 10K 달성은 레고의 심사 단계로 넘어간다는 뜻이며, 제품화가 확정된 것은 아니다."
+          ],
+          "points": [
+            "My Neighbor Totoro 1988, 2,341피스, 10/15 달성",
+            "3차 리뷰 진출작 32개로 늘어남",
+            "토토로 아이디어는 아직 제품화된 적 없음"
+          ],
+          "importance": 1,
+          "image": "https://www.brickfanatics.com/storage/uploads/64b7d077-da69-4afb-b793-0f333956f2a9.jpg"
+        }
+      ]
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "보태니컬 10371 코지 플랜츠, 11/1 출시",
+          "summary": "식물 시리즈 신작. 11/1 출시가 확정된 것으로 보도됨.",
+          "url": "https://www.brickfanatics.com/lego-black-friday-deals",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "10371",
+          "theme": "Botanicals",
+          "release": "2026년 11월 1일",
+          "release_date": "2026-11-01",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/public/images/brick-fanatics-logo-full.png"
+        },
+        {
+          "title": "레고 젤다의 전설 신작: 오카리나 링크&에포나",
+          "summary": "젤다 40주년 기념, 2027년 봄 출시로 보도. 세트번호·가격 미확인.",
+          "url": "https://www.brickfanatics.com/all-lego-2027-sets",
+          "source": "Brick Fanatics",
+          "tag": "공개",
+          "theme": "The Legend of Zelda",
+          "release": "2027년 봄(보도)",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/public/images/brick-fanatics-logo-full.png"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-01",
+      "set": "11390",
+      "name": "드래곤볼 신룡 & 손오공",
+      "theme": "아이콘",
+      "price": "",
+      "region": "글로벌(인사이더 얼리 액세스)"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠",
+      "theme": "보태니컬",
+      "price": "",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아(12,060피스)",
+      "theme": "아키텍처",
+      "price": "",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "베네치아(인사이더 11/1·일반 11/4)",
+      "theme": "아이콘",
+      "price": "$549.99",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 324994,
+    "output_tokens": 9530,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
