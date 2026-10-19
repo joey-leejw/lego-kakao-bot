@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-19",
+  "source": "claude",
+  "headline": "역대 최대 12,060피스 '사그라다 파밀리아' 21065, 11/1 출시…$799.99",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "레고 인사이더 위크엔드 11/21~22 확정 (한국 적용 미확인)",
+          "summary": "블랙프라이데이 직전 주말 회원 전용 행사. 구체 혜택은 아직 비공개.",
+          "url": "https://www.lego.com/en-us/insiders-weekend-deals",
+          "source": "LEGO.com(글로벌 공식 페이지)",
+          "tag": "공식몰",
+          "period": "11/21~11/22",
+          "start": "2026-11-21",
+          "end": "2026-11-22",
+          "discount": "회원 전용 할인·사은품·깜짝 혜택 예고 (세부 내용 미공개)",
+          "channel": "온라인",
+          "limit": "인사이더 회원 대상 · 글로벌 공식 페이지 기준이며 한국몰 적용·혜택은 미확인 · 앞서 확정된 블랙프라이데이는 11/27~11/30",
+          "importance": 2
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": [
+        {
+          "title": "레고랜드 '선생님 감사합니다' 10/25~11/16, 교사 무료",
+          "summary": "교사 본인 무료, 동반 3명 1인 2만7천원. 빅샵 키라이트 20% 할인.",
+          "url": "https://www.businesskorea.co.kr/news/articleView.html?idxno=279072",
+          "source": "Businesskorea",
+          "original_title": "레고랜드, 교사 대상 무료입장 프로모션",
+          "published": "2026-10-19",
+          "body": [
+            "레고랜드 코리아 리조트가 교사를 위한 '선생님 감사합니다' 프로모션을 10월 25일부터 11월 16일까지 운영한다. 이 프로모션은 2023년 처음 시작됐으며 올해로 5회째를 맞는다.",
+            "대상은 어린이집·유치원 교사와 원장, 초·중·고등학교 교사와 행정 직원, 태권도 학원 강사다. 교사 본인은 기간 중 원하는 날짜에 무료로 입장할 수 있고, 동반인은 최대 3명까지 1인당 2만 7,000원의 특별 할인가를 적용받는다. 같은 기간 브릭스트릿 빅샵에서 레고 키라이트를 20% 할인된 가격에 살 수 있는 혜택도 함께 제공된다.",
+            "참여하려면 방문 하루 전까지 레고랜드 공식 홈페이지의 '티켓요금/할인' 메뉴에서 신청서를 작성하고 날짜를 지정해 사전 예약을 마쳐야 한다. 방문 당일에는 입장 게이트에서 예약 QR코드와 교사 신분을 증명할 서류를 반드시 보여줘야 한다. 동반인 할인은 증빙 확인을 마친 교사와 함께 입장할 때만 받을 수 있다.",
+            "교직에 있는 레고 팬이라면 입장 혜택과 함께 키라이트 할인까지 챙길 수 있는 행사다. 사전 예약이 필수이고 신분 증빙을 준비해야 한다는 점만 기억하면 된다."
+          ],
+          "points": [
+            "10/25~11/16, 교사 본인 무료 입장",
+            "동반 최대 3명 1인 27,000원",
+            "사전 예약 필수·빅샵 키라이트 20%↓"
+          ],
+          "importance": 2,
+          "image": "https://www.businesskorea.co.kr/news/thumbnail/202610/279072_286792_3813_v150.jpg"
+        }
+      ]
+    },
+    {
+      "key": "global_news",
+      "items": []
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "아키텍처 21065 사그라다 파밀리아, 11/1 출시",
+          "summary": "12,060피스, 레고 역대 최대 세트. $799.99·£649.99·€749.99.",
+          "url": "https://jaysbrickblog.com/lego-november-2026-sets/",
+          "source": "Jay's Brick Blog",
+          "tag": "공식",
+          "set": "21065",
+          "theme": "아키텍처",
+          "price": "$799.99 / £649.99 / €749.99 (한국 가격 미확인)",
+          "release": "2026년 11월 1일",
+          "release_date": "2026-11-01",
+          "importance": 3,
+          "image": "https://jaysbrickblog.com/wp-content/uploads/2026/09/11390-Shenron-and-Goku-Feature_BfOugBcroWqa.png"
+        },
+        {
+          "title": "DC 배트맨 2027 신작 3종 공개, 2027/1/1 출시",
+          "summary": "67008 배트모빌&덕 $59.99, 67009 아캄 $29.99, 67012 조커 아트 $169.99.",
+          "url": "https://www.brickfanatics.com/first-lego-batman-2027-sets-revealed-price-pieces",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "67008 / 67009 / 67012",
+          "theme": "DC 배트맨",
+          "price": "$59.99(672pcs) / $29.99(317pcs) / $169.99(1,849pcs)",
+          "release": "2027년 1월 1일",
+          "release_date": "2027-01-01",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/dcbb4a59-2c73-472b-a763-cb182b847507.png"
+        },
+        {
+          "title": "스파이더버스 3 레고 3종 루머, 2027년 4월",
+          "summary": "67013 오토바이 $24.99(184pcs), 67015 스파이더펑크, 67016 페니 메카.",
+          "url": "https://gamerant.com/spider-man-beyond-the-spider-verse-lego-sets-2027-list-leak/",
+          "source": "GameRant",
+          "tag": "루머",
+          "set": "67013 / 67015 / 67016",
+          "theme": "마블 스파이더맨",
+          "price": "67013 $24.99 (나머지 미확인)",
+          "release": "2027년 4월 (루머, 공식 발표 전)",
+          "release_date": "2027-04",
+          "importance": 1,
+          "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/wm/2026/10/spider-man-across-the-spider-verse-lego-characters-minifigures.jpg?w=1600&h=900&fit=crop"
+        },
+        {
+          "title": "슈퍼 마리오 미니피겨 8종, 2027/1/1 출시",
+          "summary": "$9.99 72052부터 $99.99 72060(850pcs)까지. 레고 코리아 사이트도 2027 출시 안내.",
+          "url": "https://www.brickfanatics.com/every-lego-super-mario-minifigure-new-2027-sets",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "72052~72061",
+          "theme": "슈퍼 마리오",
+          "price": "$9.99 ~ $99.99 (한국 가격 미확인)",
+          "release": "2027년 1월 1일",
+          "release_date": "2027-01-01",
+          "importance": 1,
+          "image": "https://www.brickfanatics.com/bf-derivatives/webp/3c8de6c8e68cc6749b9a9db4412f29f103e3acd554cb56faa6cf4bc5e5c2cc9b.webp"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아 (12,060피스, 역대 최대)",
+      "theme": "아키텍처",
+      "price": "$799.99 / £649.99 / €749.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "베네치아 이웃 마을 (인사이더 선공개, 일반 11/4)",
+      "theme": "아이콘",
+      "price": "$549.99 / £449.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11390",
+      "name": "드래곤볼 신룡 & 손오공 (인사이더 선공개)",
+      "theme": "아이콘",
+      "price": "$179.99 / £129.99 / €139.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠",
+      "theme": "보태니컬",
+      "price": "$22.99 / £17.99 / €19.99",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 333016,
+    "output_tokens": 9073,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
