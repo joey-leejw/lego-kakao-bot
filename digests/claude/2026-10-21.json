@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-21",
+  "source": "claude",
+  "headline": "레고 드래곤볼 신룡&손오공 한국 199,900원·11/4 출시, 공식몰 호박 해골 증정은 10/27까지",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "공식몰 호박 해골(30717) 증정, 10/20~10/27",
+          "summary": "글로벌 사은품. 한국 조건은 5.6만 원 이상으로 알려졌으나 공식 약관은 미확인",
+          "url": "https://jaysbrickblog.com/news/new-october-2026-regional-lego-gwps-offers-now-live/",
+          "source": "Jay's Brick Blog·꾸삐바보 카페(제보)",
+          "tag": "공식몰",
+          "period": "10/20~10/27",
+          "start": "2026-10-20",
+          "end": "2026-10-27",
+          "discount": "30717 Fun Halloween Skeleton(71pcs) 증정",
+          "channel": "온라인",
+          "value": "폴리백 소형(미국 정가 $4.99)",
+          "limit": "한국 5.6만 원 이상(카페 글 기준, 레고 코리아 약관 미확인) · 재고 소진 시 조기 종료",
+          "importance": 2,
+          "image": "https://jaysbrickblog.com/wp-content/uploads/2026/10/Late-October-Regional-GWPs-2026.png"
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": []
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "드래곤볼 신룡&손오공 11390, 한국 199,900원",
+          "summary": "1,764pcs 18+. 한국 정가 199,900원, 11/1 인사이더 선공개 후 11/4 정식 출시",
+          "url": "https://www.lego.com/ko-kr/product/dragon-ball-shenron-goku-11390",
+          "source": "레고 공식몰(ko-kr)",
+          "tag": "공식",
+          "set": "11390",
+          "theme": "아이콘(드래곤볼)",
+          "price": "한국 199,900원 / $179.99 / €139.99 / £129.99",
+          "release": "2026년 11월 4일(인사이더 선공개 11/1)",
+          "release_date": "2026-11-04",
+          "importance": 3
+        },
+        {
+          "title": "아이디어 21375 고질라, 11/27 출시 목록에 올라",
+          "summary": "5,360pcs, €399.99. 브릭 파나틱스 연간 목록 기준이며 한국 가격은 미확인",
+          "url": "https://www.brickfanatics.com/lego-2026-sets-confirmed-and-rumoured",
+          "source": "Brick Fanatics",
+          "tag": "공개",
+          "set": "21375",
+          "theme": "아이디어",
+          "price": "€399.99",
+          "release": "2026년 11월 27일(목록 기준)",
+          "release_date": "2026-11-27",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/public/images/brick-fanatics-logo-full.png"
+        },
+        {
+          "title": "레고 아이디어 10K 3종: 몬티 파이튼·유르트·산호초",
+          "summary": "3차 리뷰 후보 3종이 1만 표 달성. 리뷰는 2027년 1월 종료 예정",
+          "url": "https://www.brickfanatics.com/three-new-lego-ideas-projects-include-monty-python",
+          "source": "Brick Fanatics",
+          "tag": "공개",
+          "theme": "아이디어",
+          "release": "미정(제품화 시 리뷰 결과 후 발표)",
+          "importance": 1,
+          "image": "https://www.brickfanatics.com/storage/uploads/99ae0101-9ee2-4105-b8dd-a26fc7dbbddd.png"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "보태니컬 코지 플랜츠",
+      "theme": "보태니컬",
+      "price": "$22.99 / €19.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "아키텍처 사그라다 파밀리아(12,060pcs)",
+      "theme": "아키텍처",
+      "price": "$799.99 / €749.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "아이콘 베네치아 이웃(인사이더 선공개)",
+      "theme": "아이콘",
+      "price": "$549.99 / €499.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-04",
+      "set": "11390",
+      "name": "드래곤볼: 신룡 & 손오공(인사이더 선공개 11/1)",
+      "theme": "아이콘(드래곤볼)",
+      "price": "199,900원 / $179.99",
+      "region": "한국·글로벌"
+    },
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "고질라(목록 기준)",
+      "theme": "아이디어",
+      "price": "€399.99",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 321613,
+    "output_tokens": 6113,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
