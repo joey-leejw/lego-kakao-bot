@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-22",
+  "source": "claude",
+  "headline": "롯데온 10/28 레고 대형 플레이 세트 최대 20%+쿠폰, 오늘은 다프트 펑크×레고 공개 예고일",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "롯데온 키즈런 블랙, 10/28 레고 대형 세트 특가",
+          "summary": "키즈런 블랙 마지막 날인 10/28에 레고 대형 플레이 세트 최대 20% 할인에 중복쿠폰 15%, 카드 7%를 얹는다.",
+          "url": "https://www.inthenews.co.kr/news/article.html?no=93370",
+          "source": "롯데온(인더뉴스 보도)",
+          "tag": "온라인몰",
+          "period": "10/28 하루 (키즈런 블랙은 10/22~10/28)",
+          "start": "2026-10-28",
+          "end": "2026-10-28",
+          "discount": "최대 20% 할인 + 15% 중복 쿠폰 + 카드 할인 7%",
+          "channel": "온라인",
+          "limit": "대상은 '대형 플레이 세트'로만 보도됨. 세트 목록과 쿠폰·카드 조건은 롯데온 행사 페이지에서 확인 필요",
+          "importance": 3,
+          "image": "https://www.inthenews.co.kr/data/photos/20261043/art_17926279988172_e1557d.jpg"
+        },
+        {
+          "title": "카카오 선물하기 레고 어텀위크 10/23 오픈",
+          "summary": "10/23 10시 오픈. 드래곤볼 등 11월 신제품 사전 구매와 기획전 구매 시 금액대별 사은품을 준다.",
+          "url": "https://gift.kakao.com/page/code/forme?killer-card=697",
+          "source": "카카오톡 선물하기 (기간은 네이버 카페 브릭나라 제보)",
+          "tag": "온라인몰",
+          "period": "10/23~10/30",
+          "start": "2026-10-23",
+          "end": "2026-10-30",
+          "discount": "금액대별 사은품 증정 (사은품 종류·구간은 오픈 후 확인 필요)",
+          "channel": "온라인",
+          "limit": "오픈일 10/23 10:00은 카카오 선물하기 페이지에서 확인. 종료일 10/30은 카페 제보라 공식 확인 필요",
+          "importance": 2,
+          "image": "https://t1.daumcdn.net/gift/pagebuilder/image/page/91/20260118_H_1460797836423043675.png?image_original_width=720&image_original_height=360"
+        },
+        {
+          "title": "레고스토어 멤버십데이 10/22~25 (매장 제보)",
+          "summary": "카페 제보에 따르면 멤버십데이가 10/22~10/25 4일간 열린다. 혜택 내용은 공식 확인 전이다.",
+          "url": "https://cafe.naver.com/kupibabo/141300",
+          "source": "네이버 카페 꾸삐바보 (매장 제보)",
+          "tag": "핫딜",
+          "period": "10/22~10/25",
+          "start": "2026-10-22",
+          "end": "2026-10-25",
+          "discount": "혜택 내용 미확인 (공식 공지 확인 필요)",
+          "channel": "오프라인",
+          "limit": "레고 공식 확인이 안 된 카페 제보. 지점별로 다를 수 있으니 방문 전 매장 문의 권장",
+          "importance": 2
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": []
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "레고×다프트 펑크 티저, 오늘(10/22) 공개 예고",
+          "summary": "다프트 펑크 방송 말미에 레고 브릭 티저와 '22.10' 숫자가 나왔다. 세트 정체는 아직 발표 전이다.",
+          "url": "https://www.brickfanatics.com/lego-and-daft-punk-just-teased-an-upcoming-mystery-collaboration",
+          "source": "Brick Fanatics",
+          "tag": "루머",
+          "theme": "콜라보(아이디어 후보 추정)",
+          "price": "미정",
+          "release": "미정 (공개일 10/22 추정)",
+          "importance": 3,
+          "image": "https://www.brickfanatics.com/storage/uploads/2cdb28cc-4d0a-47d3-ba27-203a9a2b2199.jpg"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11",
+      "set": "11390",
+      "name": "드래곤볼 신룡&손오공",
+      "theme": "드래곤볼",
+      "price": "199,900원",
+      "region": "한국"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "베네치아 이웃 거리(Venetian Neighbourhood)",
+      "theme": "아이콘",
+      "price": "$549.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠",
+      "theme": "보태니컬",
+      "price": "",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아",
+      "theme": "아키텍처",
+      "price": "",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "고질라",
+      "theme": "아이디어",
+      "price": "",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 331749,
+    "output_tokens": 7052,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
