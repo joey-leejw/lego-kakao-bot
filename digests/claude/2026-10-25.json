@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-25",
+  "source": "claude",
+  "headline": "내일(10/26)부터 네이버 넾다세일, 11/1엔 사그라다 파밀리아·드래곤볼 출시",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "네이버 넾다세일 10/26~11/8 (레고 참여는 미확인)",
+          "summary": "핫딜 커뮤니티에 올라온 일정이다. 레고 공식스토어 참여 여부와 대상 세트는 아직 확인하지 못했다.",
+          "url": "https://arca.live/b/hotdeal/186765773",
+          "source": "아카라이브 핫딜 (네이버쇼핑 행사)",
+          "tag": "온라인몰",
+          "period": "10/26~11/8",
+          "start": "2026-10-26",
+          "end": "2026-11-08",
+          "discount": "행사 쿠폰 제공. 레고 공식스토어 대상은 미확인",
+          "channel": "온라인",
+          "limit": "일정은 예상 일정이라 네이버 공지에 따라 바뀔 수 있음. 레고 공식스토어 행사 페이지에서 직접 확인 필요",
+          "importance": 1
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": []
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "아이디어 40889 빌드, 페인트 앤 플레이 리뷰 공개",
+          "summary": "158피스 증정 세트다. 파란 우주인이 청록색으로 바뀌었고 스티커지는 흰색 배경이다. 10/28부터 받을 수 있다.",
+          "url": "https://www.brickfanatics.com/new-lego-classic-space-reviews-closer-look-at-gwp",
+          "source": "Brick Fanatics",
+          "tag": "업데이트",
+          "set": "40889",
+          "theme": "아이디어 (클래식 스페이스)",
+          "price": "증정품 (구매 조건은 지역별 상이)",
+          "release": "2026년 10월 28일",
+          "release_date": "2026-10-28",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/ee585291-68c7-4253-9d81-e716df4085ed.png"
+        },
+        {
+          "title": "마블 스카이라인 67006, 1,261피스 $99.99",
+          "summary": "마블 건물 14채를 담은 마이크로스케일 18+ 세트다. 2027년 1월 1일 LEGO.com에서 출시된다.",
+          "url": "https://brickset.com/article/135194/lego-67006-the-marvel-skyline-announced!",
+          "source": "Brickset",
+          "tag": "공식",
+          "set": "67006",
+          "theme": "마블",
+          "price": "$99.99 / £89.99 / €99.99",
+          "release": "2027년 1월 1일",
+          "release_date": "2027-01-01",
+          "importance": 2,
+          "image": "https://brickset.com/utils/ogimage/article/135194?9070"
+        },
+        {
+          "title": "마인크래프트 타이니 몹스 2027년 4월 출간",
+          "summary": "레고 북스 신규 시리즈다. 치킨(47피스)과 늑대 새끼(59피스) 모델이 들어 있다. 아마존에서 예약 중이다.",
+          "url": "https://www.hothbricks.com/a-paraitre-en-2027-lego-minecraft-tiny-mobs/",
+          "source": "HothBricks(프랑스)",
+          "tag": "공식",
+          "theme": "마인크래프트 (레고 북스)",
+          "release": "2027년 4월",
+          "release_date": "2027-04",
+          "importance": 1,
+          "image": "https://www.hothbricks.com/wp-content/uploads/2026/10/lego-minecraft-tiny-mobs.jpg"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-10-28",
+      "set": "40889",
+      "name": "빌드, 페인트 앤 플레이! (증정)",
+      "theme": "아이디어",
+      "price": "증정품",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11",
+      "set": "11388",
+      "name": "베네치아 이웃 마을",
+      "theme": "아이콘",
+      "price": "$549.99",
+      "region": "미국"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아 (12,060피스)",
+      "theme": "아키텍처",
+      "price": "$799.99 / €749.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠",
+      "theme": "보태니컬",
+      "price": "$22.99 / €19.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11390",
+      "name": "드래곤볼 신룡 & 손오공",
+      "theme": "아이콘",
+      "price": "199,900원 (미국 $179.99)",
+      "region": "한국"
+    },
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "고질라 (5,360피스, 출시 목록 기준)",
+      "theme": "아이디어",
+      "price": "",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 331233,
+    "output_tokens": 5453,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
