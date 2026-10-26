@@ -1,0 +1,215 @@
+{
+  "date": "2026-10-26",
+  "source": "claude",
+  "headline": "네이버 넾다세일 10/27 레고 특가 확정, 11/1 사그라다 파밀리아·베네치아 출시",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "네이버 넾다세일 10/27 레고 키즈 특가전 확정",
+          "summary": "넾다세일(~11/8) 27일 릴레이 특가에 레고 포함 확정. 베이비바우처 10% 적립. 세트별 할인율은 미공개",
+          "url": "https://www.newspim.com/news/view/20261026000231",
+          "source": "뉴스핌",
+          "tag": "업데이트",
+          "period": "10/27 레고 릴레이 특가 (넾다세일 전체 10/26~11/8)",
+          "start": "2026-10-27",
+          "end": "2026-10-27",
+          "discount": "레고 포함 확정 · 세트별 할인율 미공개 · 베이비바우처 10% 적립",
+          "channel": "온라인",
+          "limit": "네이버플러스 스토어 · 쿠폰·멤버십 혜택은 행사 페이지에서 확인 필요",
+          "importance": 3,
+          "image": "https://img.newspim.com/news/2026/10/26/2610260928220920_t1.jpg"
+        },
+        {
+          "title": "레고 공식몰 블랙프라이데이 11/27~11/30 예고",
+          "summary": "공식몰 안내 페이지에 11/27 시작이 올라왔다. 할인과 구매 시 선물 증정이 예정됐고 세부 조건은 아직 없다",
+          "url": "https://www.lego.com/ko-kr/black-friday-deals",
+          "source": "레고 공식몰(ko-kr)",
+          "tag": "공식몰",
+          "period": "11/27~11/30",
+          "start": "2026-11-27",
+          "end": "2026-11-30",
+          "discount": "할인 + 구매 시 선물 증정 (세트·할인율·사은품 미공개)",
+          "channel": "온라인",
+          "limit": "세부 조건 미공개 · 관심목록 등록 가능",
+          "importance": 2
+        },
+        {
+          "title": "공식몰 엔터프라이즈 구매 시 셔틀포드 증정 ~11/20",
+          "summary": "공식몰 신제품 목록 표기 기준. 스타트렉 U.S.S. 엔터프라이즈 NCC-1701-D 구매 시 타입-15 셔틀포드를 준다",
+          "url": "https://www.lego.com/ko-kr/categories/new-sets-and-products",
+          "source": "레고 공식몰(ko-kr)",
+          "tag": "공식몰",
+          "period": "~11/20",
+          "end": "2026-11-20",
+          "discount": "스타트렉 타입-15 셔틀포드 증정",
+          "channel": "온라인",
+          "limit": "대상: U.S.S. 엔터프라이즈 NCC-1701-D 구매 · 사은품 가격·수량 제한은 약관 확인 필요",
+          "importance": 2
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": [
+        {
+          "title": "레고 프렌즈 첫 실사 뮤지컬, 한국어 더빙으로 공개",
+          "summary": "'하트레이크 더 뮤지컬' 50분. 레고 공식 유튜브와 넷플릭스에서 볼 수 있다",
+          "url": "https://www.newstap.co.kr/news/articleView.html?idxno=336180",
+          "source": "뉴스탭",
+          "original_title": "레고 프렌즈, 첫 실사 뮤지컬로 재탄생…넷플릭스·유튜브서 공개",
+          "body": [
+            "레고그룹이 '레고 프렌즈' 세계관을 실제 배우와 공연으로 옮긴 뮤지컬 영상 '레고 프렌즈: 하트레이크 더 뮤지컬'을 공개했다. 2012년 첫선을 보인 레고 프렌즈를 실사로 만든 첫 뮤지컬 콘텐츠다.",
+            "작품은 우정과 창의성, 자기표현을 주제로 하며 분량은 50분이다. 레고 공식 유튜브와 넷플릭스에서 한국어 더빙판으로 볼 수 있다. 앞으로 투비(Tubi), RTL, AMC 네트웍스 등 해외 방송·스트리밍 서비스로 공개 범위를 넓힐 계획이다.",
+            "이번 작품은 기존에 애니메이션과 브릭 제품으로 선보인 캐릭터와 배경을 실사로 구현한 것이 특징이다. 레고그룹 질 윌퍼트 수석 부사장은 여아들이 레고 세트를 조립하는 데서 나아가 이야기와 우정, 긍정적 변화까지 만들어 갈 수 있다는 메시지를 전하겠다고 밝혔다.",
+            "한국 팬은 별도 결제 없이 유튜브에서 한국어 더빙으로 볼 수 있다. 프렌즈 세트를 모으는 가정이라면 아이와 함께 보기 좋은 콘텐츠다."
+          ],
+          "points": [
+            "프렌즈 첫 실사 뮤지컬, 50분",
+            "유튜브·넷플릭스 한국어 더빙",
+            "투비·RTL·AMC로 확대 예정"
+          ],
+          "importance": 2,
+          "image": "https://cdn.newstap.co.kr/news/photo/202610/336180_446638_3538.jpg"
+        }
+      ]
+    },
+    {
+      "key": "global_news",
+      "items": [
+        {
+          "title": "상하이에 38만 개 레고 꽃 '보태니컬 웨이브' 설치",
+          "summary": "레고 블룸 전시, 10/1 개막 후 22.9만 명 방문. 10/29까지 열린다",
+          "url": "https://www.lego.com/en-us/aboutus/news/2026/october/lego-botanicals-bloom-china-shanghai",
+          "source": "LEGO Newsroom",
+          "original_title": "A 30-metre Wave of LEGO® Botanicals Blooms Across Shanghai's West Bund in World's Largest Botanical Build",
+          "published": "2026-10-23",
+          "body": [
+            "레고그룹이 상하이 웨스트번드의 탱크 상하이 아트센터에서 '레고 블룸 전시'를 열고 있다. 38만 개가 넘는 레고 보태니컬 부품으로 만든 꽃 물결이 길이 30m, 면적 800㎡에 이른다. 레고 측은 지금까지 만든 가장 큰 보태니컬 작품이라고 밝혔다.",
+            "설치물은 장미, 해바라기, 튤립 등 브릭 식물로 구성됐고 손으로 1,200시간 넘게 작업했다. 10월 1일 정식 개막 이후 22만 9천 명 넘는 관람객이 다녀갔다. 전시는 10월 29일까지 진행된다.",
+            "전시장 안에서는 관람객이 직접 꽃을 만들어 스캔하면 디지털 꽃 풍경에 더해진다. 아티스트와 성인 팬이 함께 만든 작품 18점은 금속·직물·거울 같은 소재로 보태니컬을 새롭게 해석했다. 보태니컬을 집 안에 두는 모습을 보여주는 라이프스타일 전시 18개도 마련됐다. 보태니컬 컬렉션은 현재 40개가 넘는 세트로 구성돼 있다.",
+            "이번 전시는 성인 팬 대상 보태니컬 라인의 인기를 보여주는 행사다. 한국에서 열리는 전시는 아니고, 현재까지 한국 개최 계획은 확인되지 않았다. 11/1에는 보태니컬 신작 10371 코지 플랜츠가 출시된다."
+          ],
+          "points": [
+            "38만 개 브릭 꽃, 길이 30m",
+            "10/1 개막, 22.9만 명 방문",
+            "전시는 10/29까지"
+          ],
+          "importance": 2,
+          "image": "https://www.lego.com/cdn/cs/aboutus/assets/blt07fdc25119ba77e0/1_30-metre_wave_of_LEGO®_Botanicals_Blooms.jpg?width=1200"
+        },
+        {
+          "title": "아이디어 3차 심사에 비틀주스·아담스 패밀리 합류",
+          "summary": "두 프로젝트가 1만 지지를 달성했다. 비틀주스 하우스와 약 4,703피스 아담스 패밀리 저택이다",
+          "url": "https://www.brickfanatics.com/lego-ideas-spooky-beetlejuice-the-addams-family",
+          "source": "Brick Fanatics",
+          "original_title": "LEGO Ideas gets spooky with Beetlejuice and The Addams Family",
+          "published": "2026-10-25",
+          "body": [
+            "레고 아이디어의 2026년 3차 심사 대상에 할로윈 분위기의 두 프로젝트가 들어왔다. 팬 투표 1만 표를 채운 '비틀주스(1988)'와 '아담스 패밀리'다.",
+            "비틀주스는 BrickStability가 만든 작품으로 디츠 가족의 집을 재현했다. 영화의 대표 장면이 담긴 방들과 '잃어버린 영혼의 방', '대기실' 두 사후 세계 공간이 있다. 베텔게우스, 아담, 바바라, 디츠 가족 등 미니피겨 10개가 들어간다.",
+            "아담스 패밀리는 Dreamnbricks 작품으로 BRICKUP과 iTavix도 개발에 참여했다. 1990년대 초 영화의 저택이 모델이고 1960년대 TV 시리즈를 떠올리게 하는 요소도 담겼다. 규모는 약 4,703피스에 미니피겨 8개다.",
+            "매체는 두 프랜차이즈 모두 대형 레고 세트가 나온 적이 없다고 짚었다. 1만 지지 달성은 심사 단계에 올랐다는 뜻이고 제품화가 확정된 것은 아니다."
+          ],
+          "points": [
+            "비틀주스 10 미니피겨 하우스",
+            "아담스 패밀리 약 4,703피스",
+            "1만 지지는 제품화 확정이 아님"
+          ],
+          "importance": 1,
+          "image": "https://www.brickfanatics.com/storage/uploads/944af3e7-b7b4-4714-abb2-e47a1d4f9dea.png"
+        }
+      ]
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "아이콘 11388 베네치아 이웃, 11/1 출시 (5,682pcs)",
+          "summary": "첫 대형 도시 디오라마형 아이콘 세트. $549.99·€499.99. 11/1 인사이더 얼리 액세스",
+          "url": "https://www.brickfanatics.com/every-new-lego-set-launching-november-2026",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "11388",
+          "theme": "아이콘",
+          "price": "$549.99 / €499.99 / £449.99 (한국 가격 미확인)",
+          "release": "2026년 11월 1일 (인사이더 얼리 액세스)",
+          "release_date": "2026-11-01",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/6191300e-d8bb-4398-a417-b314bd4e2374.png"
+        },
+        {
+          "title": "보태니컬 10371 코지 플랜츠, 11/1 출시 (248pcs)",
+          "summary": "휴식하는 모습의 새 식물 세트. 새 액세서리가 들어가고 가격은 $22.99",
+          "url": "https://www.brickfanatics.com/every-new-lego-set-launching-november-2026",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "10371",
+          "theme": "보태니컬",
+          "price": "$22.99 / €19.99 / £17.99 (한국 가격 미확인)",
+          "release": "2026년 11월 1일",
+          "release_date": "2026-11-01",
+          "importance": 1,
+          "image": "https://www.brickfanatics.com/storage/uploads/6191300e-d8bb-4398-a417-b314bd4e2374.png"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-10-28",
+      "set": "40889",
+      "name": "빌드, 페인트 앤 플레이! (구매 증정품)",
+      "theme": "아이디어",
+      "price": "증정 (미국 기준 130달러 이상 구매 시)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아 (12,060pcs)",
+      "theme": "아키텍처",
+      "price": "$799.99 / €749.99 / £649.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "베네치아 이웃 (5,682pcs)",
+      "theme": "아이콘",
+      "price": "$549.99 / €499.99 / £449.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠 (248pcs)",
+      "theme": "보태니컬",
+      "price": "$22.99 / €19.99 / £17.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-04",
+      "set": "11390",
+      "name": "드래곤볼 신룡 & 손오공 (1,764pcs, 인사이더 11/1 선공개)",
+      "theme": "아이콘",
+      "price": "199,900원 (한국) / $179.99",
+      "region": "한국"
+    },
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "고질라 (5,360pcs, 출시 목록 기준)",
+      "theme": "아이디어",
+      "price": "€399.99",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 290190,
+    "output_tokens": 11140,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
