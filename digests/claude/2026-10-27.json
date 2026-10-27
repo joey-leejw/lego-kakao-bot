@@ -1,0 +1,138 @@
+{
+  "date": "2026-10-27",
+  "source": "claude",
+  "headline": "역대 최대 12,060피스 '사그라다 파밀리아' 11/1 출시 임박, DC 데일리 플래닛 모듈러 루머도",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": []
+    },
+    {
+      "key": "kr_news",
+      "items": [
+        {
+          "title": "레고랜드, 입장권 220매 걸고 SNS 이벤트 ~10/31",
+          "summary": "공식 인스타그램 팔로우·댓글로 응모. 연간이용권 20장·1일권 200장, 발표는 11/3.",
+          "url": "https://www.businesskorea.co.kr/news/articleView.html?idxno=279721",
+          "source": "Businesskorea",
+          "original_title": "레고랜드 코리아, 가을 시즌 흥행에 입장권 220매 증정 이벤트",
+          "published": "2026-10-27",
+          "body": [
+            "레고랜드 코리아 리조트가 가을 시즌 축제 '브릭 오어 트릿'에 보내준 성원에 보답한다며 공식 인스타그램에서 대규모 경품 이벤트를 연다. 투입되는 입장권과 이용권은 모두 220매로, 연간이용권 20장과 1일 이용권 200장으로 구성됐다. 응모는 10월 31일(토)까지다.",
+            "참여 방법은 레고랜드 공식 인스타그램을 팔로우한 뒤 레고랜드에 대한 추억이나 애정을 담은 댓글을 남기는 것이다. 기존 팔로워와 신규 팔로워 중 각각 50명씩, 총 100명을 뽑아 일일 입장권 2매씩을 준다. 함께 가고 싶은 친구를 가장 많이 태그한 10명에게는 특별상으로 연간 이용권 2매씩을 제공한다. 당첨 결과는 11월 3일 개별 메시지로 안내한다.",
+            "가을 축제 '브릭 오어 트릿'은 9월 11일 시작해 11월 15일까지 이어진다. 10월 31일에는 이번 시즌 마지막 야간개장과 불꽃놀이가 예정돼 있다. 일요일 코스튬 콘테스트 우승자에게는 트리플패스 연간이용권과 함께, 본인 코스튬을 레고 브릭으로 만들어 미니랜드에 전시하는 특전이 주어진다고 보도됐다.",
+            "레고 세트 구매 행사는 아니지만 인스타그램 계정만 있으면 참여할 수 있다. 응모 마감이 이번 주 토요일(10/31)이므로 관심 있다면 마감 전에 댓글을 남겨야 한다."
+          ],
+          "points": [
+            "입장권 220매, 10/31까지 인스타 응모",
+            "일일권 100명(2매씩)·친구 태그 10명 연간권",
+            "당첨 발표 11/3, 축제는 11/15까지"
+          ],
+          "importance": 1,
+          "image": "https://www.businesskorea.co.kr/news/thumbnail/202610/279721_287461_2834_v150.jpg"
+        }
+      ]
+    },
+    {
+      "key": "global_news",
+      "items": []
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "아키텍처 21065 사그라다 파밀리아, 11/1 출시",
+          "summary": "12,060피스로 역대 최대 피스 수 세트. 인사이더 11/1, 일반 판매는 11/4.",
+          "url": "https://www.brickfanatics.com/every-new-lego-set-launching-november-2026",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "21065",
+          "theme": "Architecture",
+          "price": "£649.99 / €749.99 / $799.99 (한국 가격 미확인)",
+          "release": "2026년 11월 1일(인사이더 선공개, 일반 11/4)",
+          "release_date": "2026-11-01",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/6191300e-d8bb-4398-a417-b314bd4e2374.png"
+        },
+        {
+          "title": "DC 데일리 플래닛 모듈러 67011 루머, 2,981피스",
+          "summary": "2027년 7월 1일 출시, 약 $299.99, 미니피규어 12개로 알려짐. 가격은 불확실.",
+          "url": "https://stonewars.com/rumors/lego-67011-daily-planet-rumor/",
+          "source": "StoneWars (BrickTap 제보 인용)",
+          "tag": "루머",
+          "set": "67011",
+          "theme": "DC",
+          "price": "약 $299.99 (루머)",
+          "release": "2027년 7월 1일 (루머)",
+          "release_date": "2027-07-01",
+          "importance": 2,
+          "image": "https://stonewars.com/wp-content/uploads/2026/10/daily-planet-geruecht.jpg"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-10-28",
+      "set": "40889",
+      "name": "빌드, 페인트 앤 플레이! (구매 사은품)",
+      "theme": "Ideas",
+      "price": "사은품 (미국 $130·영국 £115 이상 구매 시, 158pcs)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아",
+      "theme": "Architecture",
+      "price": "$799.99 / €749.99 / £649.99 (12,060pcs)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "베네치아 이웃",
+      "theme": "Icons",
+      "price": "$549.99 / €499.99 / £449.99 (5,682pcs)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "11390",
+      "name": "드래곤볼: 신룡 & 손오공",
+      "theme": "Icons",
+      "price": "한국 199,900원 / $179.99 (1,764pcs)",
+      "region": "한국·글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠",
+      "theme": "Botanicals",
+      "price": "$22.99 / €19.99 / £17.99 (248pcs)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "40898",
+      "name": "베네치아 워터 택시 (구매 사은품)",
+      "theme": "Icons",
+      "price": "11388 구매 시 증정 (322pcs)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "고질라",
+      "theme": "Ideas",
+      "price": "€399.99 (5,360pcs)",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 315881,
+    "output_tokens": 6837,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
