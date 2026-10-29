@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-29",
+  "source": "claude",
+  "headline": "마블 닥터 스트레인지 슈프림·프렌즈 3종, 2027년 1월 1일 출시 공식 공개",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": []
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": []
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "마블 67005 닥터 스트레인지 슈프림, 814피스 $99.99",
+          "summary": "What if…?×마블 좀비 샌텀 샌토럼 3층, 미니피규어 6종. 2027.1.1 출시",
+          "url": "https://www.lego.com/en-us/product/marvel-what-if-doctor-strange-supreme-67005",
+          "source": "LEGO.com",
+          "tag": "공식",
+          "set": "67005",
+          "theme": "마블",
+          "price": "$99.99 / €99.99 / £89.99 (한국 가격 미확인)",
+          "release": "2027년 1월 1일",
+          "release_date": "2027-01-01",
+          "importance": 3
+        },
+        {
+          "title": "레고 프렌즈 2027 첫 3종 공개, 1/1 출시·예약 중",
+          "summary": "펫케어 42709($49.99)·파티버스 42718($59.99)·쇼핑몰 42719($99.99)",
+          "url": "https://www.lego.com/en-us/aboutus/news/2026/october/lego-friends-heartlake-unicorn-cafe",
+          "source": "LEGO 공식 뉴스룸",
+          "tag": "공식",
+          "set": "42709 / 42718 / 42719",
+          "theme": "프렌즈",
+          "price": "$49.99 / $59.99 / $99.99 (366·676·843피스, 한국 가격 미확인)",
+          "release": "2027년 1월 1일",
+          "release_date": "2027-01-01",
+          "importance": 2,
+          "image": "https://www.lego.com/cdn/cs/aboutus/assets/blt8013f059e74ce279/01_LEGO_Friends_Unicorn_Café_-_London_Pop-Up_October_2026_exterior.JPG?width=1200"
+        },
+        {
+          "title": "아이디어 21375 고질라, 11/3 라이브서 공개설",
+          "summary": "5,364피스·€399.99~449.99·11/27 출시설. 공식 확정 전 루머",
+          "url": "https://www.promobricks.de/livestream-lego-black-friday-2026-godzilla-teaser/",
+          "source": "Promobricks(독일)",
+          "tag": "루머",
+          "set": "21375",
+          "theme": "아이디어",
+          "price": "€399.99 또는 €449.99 (루머)",
+          "release": "2026년 11월 27일(루머)",
+          "release_date": "2026-11-27",
+          "importance": 2,
+          "image": "https://www.promobricks.de/wp-content/uploads/2026/10/lego-black-friday-stream.jpg"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-01",
+      "set": "11388",
+      "name": "베네치아 이웃 (5,682피스)",
+      "theme": "아이콘",
+      "price": "",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "10371",
+      "name": "코지 플랜츠 (248피스)",
+      "theme": "보태니컬",
+      "price": "",
+      "region": "글로벌"
+    },
+    {
+      "date": "2026-11-01",
+      "set": "21065",
+      "name": "사그라다 파밀리아",
+      "theme": "아키텍처",
+      "price": "",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 350820,
+    "output_tokens": 5503,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
