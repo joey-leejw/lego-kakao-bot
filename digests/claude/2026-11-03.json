@@ -1,0 +1,149 @@
+{
+  "date": "2026-11-03",
+  "source": "claude",
+  "headline": "고질라 21375 공개 라이브가 한국 시간 11/4 새벽 2시에 열리고, 드래곤볼 신룡&손오공은 내일 국내 출시된다",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "레고 공식몰 블랙프라이데이 11/27~11/30 확정",
+          "summary": "할인과 구매 시 선물 증정을 예고했다. 세부 할인율과 사은품은 아직 미공개다. 11/21~22 Insiders 주말이 먼저 열린다.",
+          "url": "https://www.lego.com/ko-kr/black-friday-deals",
+          "source": "레고 공식몰(lego.com/ko-kr)",
+          "tag": "공식몰",
+          "period": "11/27~11/30",
+          "start": "2026-11-27",
+          "end": "2026-11-30",
+          "discount": "할인 및 구매 시 선물 증정(세부 내용 추후 공개)",
+          "channel": "온라인",
+          "limit": "재고 소진 시까지",
+          "importance": 2
+        },
+        {
+          "title": "용산 레고 팝업, Insiders 인증하면 가챠 1회+포스터",
+          "summary": "11/2 오픈, 11/10까지 운영한다. 가입자와 기존 회원 모두 대상이다. 경품이 소진되면 조기 종료될 수 있다.",
+          "url": "https://www.inven.co.kr/webzine/news/?news=322859",
+          "source": "인벤",
+          "tag": "업데이트",
+          "period": "11/2~11/10",
+          "start": "2026-11-02",
+          "end": "2026-11-10",
+          "discount": "드래곤볼 포스터와 가챠 1회. 경품은 버니백·우주인 쿠션·토트백·레고 세트 등",
+          "channel": "오프라인",
+          "limit": "아이파크몰 용산점 리빙파크 3층 도파민 스테이션 · 레고 Insiders 회원 인증 필요 · 경품 소진 시 조기 종료",
+          "importance": 2,
+          "image": "https://static.inven.co.kr/column/2026/11/02/news/i1021454461.jpg"
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": [
+        {
+          "title": "레고코리아, 용산서 드래곤볼 팝업스토어 오픈",
+          "summary": "11/10까지 아이파크몰 용산점에서 운영한다. 신룡&손오공 실물과 3m 포토존을 선보이고, Insiders 인증 이벤트도 연다.",
+          "url": "https://www.inven.co.kr/webzine/news/?news=322859",
+          "source": "인벤",
+          "original_title": "레고코리아, 드래곤볼 팝업스토어 용산서 운영",
+          "body": [
+            "레고코리아가 서울 용산구 아이파크몰 용산점 리빙파크 3층 '도파민 스테이션'에서 11월 2일 레고 팝업스토어를 열었다. 국내 첫 드래곤볼 테마 제품인 '레고 드래곤볼 신룡&손오공(11390)' 출시를 기념하는 행사다. 운영 기간은 11월 10일까지다.",
+            "이번 팝업의 핵심은 11월 4일 정식 출시되는 신제품 실물을 먼저 볼 수 있다는 점이다. 현장에는 같은 제품을 높이 3m 규모로 키운 포토존도 마련됐다. 11390은 1,764피스 구성이다. 현장 QR코드로 하는 레고 Insiders 선주문은 11월 3일까지다. 이 선주문은 무료 멤버십 가입이 전제다. 이 밖에 아키텍처 사그라다 파밀리아(21065), 반지의 제왕 미나스 티리스(11377), 아이디어 피너츠 스누피 하우스(21368) 등 하반기 주요 신제품도 전시된다. 현장 판매존에서는 성인용 세트를 판매한다.",
+            "방문객 이벤트로는 Insiders 회원 인증이 있다. 기존 회원과 신규 가입자 모두 인증하면 드래곤볼 포스터와 가챠 이벤트 1회 참여권을 받는다. 가챠 경품에는 레고 버니백, 우주인 쿠션, 토트백, 레고 세트 등이 포함된다. 경품이 소진되면 이벤트가 조기 종료될 수 있다고 알려졌다.",
+            "한국 팬에게는 오늘이 팝업 선주문 마감일이고, 내일부터는 온·오프라인 공식 레고스토어에서 신룡&손오공을 살 수 있다. 팝업 현장 구매 시 사은품 조건은 이번 보도에서 확인되지 않았다. 방문 전 공식 안내를 따로 확인하는 편이 좋다."
+          ],
+          "points": [
+            "11/2~11/10 용산 아이파크몰 도파민 스테이션",
+            "신룡&손오공 실물과 3m 포토존 공개",
+            "Insiders 인증 시 포스터+가챠 1회"
+          ],
+          "importance": 2,
+          "image": "https://static.inven.co.kr/column/2026/11/02/news/i1021454461.jpg"
+        }
+      ]
+    },
+    {
+      "key": "global_news",
+      "items": []
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "아이디어 21375 고질라, 한국 11/4 02시 공개 라이브",
+          "summary": "블프 미스터리 세트가 고질라로 알려졌다. 5,363피스·$449.99, 11/27 출시설이다. 증정품 40888 발자국도 거론된다.",
+          "url": "https://stonewars.com/news/lego-21375-godzilla-black-friday-reveal/",
+          "source": "StoneWars",
+          "tag": "업데이트",
+          "set": "21375",
+          "theme": "아이디어",
+          "price": "$449.99 (루머)",
+          "release": "2026년 11월 27일 (공식 확정 전)",
+          "release_date": "2026-11-27",
+          "importance": 3,
+          "image": "https://stonewars.com/wp-content/uploads/2026/10/preview-livestream-black-friday-26.jpg"
+        },
+        {
+          "title": "아이콘 11388 베네치아 이웃, 5,682피스 출시",
+          "summary": "운하 도시 디오라마다. 11/1 출시, £449.99·$549.99·€499.99다. 한국 출시와 가격은 확인하지 못했다.",
+          "url": "https://www.brickfanatics.com/every-new-lego-set-launching-november-2026",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "11388",
+          "theme": "아이콘",
+          "price": "$549.99 / £449.99 / €499.99",
+          "release": "2026년 11월 1일",
+          "release_date": "2026-11-01",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/6191300e-d8bb-4398-a417-b314bd4e2374.png"
+        },
+        {
+          "title": "가비의 돌하우스 11227, 2027년 1월 1일 출시",
+          "summary": "동생 두지가 처음 등장한다. 133피스·$19.99(€19.99, £17.99)다. 4세 이상 대상이다.",
+          "url": "https://www.brickfanatics.com/new-lego-gabbys-dollhouse-set-january-2027",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "11227",
+          "theme": "가비의 돌하우스",
+          "price": "$19.99 / £17.99 / €19.99",
+          "release": "2027년 1월 1일",
+          "release_date": "2027-01-01",
+          "importance": 1,
+          "image": "https://www.brickfanatics.com/storage/uploads/5f5bb5c5-2c5c-4531-a629-d75538a5a52c.webp"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-04",
+      "set": "11390",
+      "name": "드래곤볼 신룡&손오공 (국내 정식 출시)",
+      "theme": "아이콘",
+      "price": "해외가 $179.99 / £129.99 / €139.99 (한국 가격 미확인)",
+      "region": "한국"
+    },
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "고질라 (공식 발표 전, 블랙프라이데이 세트 유력)",
+      "theme": "아이디어",
+      "price": "$449.99 (루머)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "11227",
+      "name": "가비의 돌하우스와 두지의 개집",
+      "theme": "가비의 돌하우스",
+      "price": "$19.99 / £17.99 / €19.99",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 324385,
+    "output_tokens": 9602,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
