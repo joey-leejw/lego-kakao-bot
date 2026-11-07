@@ -1,0 +1,241 @@
+{
+  "date": "2026-11-07",
+  "source": "claude",
+  "headline": "닌자고 71888 이보의 닌자 도장 공개, 브릭링크는 11/9까지 접속 불가",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "베네치아 수상 택시 40898 증정, 11388 구매 시",
+          "summary": "11388 베네치아의 이웃 구매 시 46,900원 상당 40898 증정. 약관상 11/8 종료.",
+          "url": "https://www.lego.com/ko-kr/page/lego-offers-promotions",
+          "source": "레고 공식몰(lego.com/ko-kr)",
+          "tag": "공식몰",
+          "period": "11/1~11/8 (약관 표기, 일부 공식 페이지는 11/20 표기)",
+          "start": "2026-11-01",
+          "end": "2026-11-08",
+          "discount": "베네치아 수상 택시(40898) 증정",
+          "channel": "온라인",
+          "value": "46,900원 상당",
+          "limit": "11388 베네치아의 이웃 구매 필수 · 한 가구당 1세트 · 재고 소진 시 조기 종료 · 종료일은 공식몰에서 재확인 권장",
+          "importance": 2
+        },
+        {
+          "title": "스타트렉 엔터프라이즈 구매 시 셔틀포드 증정",
+          "summary": "U.S.S. 엔터프라이즈 NCC-1701-D 구매 시 Type-15 셔틀포드 증정. 공식몰 표기 종료일 11/20.",
+          "url": "https://www.lego.com/ko-kr/categories/new-sets-and-products",
+          "source": "레고 공식몰(lego.com/ko-kr)",
+          "tag": "공식몰",
+          "period": "~11/20",
+          "end": "2026-11-20",
+          "discount": "스타트렉 Type-15 셔틀포드 증정 (본품 509,900원)",
+          "channel": "온라인",
+          "limit": "엔터프라이즈 구매 시 · 선착순 소진 시 종료 · 1인 1개(출시 당시 안내)",
+          "importance": 2
+        },
+        {
+          "title": "더현대 서울 레고스토어 오늘 하루 한정 이벤트",
+          "summary": "11/7 하루만 더현대 서울점에서 21만 원 이상 구매 이벤트. 혜택 상세는 원문 확인(매장 제보).",
+          "url": "https://cafe.naver.com/bricknara/1509464",
+          "source": "네이버 카페 브릭나라 (매장 제보)",
+          "tag": "핫딜",
+          "period": "11/7 하루",
+          "start": "2026-11-07",
+          "end": "2026-11-07",
+          "discount": "21만 원 이상 구매 시 혜택 증정(세부 내용 미확인)",
+          "channel": "오프라인",
+          "limit": "더현대 서울점 한정 · 공식 확인 안 된 카페 제보라 방문 전 매장 문의 권장",
+          "importance": 2
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": [
+        {
+          "title": "브릭링크 접속 불가, 11/9 저녁까지 연장",
+          "summary": "레고가 '필수 작업'을 이유로 브릭링크 전체를 내렸고, 복구 시점을 11/9로 늦췄다.",
+          "url": "https://www.brickfanatics.com/bricklink-offline-until-monday-lego-necessary-work",
+          "source": "Brick Fanatics",
+          "original_title": "BrickLink to remain offline until Monday with no further explanation from LEGO",
+          "published": "2026-11-06",
+          "body": [
+            "레고 그룹이 운영하는 중고 레고 거래 플랫폼 브릭링크가 11월 5일 밤 무렵부터 전체 접속이 막혔다. 처음에는 '필수 작업'을 이유로 11월 6일 저녁(GMT 오후 7시)까지만 중단한다고 알렸다. 하지만 이후 복구 예상 시점을 11월 9일 오후 6시(CET, 미국 서부 오전 9시)로 이틀 더 미뤘다.",
+            "중단 범위는 일부 기능이 아니라 사이트 전체다. 판매자 매장, 프로필, 주문 내역, 디자이너 프로그램 페이지까지 모두 열리지 않는다. 브릭링크 공지는 작업이 필요하다고만 밝힐 뿐 작업 내용이나 연장 이유는 설명하지 않았다. Brick Fanatics도 레고 측의 추가 설명이 없다고 전했다.",
+            "브릭링크는 2022년 3월에도 외부 파트너사의 사이버 사고로 거래가 멈춘 적이 있다. 당시에는 데이터 유출이 없었고 하루 남짓 뒤 복구됐다. 이번에는 원인이 공개되지 않았다. 한 판매자는 연말 쇼핑 시즌에 수천 개 개인 매장이 닫혔는데도 설명이 거의 없다고 불만을 전했다.",
+            "한국 팬에게는 이번 주말 내내 브릭링크에서 부품을 사고팔 수 없다는 뜻이다. 복구 시점을 한국 시간으로 환산하면 11월 10일 새벽 2시경이다. 급하게 부품을 구해야 한다면 일정을 미리 조정하는 편이 좋다."
+          ],
+          "points": [
+            "11/5 밤부터 브릭링크 전체 접속 불가",
+            "복구 예상 11/9 18시 CET(한국 11/10 새벽)",
+            "작업 내용·연장 사유는 미공개"
+          ],
+          "importance": 3,
+          "image": "https://www.brickfanatics.com/wp-content/uploads/2026/02/lego-bricklink-series-7-tech-issues-featured.png"
+        }
+      ]
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "닌자고 71888 이보의 닌자 도장, 3,495피스",
+          "summary": "닌자고 레전드 신작. 미니피규어 12개, $279.99, 2027/1/1 출시.",
+          "url": "https://brickset.com/article/135947/lego-ninjago-71888-ivo-s-ninja-dojo-revealed!",
+          "source": "Brickset",
+          "tag": "공식",
+          "set": "71888",
+          "theme": "닌자고",
+          "price": "$279.99 / £249.99 / €279.99 (한국 가격 미확인)",
+          "release": "2027년 1월 1일",
+          "release_date": "2027-01-01",
+          "importance": 3,
+          "image": "https://brickset.com/utils/ogimage/article/135947?9100"
+        },
+        {
+          "title": "2027 설 시리즈 80122·80123 공개, 사자 40976도",
+          "summary": "피슈 80122, 춘절 배 80123, 사자 40976. 모두 2027/1/1 출시.",
+          "url": "https://jaysbrickblog.com/news/2027-lego-lunar-new-year-sets/",
+          "source": "Jay's Brick Blog",
+          "tag": "공식",
+          "set": "80122 / 80123 / 40976",
+          "theme": "중국 전통 명절(설)",
+          "price": "US$69.99 / $99.99 / $29.99 (Jay's 기준, 매체별 가격 상이)",
+          "release": "2027년 1월 1일 (40976은 구매 가능 세트로 정정)",
+          "release_date": "2027-01-01",
+          "importance": 2,
+          "image": "https://jaysbrickblog.com/wp-content/uploads/2026/11/LEGO-Lunar-New-Year-2027-feature.jpg"
+        },
+        {
+          "title": "보태니컬 스프링 플라워 6종, 개당 $4.99",
+          "summary": "56~78피스 미니 꽃 6종(11532~11537). 2027/1/1 출시, 가격 확정.",
+          "url": "https://www.brickfanatics.com/lego-botanicals-spring-flowers-prices-confirmed",
+          "source": "Brick Fanatics",
+          "tag": "공식",
+          "set": "11532~11537",
+          "theme": "보태니컬",
+          "price": "£4.49 / $4.99 / €4.99",
+          "release": "2027년 1월 1일",
+          "release_date": "2027-01-01",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/de428e63-9d63-4029-8832-68306fbf9c7d.png"
+        },
+        {
+          "title": "레고 원피스 3차 웨이브 루머, 75648~75652",
+          "summary": "5개 세트가 2027년 8월 출시될 것이라는 Buggyleaks 제보. 미확정.",
+          "url": "https://www.brickfanatics.com/first-details-rumoured-lego-one-piece-2027-wave",
+          "source": "Brick Fanatics",
+          "tag": "루머",
+          "set": "75648~75652",
+          "theme": "원피스",
+          "price": "미정",
+          "release": "2027년 8월(루머)",
+          "release_date": "2027-08",
+          "importance": 1,
+          "image": "https://www.brickfanatics.com/wp-content/uploads/2026/03/LEGO-One-Piece-featured-image.jpg"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "아이디어 고질라",
+      "theme": "아이디어",
+      "price": "$449.99 / £349.99 / €399.99",
+      "region": "글로벌(LEGO.com 독점)"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "71888",
+      "name": "이보의 닌자 도장",
+      "theme": "닌자고",
+      "price": "$279.99 / £249.99 / €279.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "80123",
+      "name": "춘절 항해(Spring Festival Voyage)",
+      "theme": "중국 전통 명절",
+      "price": "US$99.99 (매체별 상이)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "80122",
+      "name": "복나무 아래 피슈(Auspicious Pixiu)",
+      "theme": "중국 전통 명절",
+      "price": "US$69.99 (매체별 상이)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "40976",
+      "name": "번영의 사자(Prosperity Lion)",
+      "theme": "중국 전통 명절",
+      "price": "US$29.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "11515",
+      "name": "작약 부케",
+      "theme": "보태니컬",
+      "price": "£54.99 / $59.99 / €59.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "11519",
+      "name": "와일드 오키드",
+      "theme": "보태니컬",
+      "price": "£54.99 / $59.99 / €59.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "11522",
+      "name": "파스텔 플라워 부케",
+      "theme": "보태니컬",
+      "price": "£54.99 / $59.99 / €59.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "11516",
+      "name": "벚꽃 가지",
+      "theme": "보태니컬",
+      "price": "£24.99 / $29.99 / €29.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "11532~11537",
+      "name": "스프링 플라워 6종",
+      "theme": "보태니컬",
+      "price": "개당 $4.99",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "11227",
+      "name": "가비의 돌하우스",
+      "theme": "가비의 돌하우스",
+      "price": "",
+      "region": "글로벌"
+    }
+  ],
+  "usage": {
+    "input_tokens": 294344,
+    "output_tokens": 11116,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
