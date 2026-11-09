@@ -1,0 +1,154 @@
+{
+  "date": "2026-11-09",
+  "source": "claude",
+  "headline": "유럽 공식몰에서 30762 레트로 배트맨 증정이 시작됐다(~11/15). 한국몰 적용 여부는 아직 확인이 필요하다.",
+  "sections": [
+    {
+      "key": "kr_deal",
+      "items": [
+        {
+          "title": "30762 레트로 배트맨 증정 시작(유럽), 한국은 확인 필요",
+          "summary": "유럽 공식몰은 11/9~15 DC 세트 €40 이상 구매 시 증정. 한국몰 적용은 미확인, 공홈 확인 필요",
+          "url": "https://www.hothbricks.com/sur-le-shop-lego-de-nouveaux-produits-offerts-dont-le-paperbag-30762-retro-video-game-batman/",
+          "source": "HothBricks(프랑스)",
+          "tag": "업데이트",
+          "period": "11/9~11/15(유럽 기준)",
+          "start": "2026-11-09",
+          "end": "2026-11-15",
+          "discount": "30762 레트로 비디오게임 배트맨 증정. 같은 기간 유럽에선 30720 아리엘(€40↑), 40906 일본 레스토랑(€180↑)도 증정",
+          "channel": "온라인",
+          "limit": "유럽 공식몰은 DC 세트 €40 이상 구매 시 증정. 늦어도 11/15까지이며 재고 소진 시 조기 종료 가능. 한국 공식몰 조건·가격은 확인 못 함(국내 카페에선 한국에도 풀릴 것 같다는 반응)",
+          "importance": 2,
+          "image": "https://www.hothbricks.com/wp-content/uploads/2026/11/lego-ogffers-novembre-2026-shop.jpg"
+        },
+        {
+          "title": "트레이더스 11/9~15 전단에 레고 포함(매장 제보)",
+          "summary": "쓱데이 이후 첫 주 전단에 레고 품목이 있다는 블로그 제보. 세트·가격은 공식 확인 전",
+          "url": "https://blog.naver.com/hwsungwon/224469971611",
+          "source": "네이버 블로그 황쪼롱이 일상 (매장 제보)",
+          "tag": "마트",
+          "period": "11/9~11/15",
+          "start": "2026-11-09",
+          "end": "2026-11-15",
+          "discount": "레고 대형 산타 미니피겨 등 일부 품목(세부 할인율 미확인)",
+          "channel": "오프라인",
+          "limit": "점포별 재고 상이. 공식 전단으로 확인하지 못한 블로그 제보라 방문 전 확인 필요",
+          "importance": 1
+        }
+      ]
+    },
+    {
+      "key": "kr_news",
+      "items": []
+    },
+    {
+      "key": "global_news",
+      "items": [
+        {
+          "title": "중국 전통 명절 세트 4종, 2027년 말 동시 단종 예정",
+          "summary": "80120 잉어와 80121 달맞이 여관 등 4종이 2027년 말 단종 목록에 올랐다",
+          "url": "https://www.brickfanatics.com/bumper-crop-lego-chinese-festivals-retiring-2027",
+          "source": "Brick Fanatics",
+          "original_title": "A bumper crop of LEGO Chinese Festivals sets is retiring in 2027",
+          "published": "2026-11-08",
+          "body": [
+            "레고 중국 전통 명절(Chinese Traditional Festivals) 세트 4종이 2027년 말에 한꺼번에 단종될 예정이라고 Brick Fanatics가 11월 8일 보도했다. 현재 공개된 단종 예정일 목록에 4종이 올라 있고, 2027년 신규 시즌 세트가 공개된 직후 확인됐다.",
+            "단종 대상에는 2026년 여름 출시된 80120 번영의 잉어 도약이 포함된다. 가격은 £44.99 / $59.99 / €49.99다. 80121 고대 달맞이 여관은 £99.99 / $129.99 / €109.99다. 보통 연초에 대형 명절 세트 2종이 나오는데, 2026년에는 추가 시즌 세트 2종이 6월에 나오면서 평소와 달라졌다.",
+            "매체는 이 세트들이 LEGO.com과 레고 스토어에서 할인되는 일이 흔하다고 설명한다. 다만 한 번에 사야 할 세트가 평소보다 많아졌다고 짚었다. 단종일은 바뀔 수 있고, 새 명절 세트가 같은 해에 출시되고 단종되는 경우도 흔하다고 한다.",
+            "한국 팬에게는 설 시즌 세트를 노린다면 할인 시점과 단종 일정을 함께 봐야 한다는 뜻이다. 국내 공식몰의 단종 예정·세일 표기는 따로 확인해야 한다."
+          ],
+          "points": [
+            "명절 세트 4종, 2027년 말 단종 예정",
+            "80120 $59.99, 80121 $129.99",
+            "단종일은 변경될 수 있음"
+          ],
+          "importance": 1,
+          "image": "https://www.brickfanatics.com/storage/uploads/0dd3a01f-9934-40ca-91c3-92faea1c3b10.png"
+        }
+      ]
+    },
+    {
+      "key": "new_release",
+      "items": [
+        {
+          "title": "스타워즈 2027 라인업 정리: 1월 머스터파·Y-윙·베스핀",
+          "summary": "루머 기반 정리. 75470 $39.99, 75478·75480 각 $79.99, 4월 영화관 75469 $199.99",
+          "url": "https://www.brickfanatics.com/all-lego-2027-sets",
+          "source": "Brick Fanatics",
+          "tag": "루머",
+          "set": "75470 / 75478 / 75480 / 75469 / 75474 외",
+          "theme": "스타워즈",
+          "price": "75470 $39.99(372피스) · 75478 $79.99(676피스) · 75480 $79.99(718피스) · 75469 $199.99(1,628피스) · 75474 요다 $149.99(1,200피스)",
+          "release": "75470·75478·75480은 2027년 1월 1일, 75469는 2027년 4월, 요다 75474는 2027년 8월(루머)",
+          "release_date": "2027-01",
+          "importance": 2,
+          "image": "https://www.brickfanatics.com/storage/uploads/f9dddb34-a97e-4151-a48e-9f4ef5557810.jpg"
+        }
+      ]
+    }
+  ],
+  "calendar": [
+    {
+      "date": "2026-11-27",
+      "set": "21375",
+      "name": "고질라(아이디어)",
+      "theme": "아이디어",
+      "price": "",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "80122",
+      "name": "복을 부르는 피슈와 재물나무(설 시즌)",
+      "theme": "중국 전통 명절",
+      "price": "$79.99 / £59.99 (879피스)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "80123",
+      "name": "스프링 페스티벌 항해선",
+      "theme": "중국 전통 명절",
+      "price": "$119.99 / £89.99 (1,529피스)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "40976",
+      "name": "번영의 사자",
+      "theme": "중국 전통 명절",
+      "price": "$29.99 / £26.99 (411피스)",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "11227",
+      "name": "가비의 돌하우스",
+      "theme": "가비의 돌하우스",
+      "price": "",
+      "region": "글로벌"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "67008",
+      "name": "배트맨 리턴즈 배트모빌과 오리",
+      "theme": "DC",
+      "price": "",
+      "region": "영국(예약 중)"
+    },
+    {
+      "date": "2027-01-01",
+      "set": "67009",
+      "name": "아캄 배트맨 배트모빌",
+      "theme": "DC",
+      "price": "",
+      "region": "영국(예약 중)"
+    }
+  ],
+  "usage": {
+    "input_tokens": 323351,
+    "output_tokens": 9133,
+    "searches": 12,
+    "model": "claude-sonnet-5-5"
+  }
+}
